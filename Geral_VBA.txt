@@ -1,0 +1,4146 @@
+https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
+Fones
+
+
+
+=======================
+Pesquisar
+
+Sub testes()
+
+    Windows("New (1).xlsx").Activate
+    Sheets("TESTE").Select
+    
+    Range("D1").Select
+    
+    cont = Range("D" & Rows.Count).End(xlUp).Row
+    
+    For i = 0 To cont - 1
+        Windows("New (1).xlsx").Activate
+        Sheets("TESTE").Select
+    
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        Var = Cells(lin, col)
+        
+        ActiveCell.Offset(0, 1).Select
+
+        Windows("EQUIPAMENTOS_SENS.xlsx").Activate
+        Sheets("EQUIPS").Select
+    
+        Cells.Find(What:=Var, After:=ActiveCell, LookIn:=xlFormulas, _
+            LookAt:=xlPart, SearchOrder:=xlByRows, SearchDirection:=xlNext, _
+            MatchCase:=False, SearchFormat:=False).Activate
+            
+            
+        ActiveCell.Offset(0, -2).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        Copy_Var = Cells(lin, col)
+        
+        Windows("New (1).xlsx").Activate
+        Sheets("TESTE").Select
+        
+        ActiveCell.FormulaR1C1 = Copy_Var
+        ActiveCell.Offset(0, -1).Select
+
+    Next i
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+========================
+'Ajusta = copia linha e replica onde estiver vazio
+Sub ajusta()
+
+Sheets("Plan4").Select
+LL = Range("A" & Rows.Count).End(xlUp).Row
+'Plan8.Range("A10:A499").Rows.Count
+
+Range("A1").Select
+
+ActiveCell.Offset(1, 0).Select
+
+For a = 1 To LL
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+TESTA = Cells(lin, col)
+
+ActiveCell.Offset(1, 0).Select
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+COMPARA = Cells(lin, col)
+
+Do While COMPARA = Empty
+
+ActiveCell.FormulaR1C1 = TESTA
+
+    ActiveCell.Offset(1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    COMPARA = Cells(lin, col)
+    
+'    If TESTA <> COMPARA Then
+'
+'        ActiveCell.FormulaR1C1 = TESTA
+'
+'    End If
+    
+
+Loop
+
+Next a
+
+End Sub
+
+===========
+
+
+
+
+
+
+========================
+
+Z:\01_DOCUMENTOS_DE_REFERENCIA\04_DOCS_DCNS\TDP IS
+
+C:\Users\00400889
+
+C:\User\ cd Desktop
+
+==========================
+C:\User\Desktop\ dir /b /o /s /w >>nome_arquivo.txt
+
+W:\DIN\GD\INT\02_INTERNO\alexsandro.oliveira
+
+================
+
+
+
+for c in LMA_Construction['Number(Item).1']:
+  new_df = LMA_Construction[LMA_Construction['Number(Related product lot(s))'] != '-']
+  print(new_df)
+
+
+
+
+=================================
+
+java
+
+document.getElementByClassName()
+
+https://pt.stackoverflow.com/questions/197703/como-verificar-se-uma-div-tem-um-id
+
+http://respostas.guj.com.br/24922-capturar-varios-ids-de-elementos-que-tenham-a-mesma-classe-em-javascript
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Document/getElementsByClassName
+
+https://forum.imasters.com.br/topic/380561-resolvido%C2%A0pegar-o-id-do-elemento-clicado-com-jquery/
+
+
+
+<input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="Username" ng-model="credentials.username">
+
+
+SQL:
+
+
+select  EQP_A_CC_MONTAGEM, sum(EQP_A_CMD_TIPE) as conta from  IMZ_SBR1 group by EQP_A_CC_MONTAGEM = (soma curinga)
+
+select EQP_A_CC_MONTAGEM, Count(EQP_A_CC_MONTAGEM) from  IMZ_SBR1
+group by EQP_A_CC_MONTAGEM
+having Count(EQP_A_CC_MONTAGEM) > 1
+
+
+
+
+==========================================================================
+
+
+WebDriver driver = new ChromeDriver();
+
+WebDriver driver = new FirefoxDriver();
+
+
+
+'pause system
+Application.Wait TimeSerial(0, 0, 1)**
+
+Application.Wait "18:23:00"    'Este exemplo pausa uma macro em execução até às 18:23 de hoje.
+
+newHour = Hour(Now())
+newMinute = Minute(Now())
+newSecond = Second(Now()) + 10
+waitTime = TimeSerial(newHour, newMinute, newSecond)
+Application.Wait waitTime    'Este exemplo para uma macro em execução por aproximadamente 10 segundos.
+
+
+
+If Application.Wait(Now + TimeValue("0:00:10")) Then
+ MsgBox "Time expired"
+End If            'Este exemplo exibe uma mensagem indicando se os 10 segundos passaram.
+
+'------------------
+
+============
+
+Sub alinha()
+
+    Dim contadorB(100) As String
+    Dim arrX(100) As Variant
+    Dim iArq As Long
+    
+    Range("D2:W30").Select
+    Selection.ClearContents
+    
+    Sheets("Alinhamento").Select
+    
+    
+    cont = Range("B" & Rows.Count).End(xlUp).Row
+    
+
+    Range("B2").Select
+    
+    For a = 1 To cont - 1
+    
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        dados = Cells(lin, col)
+        
+        contadorB(a) = dados
+        arrX(50) = contadorB()
+        
+    Next a
+    
+    Var = ""
+    
+    For b = 1 To cont - 1
+    
+        Var = Var & arrX(50)(b) & ", "
+
+    Next b
+    
+
+
+Range("D3").Select
+ActiveCell.FormulaR1C1 = Var
+
+'
+'iArq = FreeFile
+'
+'Open "C:\Users\00400889\Downloads\alinhamento.txt" For Output As iArq
+'
+'Print #iArq, Var
+'
+'Close #iArq
+
+
+End Sub
+
+
+
+
+============
+replica cálula
+atualizar célula
+
+
+Sub Macro1()
+
+Application.ScreenUpdating = False
+
+
+Range("A1").Select
+Selection.End(xlDown).Select
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    Cont = lin
+  
+Range("B1").Select
+
+For a = 1 To Cont - 1
+
+ActiveCell.Offset(1, 0).Select
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    Var = Cells(lin, col)
+
+
+    ActiveCell.FormulaR1C1 = Var
+    
+Next a
+    
+    Application.ScreenUpdating = True
+
+End Sub
+
+===================
+
+
+Sub rida()
+
+Dim arrItem() As String
+Dim dados As String
+
+
+    ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
+
+
+LL = Range("A" & Rows.Count).End(xlUp).Row
+Debug.Print LL
+
+'Debug.Prin  Wb.Name
+
+Sheets("ANALIZE").Select
+Range("J1").Select
+ActiveCell.Offset(1, 0).Select
+
+--------------
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+dados = Cells(lin, col)
+
+arrItem = Split(dados, " ")
+
+Debug.Print dados
+
+Debug.Print UBound(arrItem)
+
+
+
+For i = 0 To UBound(arrItem)
+
+Debug.Print arrItem(i)
+
+If arrItem(i) = "RM00001" Then
+    Debug.Print "OK"
+End If
+
+Next i
+
+End Sub
+
+=========================
+
+Sub ConexaoDBView()
+
+Application.ScreenUpdating = False
+
+'Sheets("CONTROLE").Visible = True
+'Sheets("VISAO_GERAL").Visible = True
+'Sheets("CONFLITOS_1").Visible = True
+    
+Dim cnn As ADODB.Connection
+Dim cmd As ADODB.Command
+Dim rs As ADODB.Recordset
+Dim strDbPath As String
+
+'---------------
+
+
+Sheets("VISAO_GERAL").Select
+    Range("B2").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+
+'---------------
+Sheets("Plan1").Select
+Range("B1").Select
+
+For a = 1 To 123
+Sheets("Plan1").Select
+    ActiveCell.Offset(1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    Note = "'" & Cells(lin, col) & "'"
+        
+        Set cnn = New ADODB.Connection
+        Set cmd = New ADODB.Command
+        Set rs = New ADODB.Recordset
+        
+        strDbPath = "W:\DIN\GD\INT\02_INTERNO\Taís\TESTS_PLAN1.accdb"
+        cnn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & strDbPath
+        cnn.Open
+        
+        Selection0 = "SELECT CC, IM_PAI, IM_FILHO, CMX, QUANTIDADE FROM LMA where CC = " & Note & ";"
+        Selection1 = "SELECT CC, IM_PAI, IM_FILHO, CMX, QUANTIDADE FROM CC_LMA where CC = " & Note & ";"
+   
+        Sheets("VISAO_GERAL").Select
+
+        Set cmd.ActiveConnection = cnn
+        cmd.CommandText = Selection0
+        Set rs = cmd.Execute
+        Set qt = ActiveSheet.QueryTables.Add(Connection:=rs, Destination:=ActiveSheet.Range("B2"))
+        qt.Refresh
+        
+'        Set cmd.ActiveConnection = cnn
+'        cmd.CommandText = Selection1 '
+'        Set rs = cmd.Execute
+'        Set qt = ActiveSheet.QueryTables.Add(Connection:=rs, Destination:=ActiveSheet.Range("H2"))
+'        qt.Refresh
+        
+        Sheets("VISAO_GERAL").Select
+        Range("B2").Select
+        Range(Selection, Selection.End(xlToRight)).Select
+        Range(Selection, Selection.End(xlDown)).Select
+        Selection.Copy
+        
+        Sheets("FILTRO").Select
+        Range("B1").Select
+        Selection.End(xlDown).Select
+        ActiveCell.Offset(1, 0).Select
+        ActiveSheet.Paste
+
+    
+        'ActiveSheet.Range(Cells(lin, col), Cells(lin, col + 1)).Select
+        
+    Sheets("VISAO_GERAL").Select
+    Range("B2").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+        
+    
+    rs.Close
+    cnn.Close
+    
+    Set rs = Nothing
+    Set cnn = Nothing
+
+Next a
+
+    Range("H2").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Style = "Cálculo"
+    With Selection.Font
+        .ColorIndex = xlAutomatic
+        .TintAndShade = 0
+    End With
+    Selection.Font.Bold = False
+    Range("B2").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Selection.Font.Bold = True
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark1
+        .TintAndShade = -0.249977111117893
+        .PatternTintAndShade = 0
+    End With
+    Range("DA1").Select
+
+Application.ScreenUpdating = True
+
+End Sub
+
+
+'================
+
+Carregar elementos das caixas na PL (Bira, Rodrigo, Carlos)
+Carregar novas inspeções 
+
+
+https://www.guiadoexcel.com.br/filtro-automatico-em-tabela-dinamica-excel/
+Planilha dinâmica - VBA
+
+
+Python-Web
+============================
+import lxml
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get('http://www.reddit.com/r/programming/')
+print(r.text)
+
+print("\n" * 10)
+
+soup = BeautifulSoup(r.text, 'lxml')
+tag = soup.find_all('p')
+
+print("TAG")
+print(tag)
+
+print("\n" * 10)
+
+for a in range(0, len(tag)):
+  lista_tag = soup.find_all('p')[a].get_text()
+  print("LISTA_TAG")
+  print(lista_tag)
+
+print("\n" * 10)
+
+break_lista = lista_tag.split()
+print("BREAK_LISTA")
+print(break_lista)
+
+print("\n" * 10)
+
+for b in break_lista:
+  print(b)
+  print('\n')
+
+
+=================
+
+diretorio = TextBox1
+
+If diretorio = "" Then
+    result = MsgBox("Não foi encontrado o local onde gerar os templates! Favor especificar diretório.", vbCritical, "Atenção!")
+Else
+
+
+        Windows("Macro_CTE_Template.xlsm").Activate
+        Sheets("Instrução").Select
+        Sheets("Instrução").Copy After:=Workbooks(TEMPLATE & ".xls").Sheets(1)
+
+        Windows(TEMPLATE & ".xls").Activate
+        Sheets("Plan1").Select
+        Range("A1").Select
+        ActiveWorkbook.Save
+        ActiveWindow.Close
+
+Dim resultado As VbMsgBoxResult
+
+
+        ConferePasta = diretorio & "\" & INSP_Avalible
+        
+        If Dir(ConferePasta, vbDirectory) = "" Then
+     
+        MkDir ConferePasta
+        
+        End If
+        
+        Set ws = Application.Workbooks.Add
+        ActiveWorkbook.SaveAs Filename:= _
+        directory & "\" & INSP_Avalible & "\" & CTE_Rec & ".xls", _
+        FileFormat:=xlNormal, Password:="", WriteResPassword:="", _
+        ReadOnlyRecommended:=False, CreateBackup:=False
+'-----------------------------------------------------------
+        Windows("Macro_CTE_Template.xlsm").Activate
+
+
+        Windows(TEMPLATE & ".xls").Activate
+        Sheets("Plan1").Select
+        Range("A1").Select
+        ActiveWorkbook.Save
+        ActiveWindow.Close
+
+tipo = Application.InputBox("Texto Atual", "Alterações Aplicáveis", Default:="Digite a Alteração", Type:=3)
+
+Workbooks.Open Filename:= _
+                path_ & nome _
+                , ReadOnly:=True
+                
+            Windows(nome).Activate
+            Sheets("CAPA").Select
+            
+            Cells.Replace What:=Atual1, Replacement:=Change1, LookAt:=xlPart, _
+                SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+                ReplaceFormat:=False
+                
+            Windows(nome).Activate
+            Sheets("CAPA").Select
+            Cells.Replace What:=Atual2, Replacement:=Change2, LookAt:=xlPart, _
+                SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+                ReplaceFormat:=False
+                
+            Windows(nome).Activate
+            Sheets("CAPA").Select
+            Cells.Replace What:=Atual3, Replacement:=Change3, LookAt:=xlPart, _
+                SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+                ReplaceFormat:=False
+                
+'            MsgBox path_ & "Nova\"
+'            MsgBox nome
+
+            Windows(nome).Activate
+    
+            ActiveWorkbook.SaveAs Filename:= _
+                path_ & "Nova\" & nome, _
+                FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+        
+            ActiveWindow.Close
+    
+    Windows("Atualiza_DOCS.xlsm").Activate
+
+
+
+
+Range(Selection, Selection.End(xlDown)).Select
+
+
+
+
+
+Para as pessas de passagens AC30101, AC30102, AC30103, AC30104, AC30105 e AC30106 na inspection request foram encontrados os COS-SMB-200569 e o COS-SMB-321709 para cada equipamento, referente a inspeção B05. Para o eração dos templates qual considerar?
+
+For the TLT passage AC30101, AC30102, AC30103, AC30104, AC30105 and AC30106, in the inspection request the COS-SMB-200569 and COS-SMB-321709 were found for each equipment, referring to inspection B05. For the generation of the templates, what to consider?
+
+
++++++++++++++++++++++ Find - Search
+
+
+
+
+Sub sbxbuscatexto()
+
+    Sheets("SEARCH").Select
+    LL = Range("B" & Rows.Count).End(xlUp).Row
+    
+    Sheets("SEARCH").Select
+    Range("B2").Select
+    
+    For A = 1 To LL - 2
+
+     Sheets("SEARCH").Select
+
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        equip = Cells(lin, col)
+        Debug.Print equip
+        
+        Sheets("GERAL").Select
+
+'On Error GoTo mensagem
+Set wFnd = Range("E:E").Find(equip)
+
+'Debug.Print wFnd
+
+If wFnd = False Then
+    Debug.Print "N"
+End If
+
+
+If wFnd = "" Then
+    Debug.Print wFnd
+End If
+
+'mensagem:
+    'Debug.Print "Nada!!!"
+
+
+Next A
+
+End Sub
+
+
+Sub Pesquisar()
+
+Application.ScreenUpdating = False
+
+Sheets("GERAL").Visible = True
+    
+Dim arrItem() As String
+Dim dados As String
+
+Sheets("GERAL").Select
+
+LB = Range("B" & Rows.Count).End(xlUp).Row
+
+Sheets("SEARCH").Select
+Range("B2").Select
+
+LL = Range("B" & Rows.Count).End(xlUp).Row
+
+For A = 1 To LL - 2
+Sheets("SEARCH").Select
+
+    ActiveCell.Offset(1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    equip = Cells(lin, col)
+    
+    Sheets("GERAL").Select
+    Range("E2").Select
+
+    pulo = 0
+'SeachString = "HL24000"
+
+    Set Intervalo = [E3:E5000]
+    conta = 0
+    For Each Célula In Intervalo
+        Compara = Célula Like "*" & equip & "*"
+        'Compara = Célula Like "*" & SeachString & "*"
+        'ActiveCell.Offset(0, 1).Select
+        
+        conta = conta + 1
+        'Debug.Print conta
+        If Compara Then
+        
+            pulo = pulo + 1
+        
+            'Debug.Print pulo
+            ActiveCell.Offset(conta, -3).Select
+        
+            lin = ActiveCell.Row
+            col = ActiveCell.Column
+            Cells(lin, col).Select
+            
+            coment = Cells(lin, col)
+            'Debug.Print coment
+            
+            Texto = Texto & "-" & Célula.Value
+            
+            Sheets("SEARCH").Select
+            ActiveCell.Offset(0, pulo + 1).Select
+            ActiveCell.FormulaR1C1 = coment
+            ActiveCell.Offset(0, -(pulo + 1)).Select
+            
+            Sheets("GERAL").Select
+            
+            ActiveCell.Offset(0, 3).Select
+             
+        End If
+    
+    Next Célula
+
+Next A
+
+End Sub
+
+++++++++++++++++++++++++
+
+'=====
+
+Sub ajustaDuplicidade()
+
+Sheets("Plan1").Select
+Range("A1").Select
+
+ActiveCell.Offset(1, 0).Select
+
+For a = 1 To 12
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    TESTA = Cells(lin, col)
+    
+    ActiveCell.Offset(1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    COMPARA = Cells(lin, col)
+    
+    Do While COMPARA = TESTA
+    
+        ActiveCell.FormulaR1C1 = "-"
+    
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        COMPARA = Cells(lin, col)
+        
+    '    If TESTA <> COMPARA Then
+    '
+    '        ActiveCell.FormulaR1C1 = TESTA
+    '
+    '    End If
+        
+    Loop
+
+Next a
+
+
+
+========================
+
+On Error GoTo mensagem
+
+Cells.Find(what:="texto").Activate
+
+
+
+mensagem:
+MsgBox "nome não existente!!!"
+
+
+
+
+Exit Do
+
+
+Application.StatusBar = "Expecto Patronum..."
+
+'=================================================================
+
+alterar nome de uma planilha
+
+ Workbooks.Open FileName:="arquivolegendas.xls"
+    Sheets("Legendas").Move After:=Workbooks("Lista de Cobrança").Sheets("Nome da planilha")
+
+
+Sub programation()
+
+Application.ScreenUpdating = False
+
+Sheets("CATALOG").Select
+Range("A1").Select
+
+Selection.End(xlDown).Select
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+cont = lin
+
+Range("A1").Select
+
+For a = 1 To cont
+
+    ActiveCell.Offset(1, 4).Select
+    
+    For b = 1 To 4
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    LOCAL_VERIFY = Cells(lin, col)
+
+    If LOCAL_VERIFY = "" Then
+    
+        ActiveCell.FormulaR1C1 = "null"
+    
+    End If
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Next b
+    
+    
+    
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    
+
+Next a
+
+Application.ScreenUpdating = True
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sub actionPai()
+
+Sheets("CONSOLIDATED_LIST").Select
+Range("A1").Select
+
+Selection.End(xlDown).Select
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+cont = lin
+
+Range("A1").Select
+
+For a = 1 To cont
+
+    ActiveCell.Offset(1, 1).Select
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    IM_PAI = Cells(lin, col)
+    'AC41017
+    ActiveCell.Offset(0, 4).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    IM_SON = Cells(lin, col)
+    
+    If IM_PAI = IM_SON Then
+    
+        With Selection.Font
+            .ThemeColor = xlThemeColorDark2
+            .TintAndShade = -9.99786370433668E-02
+        End With
+
+    
+    End If
+    
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    
+
+Next a
+
+
+
+End Sub
+
+
+Sub actionFilho()
+
+Sheets("CONSOLIDATED_LIST").Select
+Range("A1").Select
+
+Selection.End(xlDown).Select
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+cont = lin
+
+Range("A1").Select
+
+For a = 1 To cont
+
+    ActiveCell.Offset(1, 7).Select
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    IM_PAI = Cells(lin, col)
+    'AC41017
+
+    
+    If IM_PAI <> "null" Then
+        ActiveSheet.Range(Cells(lin, col), Cells(lin, col + 1)).Select
+        With Selection.Font
+            .Color = -16776961
+            .TintAndShade = 0
+        End With
+
+    End If
+    
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    
+
+Next a
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sub Filtro()
+
+Application.ScreenUpdating = False
+
+    Sheets("Route_Treatment").Visible = True
+
+Sheets("Filter").Select
+Range("A1").Select
+
+Sheets("Cable_Route").Select
+Range("A1").Select
+
+Sheets("Route_Treatment").Select
+    Rows("3:3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+Range("A1").Select
+
+Sheets("Rota de Cabos").Select
+    Columns("D:AK").Select
+    Selection.FormatConditions.Delete
+    Range("A1").Select
+    
+    Rows("3:3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+
+Range("A2").Select
+
+Sheets("Filter").Select
+Range("BC2").Select
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+Status = Cells(lin, col)
+
+Range("B4").Select
+
+If Status = 5 Then
+    Range("G2").Select
+    MsgBox "Escolha o tipo de filtro a ser realizado.", vbCritical, "Atenção!"
+    
+    Sheets("Filter").Select
+    Range("G2").Select
+    
+End If
+
+If Status = 1 Or Status = 2 Or Status = 3 Then
+
+    Do While ActiveCell <> Empty
+        Sheets("Filter").Select
+    
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        Var = Cells(lin, col)
+   
+        If Var <> "" Then
+        
+            Sheets("Cable_Route").Select
+            ActiveSheet.Range("$A$2:$DC$3800").AutoFilter Field:=Status + 3, Criteria1:= _
+                Var
+            
+            Range("A1").Select
+            
+            Selection.End(xlDown).Select
+            
+            lin = ActiveCell.Row
+            col = ActiveCell.Column
+            Cells(lin, col).Select
+            
+            If lin = 2 Then
+            
+                Sheets("Cable_Route").Select
+                ActiveSheet.ShowAllData
+            
+            End If
+            
+            If lin <> 2 Then
+
+                Rows("2:2").Select
+                Range(Selection, Selection.End(xlDown)).Select
+                Selection.Copy
+                
+                Sheets("Route_Treatment").Select
+                Rows("2:2").Select
+                ActiveSheet.Paste
+                Application.CutCopyMode = False
+                
+                Rows("3:3").Select
+                Range(Selection, Selection.End(xlDown)).Select
+                Selection.Copy
+            
+                Sheets("Rota de Cabos").Select
+                Range("A1").Select
+                
+                Selection.End(xlDown).Select
+                ActiveCell.Offset(1, 0).Select
+                ActiveSheet.Paste
+                
+                Sheets("Route_Treatment").Select
+                Rows("3:3").Select
+                Range(Selection, Selection.End(xlDown)).Select
+                Selection.ClearContents
+            
+                Sheets("Cable_Route").Select
+                ActiveSheet.ShowAllData
+                
+            End If
+
+            Sheets("Cable_Route").Select
+            ActiveSheet.Range("$A$2:$DC$3800").AutoFilter Field:=Status + 6, Criteria1:= _
+                Var
+            Range("A1").Select
+            
+            Selection.End(xlDown).Select
+            
+            lin = ActiveCell.Row
+            col = ActiveCell.Column
+            Cells(lin, col).Select
+            
+            If lin = 2 Then
+            
+                Sheets("Cable_Route").Select
+                ActiveSheet.ShowAllData
+            
+            End If
+                
+            If lin <> 2 Then
+    
+                Rows("2:2").Select
+                Range(Selection, Selection.End(xlDown)).Select
+                Selection.Copy
+                
+                Sheets("Route_Treatment").Select
+                Rows("2:2").Select
+                ActiveSheet.Paste
+                Application.CutCopyMode = False
+                
+                Range("A4").Select
+                
+                lin = ActiveCell.Row
+                col = ActiveCell.Column
+                Cells(lin, col).Select
+                
+                test = Cells(lin, col)
+                
+                If test = "" Then
+        
+                    Rows("3:3").Select
+                    Selection.Copy
+                    
+                Else
+                
+                    Rows("3:3").Select
+                    Range(Selection, Selection.End(xlDown)).Select
+                    Selection.Copy
+                
+                End If
+           
+                Sheets("Rota de Cabos").Select
+                Range("A1").Select
+                
+                Selection.End(xlDown).Select
+                ActiveCell.Offset(1, 0).Select
+                Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                :=False, Transpose:=False
+                
+                Sheets("Cable_Route").Select
+                ActiveSheet.ShowAllData
+    
+            End If
+            
+        End If
+    Loop
+    
+        Sheets("Filter").Select
+
+        Range("B4").Select
+        
+        Do While ActiveCell <> Empty
+            Sheets("Filter").Select
+            ActiveCell.Offset(1, 0).Select
+            
+            lin = ActiveCell.Row
+            col = ActiveCell.Column
+            Cells(lin, col).Select
+            
+            Var = Cells(lin, col)
+        
+            If Var <> "" Then
+            
+                Sheets("Rota de Cabos").Select
+            
+                Columns("D:I").Select
+                Selection.FormatConditions.Add Type:=xlTextString, String:=Var & "*", _
+                    TextOperator:=xlContains
+                Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+                With Selection.FormatConditions(1).Font
+                    .Color = -16383844
+                    .TintAndShade = 0
+                End With
+                With Selection.FormatConditions(1).Interior
+                    .PatternColorIndex = xlAutomatic
+                    .Color = 13551615
+                    .TintAndShade = 0
+                End With
+                Selection.FormatConditions(1).StopIfTrue = False
+                Range("AN8").Select
+            
+            End If
+    
+        Loop
+    
+    
+    
+
+End If
+
+'--------------------------------------
+
+If Status = 4 Then
+
+    Do While ActiveCell <> Empty
+        Sheets("Filter").Select
+    
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        Var = Cells(lin, col)
+
+        For a = 1 To 27
+   
+            If Var <> "" Then
+
+                Sheets("Cable_Route").Select
+                ActiveSheet.Range("$A$2:$DC$3800").AutoFilter Field:=a + 10, Criteria1:= _
+                    Var & "*"
+                
+                Range("A1").Select
+                
+                Selection.End(xlDown).Select
+                
+                lin = ActiveCell.Row
+                col = ActiveCell.Column
+                Cells(lin, col).Select
+                
+                If lin = 2 Then
+                
+                    Sheets("Cable_Route").Select
+                    ActiveSheet.ShowAllData
+                
+                End If
+                
+                If lin <> 2 Then
+    
+                    Rows("2:2").Select
+                    Range(Selection, Selection.End(xlDown)).Select
+                    Selection.Copy
+                    
+                    Sheets("Route_Treatment").Select
+                    Rows("2:2").Select
+                    ActiveSheet.Paste
+                    Application.CutCopyMode = False
+
+                    Range("A4").Select
+                
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+                    
+                    test = Cells(lin, col)
+                    
+                    If test = "" Then
+            
+                        Rows("3:3").Select
+                        Selection.Copy
+                        
+                    Else
+                    
+                        Rows("3:3").Select
+                        Range(Selection, Selection.End(xlDown)).Select
+                        Selection.Copy
+                    
+                    End If
+ 
+                    Sheets("Rota de Cabos").Select
+                    Range("A1").Select
+                    
+                    Selection.End(xlDown).Select
+                    ActiveCell.Offset(1, 0).Select
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                    :=False, Transpose:=False
+                    
+                    Sheets("Route_Treatment").Select
+                    Rows("3:3").Select
+                    Range(Selection, Selection.End(xlDown)).Select
+                    Selection.ClearContents
+                
+                    Sheets("Cable_Route").Select
+                    ActiveSheet.ShowAllData
+                    
+                End If
+            End If
+        Next a
+    Loop
+
+        Sheets("Filter").Select
+
+        Range("B4").Select
+        
+        Do While ActiveCell <> Empty
+            Sheets("Filter").Select
+            ActiveCell.Offset(1, 0).Select
+            
+            lin = ActiveCell.Row
+            col = ActiveCell.Column
+            Cells(lin, col).Select
+            
+            Var = Cells(lin, col)
+        
+            If Var <> "" Then
+            
+                Sheets("Rota de Cabos").Select
+            
+                Columns("K:AK").Select
+                Selection.FormatConditions.Add Type:=xlTextString, String:=Var & "*", _
+                    TextOperator:=xlContains
+                Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+                With Selection.FormatConditions(1).Font
+                    .Color = -16383844
+                    .TintAndShade = 0
+                End With
+                With Selection.FormatConditions(1).Interior
+                    .PatternColorIndex = xlAutomatic
+                    .Color = 13551615
+                    .TintAndShade = 0
+                End With
+                Selection.FormatConditions(1).StopIfTrue = False
+                Range("AN8").Select
+            
+            End If
+    
+        Loop
+
+End If
+
+'----------------------------------------
+
+    If Status = 1 Or Status = 2 Or Status = 3 Then
+    
+    Sheets("Rota de Cabos").Select
+    Range("A1").Select
+    
+        MsgBox "Processo Realizado!"
+        
+    End If
+    
+    If Status = 4 Then
+    
+    Sheets("Rota de Cabos").Select
+    Range("K2").Select
+    
+        MsgBox "Processo Realizado!"
+        
+    End If
+    
+    Sheets("Route_Treatment").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Application.ScreenUpdating = True
+    
+    
+End Sub
+
+
+Sub lipa()
+
+Application.ScreenUpdating = False
+
+    Sheets("Rota de Cabos").Select
+    Rows("3:3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+    Cells.FormatConditions.Delete
+    Range("A1").Select
+
+    Sheets("Filter").Select
+    Range("B5").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("G2").Select
+    
+    Application.ScreenUpdating = True
+    
+End Sub
+
+
+
+
+Solicitação de Férias
+
+22/10/2018 = 26/10/2018
+25/03/2019 = 08/04/2019
+24/06/2019 = 03/07/2019
+
+
+
+
+'=================================================================
+
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+
+
+=============================
+
+Sub Esconde()
+
+    Sheets("Meta_Filtro").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("General_PL").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("General_IR").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("General_PL_Trata").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("General_IR_Trata").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("General_IR_Trata_CTC").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("List").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("Cabo_Pago").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("Consolidado").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("Index").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("Matrice_Catalogue").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("Catalog_Trata1").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    Sheets("Matrice_Trata").Select
+    ActiveWindow.SelectedSheets.Visible = False
+
+End Sub
+
+Sub Mostra()
+
+    Sheets("Meta_Filtro").Visible = True
+    
+    Sheets("General_PL").Visible = True
+    
+    Sheets("General_IR").Visible = True
+    
+    Sheets("General_PL_Trata").Visible = True
+    
+    Sheets("General_IR_Trata").Visible = True
+    
+    Sheets("General_IR_Trata_CTC").Visible = True
+    
+    Sheets("List").Visible = True
+    
+    Sheets("Cabo_Pago").Visible = True
+
+    Sheets("Consolidado").Visible = True
+
+    Sheets("Index").Visible = True
+ 
+    Sheets("Matrice_Catalogue").Visible = True
+    
+    Sheets("Catalog_Trata1").Visible = True
+    
+     Sheets("Matrice_Trata").Visible = True
+
+End Sub
+
+=======================================
+
+Sub GerarListaPL()
+
+'Application.ScreenUpdating = False
+
+Call Mostra
+
+Dim IM_0 As Integer
+Dim IM_H As Integer
+Dim IM_HH As Integer
+Dim IM_S As Integer
+Dim Qt_Equipament As Integer
+
+
+Sheets("CTE_IMPORT").Select
+Range("A1").Select
+
+Sheets("PRODUCT_IMPORT").Select
+Range("A1").Select
+ActiveCell.Offset(1, 0).Select
+
+' Trata meta --------------------------------------------
+Sheets("Meta").Select
+
+Rows("1:1").Select
+Range(Selection, Selection.End(xlDown)).Select
+Selection.Copy
+
+Sheets("Meta_Filtro").Select
+Rows("1:1").Select
+Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+    :=False, Transpose:=False
+   
+'Conta Colunas -------------------------------------------
+Range("A1").Select
+Selection.End(xlDown).Select
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
+
+Num_Prod = lin
+
+Range("B1").Select
+'------------------------------------
+'Levanta dados ----------------------
+
+For CARGA = 1 To Num_Prod - 1
+' ------------------------------------------------------------
+    Sheets("Meta_Filtro").Select
+    
+    ActiveCell.Offset(1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    IM = Cells(lin, col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    PM = Cells(lin, col)
+    
+    ActiveCell.Offset(0, 5).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    SBR = Cells(lin, col)
+    
+    ActiveCell.Offset(0, -6).Select
+    
+    Sheets("General_PL").Select
+
+    Selection.End(xlDown).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    cont = lin
+        
+    Selection.End(xlUp).Select
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+
+    ActiveSheet.Range(Cells(lin, col), Cells(cont, col)).AutoFilter Field:=4, Criteria1:= _
+        "LPR-" & IM
+
+    Rows("1:1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Copy
+    Sheets("General_PL_Trata").Select
+    Rows("1:1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        
+    ActiveWorkbook.Worksheets("General_PL_Trata").AutoFilter.Sort.SortFields.Add _
+    Key:=Range("I1"), SortOn:=xlSortOnValues, Order:=xlAscending, _
+    DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("General_PL_Trata").AutoFilter.Sort
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+
+        '------------------------------------------------------------------------------------------
+    
+varColuna = 1 ' Coluna que será verificado
+varLinha = 1 ' Linha inicial que será verificado
+varConteudo = 1
+
+Do While varConteudo <> Empty 'continua a verificar se conteudo for diferente de vazio
+   varLinha = varLinha + 1 'contador de linha
+   varConteudo = Cells(varLinha, varColuna).Value 'grava o valor da celula
+Loop
+
+
+Linha_Contada = CStr(varLinha - 1)
+ 
+    With Sheets("General_PL_Trata")
+        MyVarIM = WorksheetFunction.CountIf(.Range("I:I"), IM) 'Conte SE
+    End With
+    
+    With Sheets("General_PL_Trata")
+        MyVarIMH = WorksheetFunction.CountIf(.Range("I:I"), IM & "H")
+    End With
+    
+    With Sheets("General_PL_Trata")
+        MyVarIMHH = WorksheetFunction.CountIf(.Range("I:I"), IM & "HH")
+    End With
+    
+    With Sheets("General_PL_Trata")
+        MyVarIMS = WorksheetFunction.CountIf(.Range("I:I"), IM & "S")
+    End With
+    
+    Qt_Equipament = MyVarIM + MyVarIMH + MyVarIMHH + MyVarIMS
+    
+    If MyVarIM <> False Then
+        IM_0 = "1"
+    End If
+    
+    If MyVarIMH <> False Then
+        IM_H = "1"
+    End If
+    
+    If MyVarIMHH <> False Then
+        IM_HH = "1"
+    End If
+    
+    If MyVarIMS <> False Then
+        IM_S = "1"
+    End If
+ 
+
+    Qt_Equipament = IM_0 + IM_H + IM_HH + IM_S
+
+    Qt_Total = MyVarIM + MyVarIMH + MyVarIMHH + MyVarIMS
+
+    Qt_Soma = (Linha_Contada - 1) - Qt_Total
+
+    Qt_Variable = Qt_Soma + Qt_Equipament
+
+    Sheets("General_PL_Trata").Select
+    Range("I1").Select
+    
+    For Varre = 1 To Qt_Variable
+    
+            Sheets("General_PL_Trata").Select
+            
+            ActiveCell.Offset(1, 0).Select
+            
+            lin = ActiveCell.Row
+            col = ActiveCell.Column
+            Cells(lin, col).Select
+            
+            Test_Empty = Cells(lin, col)
+            
+            If Test_Empty <> 0 Then
+
+                lin = ActiveCell.Row
+                col = ActiveCell.Column
+                Cells(lin, col).Select
+                
+                IM = Cells(lin, col)
+                IM_Test = Right(IM, 2)
+                
+                IM_Test_OK = Left(IM_Test, 1)
+    
+                Selection.End(xlToLeft).Select
+                Selection.End(xlToLeft).Select
+                Selection.End(xlToLeft).Select
+                Selection.End(xlToLeft).Select
+                
+                ActiveCell.Offset(0, 3).Select
+            
+                lin = ActiveCell.Row
+                col = ActiveCell.Column
+                Cells(lin, col).Select
+                
+                IM_LPR = Cells(lin, col)
+                IM_LPR_NUM = Right(IM_LPR, 1)
+    
+                ActiveCell.Offset(0, 5).Select
+                
+                
+                'MsgBox IM_Test & "/" & IM_Test_OK & "/" & IM_LPR_NUM
+
+                'If IM_Test = IM_Test_OK & IM_LPR_NUM Then
+                If IM_Test <> "" Then
+
+                    With Sheets("General_PL_Trata")
+                        MyVar = WorksheetFunction.CountIf(.Range("I:I"), IM)
+                    End With
+
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+                    
+                    IM_PAI = Cells(lin, col)
+                    
+                    ActiveCell.Offset(0, -3).Select
+                    
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+                    
+                    RP_FILHO_1 = Cells(lin, col)
+                    
+                    RP_FILHO_LIMPA = Left(RP_FILHO_1, 12)
+                    RP_FILHO = Right(RP_FILHO_LIMPA, 8)
+        
+                    ActiveCell.Offset(0, 1).Select
+                    
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+        
+                    TEXTO = Cells(lin, col)
+                    
+                    ActiveCell.Offset(0, 3).Select
+                    
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+        
+                    CMX = Cells(lin, col)
+                    
+                    ActiveCell.Offset(0, 7).Select
+                    
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+        
+                    UN = Cells(lin, col)
+                    
+                    ActiveCell.Offset(0, 4).Select
+                    
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+        
+                    MAS = Cells(lin, col)
+                    
+                    ActiveCell.Offset(0, 2).Select
+                    
+                    lin = ActiveCell.Row
+                    col = ActiveCell.Column
+                    Cells(lin, col).Select
+        
+                    DES = Cells(lin, col)
+                    
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    
+                    Sheets("PRODUCT_IMPORT").Select
+
+                    ActiveCell.FormulaR1C1 = IM_LPR
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = SBR & IM_PAI
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = SBR & RP_FILHO
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = CMX
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = "1"
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = TEXTO
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = "-"
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = "-"
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = "I"
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = UN
+                    ActiveCell.Offset(0, 9).Select
+                    ActiveCell.FormulaR1C1 = MAS
+                    ActiveCell.Offset(0, 1).Select
+                    ActiveCell.FormulaR1C1 = DES
+                    
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    Selection.End(xlToLeft).Select
+                    
+                    ActiveCell.Offset(1, 0).Select
+        
+                    Sheets("General_PL_Trata").Select
+                    
+                    Selection.End(xlToLeft).Select
+                    
+                    ActiveCell.Offset(-1, 0).Select
+                    ' ---------------------------------------------
+                    For Replay = 1 To MyVar
+                    
+                        Sheets("General_PL_Trata").Select
+                
+                        ActiveCell.Offset(1, 15).Select
+                        'ActiveCell.Offset(Replay - 1, 15).Select
+                        
+                        lin = ActiveCell.Row
+                        col = ActiveCell.Column
+                        Cells(lin, col).Select
+                        
+                        qt = Cells(lin, col)
+                        
+                        ActiveCell.Offset(0, 1).Select
+                        
+                        lin = ActiveCell.Row
+                        col = ActiveCell.Column
+                        Cells(lin, col).Select
+                        
+                        EA = Cells(lin, col)
+                        
+                        ActiveCell.Offset(0, 2).Select
+                        
+                        lin = ActiveCell.Row
+                        col = ActiveCell.Column
+                        Cells(lin, col).Select
+                        
+                        CMX_FILHO = Cells(lin, col)
+                        
+                        ActiveCell.Offset(0, 1).Select
+                        
+                        lin = ActiveCell.Row
+                        col = ActiveCell.Column
+                        Cells(lin, col).Select
+                        
+                        Designation = Cells(lin, col)
+
+                        ActiveCell.Offset(0, 2).Select
+                        
+                        lin = ActiveCell.Row
+                        col = ActiveCell.Column
+                        Cells(lin, col).Select
+            
+                        DES = Cells(lin, col)
+    
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        
+                        Sheets("PRODUCT_IMPORT").Select
+                
+                        ActiveCell.FormulaR1C1 = IM_LPR
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = "-"
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = "-"
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = CMX_FILHO
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = qt
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = Designation
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = "-"
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = "-"
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = "I"
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = EA
+                        ActiveCell.Offset(0, 9).Select
+                        ActiveCell.FormulaR1C1 = MAS
+                        ActiveCell.Offset(0, 1).Select
+                        ActiveCell.FormulaR1C1 = DES
+                        
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        Selection.End(xlToLeft).Select
+                        
+                        ActiveCell.Offset(1, 0).Select
+                        
+                        '---------------------------------
+                    
+                    Next Replay
+        
+                    Sheets("General_PL_Trata").Select
+                    
+                    ActiveCell.Offset(0, 8).Select
+                
+                End If
+            '====================================================
+
+            End If
+
+        Next Varre
+
+        Sheets("General_PL_Trata").Select
+        Rows("2:2").Select
+        Range(Selection, Selection.End(xlDown)).Select
+        Application.CutCopyMode = False
+        Selection.ClearContents
+        Range("A1").Select
+        
+        Sheets("General_PL").Select
+        ActiveSheet.Range(Cells(lin, col), Cells(cont, col)).AutoFilter Field:=4
+        Range("A1").Select
+        
+    Next CARGA
+    
+    Call GerarListaIR
+        
+    Call Esconde
+    
+    Sheets("PRODUCT_IMPORT").Select
+    Range("A1").Select
+    
+    Cells.Replace What:="LPR-", Replacement:=SBR, LookAt:=xlPart, _
+    SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+    ReplaceFormat:=False
+    
+    Range("A1").Select
+    
+    Call VerificaLMA
+    
+    Range("A1").Select
+    
+    'MsgBox "Tarefa Realizada Com Sucesso!"
+    
+    Application.ScreenUpdating = True
+
+End Sub
+
+Sub VerificaLMA()
+
+    Sheets("PRODUCT_IMPORT").Select
+    Range("L2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=IF(RIGHT(LEFT(RC[-8],8),1)=""A"",""Atenção, verificar procedimento de decomposição de CMX"",IF(RIGHT(LEFT(RC[-8],8),1)=""F"",""Atenção, verificar procedimento de decomposição de CMX"",""""))"
+    Selection.AutoFill Destination:=Range("L2:L120")
+
+End Sub
+
+
+Sub ClearPL()
+'
+' Limpa Tudo
+'
+    Call Mostra
+    
+    Sheets("Meta_Filtro").Select
+    Rows("2:2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+    
+    Sheets("General_PL").Select
+    ActiveSheet.Rows("2:2").AutoFilter Field:=4
+    Range("A1").Select
+    
+    Sheets("General_PL_Trata").Select
+    Rows("2:2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+    
+    Sheets("PRODUCT_IMPORT").Select
+    Rows("2:2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+    
+    Call ClearIR
+    
+    Call Esconde
+    
+    Sheets("Meta").Select
+    Range("A1").Select
+
+End Sub
+
+Sub Chamar()
+
+UserForm1.Show
+
+End Sub
+
+Sub PartListIMZ()
+
+    'Call Mostra
+    
+    Sheets("General_PL").Select
+    Cells.Select
+    Selection.ClearContents
+    
+    Windows("PartListGeralIMZ.csv").Activate
+    Cells.Select
+    Selection.Copy
+    
+    Windows("Carga_IMZ_Beta004.xlsm").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    Cells.Select
+    Cells.EntireColumn.AutoFit
+    Rows("1:1").Select
+    Application.CutCopyMode = False
+    Selection.AutoFilter
+    Range("A1").Select
+    
+    Windows("PartListGeralIMZ.csv").Activate
+    ActiveWindow.Close
+
+    'Call Esconde
+    
+    Sheets("Meta").Select
+    Range("A1").Select
+    
+    
+ 
+End Sub
+
+
+Sub InspIMZ()
+
+    'Call Mostra
+    
+    Sheets("General_IR").Select
+    Cells.Select
+    Selection.ClearContents
+    
+    Windows("Insp request B26.CSV").Activate
+    Cells.Select
+    Selection.Copy
+    
+    Windows("Carga_IMZ_Beta004.xlsm").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    Cells.Select
+    Cells.EntireColumn.AutoFit
+    Rows("1:1").Select
+    Application.CutCopyMode = False
+    Selection.AutoFilter
+    Range("A1").Select
+    
+    Windows("Insp request B26.CSV").Activate
+    ActiveWindow.Close
+    
+    
+    'Call Esconde
+    
+    Sheets("Meta").Select
+    Range("A1").Select
+    
+    
+End Sub
+
+
+
+
+
+
+
+=================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+======================================
+
+
+Sub testeArquivoAbrir()
+
+Dim strPDF_File_Name As String
+strPDF_File_Name = "W:\DIN\GD\INT\02_INTERNO\alexsandro.oliveira\My_Notebooks\CC-200526-30700-11-011_0\12 - Templates de Inspeções\E01\CTE00773586.pdf"
+
+'strPDF_File_Name = Application.GetOpenFilename(". . Arquivos PDF *, pdf , todos os arquivos * * ", 1, " Open File ", False)
+
+ActiveWorkbook.FollowHyperlink strPDF_File_Name
+
+
+==============
+    Selection.End(xlDown).Select
+    Selection.End(xlUp).Select
+    Selection.End(xlToRight).Select
+    Selection.End(xlToLeft).Select
+
+
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlUp)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToLeft)).Select
+
+
+
+=============
+
+
+
+
+Private Sub CommandButton1_Click()
+    VET = ComboBox4
+    Sheets("CADASTRO").Select
+    Cells.Find(what:=VET).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    nome = Cells(lin, col)
+    
+    Sheets("DIETA").Select
+    
+    Range("B2").Select
+    ActiveCell.FormulaR1C1 = "NOME: " & nome
+    
+    Range("B7").Select
+    ActiveCell.FormulaR1C1 = TextBox17.Text
+    
+    Range("C7").Select
+    ActiveCell.FormulaR1C1 = TextBox18.Text
+    
+    Range("D7").Select
+    ActiveCell.FormulaR1C1 = TextBox19.Text
+    
+    Range("B13").Select
+    ActiveCell.FormulaR1C1 = TextBox20.Text
+    
+    Range("C13").Select
+    ActiveCell.FormulaR1C1 = TextBox21.Text
+    
+    Range("D13").Select
+    ActiveCell.FormulaR1C1 = TextBox22.Text
+    
+    Range("B16").Select
+    ActiveCell.FormulaR1C1 = TextBox23.Text
+    
+    Range("C16").Select
+    ActiveCell.FormulaR1C1 = TextBox24.Text
+    
+    Range("D16").Select
+    ActiveCell.FormulaR1C1 = TextBox25.Text
+    
+    Range("B24").Select
+    ActiveCell.FormulaR1C1 = TextBox26.Text
+    
+    Range("C24").Select
+    ActiveCell.FormulaR1C1 = TextBox27.Text
+    
+    Range("D24").Select
+    ActiveCell.FormulaR1C1 = TextBox28.Text
+    
+    Range("B29").Select
+    ActiveCell.FormulaR1C1 = TextBox29.Text
+    
+    Range("C29").Select
+    ActiveCell.FormulaR1C1 = TextBox30.Text
+    
+    Range("D29").Select
+    ActiveCell.FormulaR1C1 = TextBox21.Text
+    
+    Range("B36").Select
+    ActiveCell.FormulaR1C1 = TextBox32.Text
+    
+    Range("C36").Select
+    ActiveCell.FormulaR1C1 = TextBox33.Text
+    
+    Range("D36").Select
+    ActiveCell.FormulaR1C1 = TextBox34.Text
+    
+    Range("F1").Select
+    Data = Range("F1")
+
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "DATA: " & Data
+    
+    Application.CutCopyMode = False
+    Range("H1").Select
+    
+    ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+    IgnorePrintAreas:=False
+
+
+End Sub
+
+Private Sub CommandButton2_Click()
+    
+    TextBox17.Text = ""
+    TextBox18.Text = ""
+    TextBox19.Text = ""
+    TextBox20.Text = ""
+    TextBox21.Text = ""
+    TextBox22.Text = ""
+    TextBox23.Text = ""
+    TextBox24.Text = ""
+    TextBox25.Text = ""
+    TextBox26.Text = ""
+    TextBox27.Text = ""
+    TextBox28.Text = ""
+    TextBox29.Text = ""
+    TextBox30.Text = ""
+    TextBox31.Text = ""
+    TextBox32.Text = ""
+    TextBox33.Text = ""
+    TextBox34.Text = ""
+    
+    Sheets("DIETA").Select
+    
+    Range("B2").Select
+    ActiveCell.FormulaR1C1 = "NOME: " & nome
+    
+    Range("B7").Select
+    ActiveCell.FormulaR1C1 = TextBox17.Text
+    
+    Range("C7").Select
+    ActiveCell.FormulaR1C1 = TextBox18.Text
+    
+    Range("D7").Select
+    ActiveCell.FormulaR1C1 = TextBox19.Text
+    
+    Range("B13").Select
+    ActiveCell.FormulaR1C1 = TextBox20.Text
+    
+    Range("C13").Select
+    ActiveCell.FormulaR1C1 = TextBox21.Text
+    
+    Range("D13").Select
+    ActiveCell.FormulaR1C1 = TextBox22.Text
+    
+    Range("B16").Select
+    ActiveCell.FormulaR1C1 = TextBox23.Text
+    
+    Range("C16").Select
+    ActiveCell.FormulaR1C1 = TextBox24.Text
+    
+    Range("D16").Select
+    ActiveCell.FormulaR1C1 = TextBox25.Text
+    
+    Range("B24").Select
+    ActiveCell.FormulaR1C1 = TextBox26.Text
+    
+    Range("C24").Select
+    ActiveCell.FormulaR1C1 = TextBox27.Text
+    
+    Range("D24").Select
+    ActiveCell.FormulaR1C1 = TextBox28.Text
+    
+    Range("B29").Select
+    ActiveCell.FormulaR1C1 = TextBox29.Text
+    
+    Range("C29").Select
+    ActiveCell.FormulaR1C1 = TextBox30.Text
+    
+    Range("D29").Select
+    ActiveCell.FormulaR1C1 = TextBox21.Text
+    
+    Range("B36").Select
+    ActiveCell.FormulaR1C1 = TextBox32.Text
+    
+    Range("C36").Select
+    ActiveCell.FormulaR1C1 = TextBox33.Text
+    
+    Range("D36").Select
+    ActiveCell.FormulaR1C1 = TextBox34.Text
+    
+    Range("F1").Select
+    Data = Range("F1")
+
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "DATA: " & Data
+    
+    Application.CutCopyMode = False
+    Range("H1").Select
+    
+End Sub
+
+
+Private Sub CommandButton3_Click()
+UserForm1.Show
+End Sub
+
+Private Sub CommandButton4_Click()
+Application.Visible = True
+End Sub
+
+Private Sub CommandButton5_Click() ' fecha tudo
+    
+    Application.DisplayAlerts = True
+    ActiveWorkbook.Close Savechanges:=True
+    Application.DisplayAlerts = True
+    Application.Quit
+    
+End Sub
+
+Private Sub ToggleButton1_Click() ' Selecionar Alimentos
+    Sheets("RELATÓRIO").Select
+    Range("A2:C2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Application.CutCopyMode = False
+    
+    VET = Label98.Caption
+
+    Cells.Find(what:=VET).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    ActiveCell.Offset(-1, 1).Select
+    
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    ActiveCell.Offset(-1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    quant = lin
+    
+    Selection.End(xlUp).Select
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
+    Selection.Copy
+    
+    Range("A1").Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    Range("A1").Select
+    
+    ' -----------------------------
+
+    If (ComboBox1 <> "" And TextBox1 <> "") Then
+        valorAL = ComboBox1
+        valorQT = TextBox1
+        Range("B1").Select
+        
+        Do While ActiveCell <> Empty
+        ActiveCell.Offset(1, 0).Select
+        Loop
+        
+        ActiveCell.FormulaR1C1 = valorAL
+        
+        Range("C1").Select
+        
+        Do While ActiveCell <> Empty
+        ActiveCell.Offset(1, 0).Select
+        Loop
+        
+        ActiveCell.FormulaR1C1 = valorQT
+
+        Range("B1").Select
+        Selection.End(xlDown).Select
+          
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        quant = lin - 1
+    
+        Range("A2").Select
+        For cont = 1 To quant
+            ActiveCell.Value = cont
+            ActiveCell.Offset(1, 0).Select
+        Next cont
+        
+    End If
+    ' ------------ seleciona alimentos para por no ListBox2
+    
+    Call ListaAlimentos
+    
+    ComboBox1.Clear
+    
+    linha = 2
+    Do Until Planilha2.Cells(linha, 2) = ""
+    ComboBox1.AddItem Planilha2.Cells(linha, 2)
+    linha = linha + 1
+    Loop
+
+End Sub
+
+Private Sub ListaAlimentos()
+
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    ActiveCell.Offset(-1, 0).Select
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+
+    quant = lin
+
+    Selection.End(xlUp).Select
+
+    With ThisWorkbook.Worksheets("RELATÓRIO")
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
+
+        Set ali = .Range(Cells(lin, col), Cells(lin + quant, col + 2))
+        Me.ListBox2.ColumnCount = ali.Columns.Count
+        Me.ListBox2.RowSource = ali.Address(, , , True, ali.Parent.Range("A1"))
+        Me.ListBox2.TextAlign = fmTextAlignCenter
+        Me.ListBox2.ColumnWidths = "35;140;25"
+        Me.ListBox2.Font.Size = 10
+        Me.ListBox2.Font.Name = "Verdana"
+        Me.ListBox2.BoundColumn = 10
+
+    End With
+
+    Range("A1").Select
+    Application.CutCopyMode = False
+    
+End Sub
+
+Private Sub ToggleButton10_Click() 'alterar cadastro
+
+        Sheets("CADASTRO").Select
+        val_nome = TextBox10
+        val_altura = TextBox11
+        val_peso = TextBox12
+        val_idade = TextBox13
+        val_sexo = ComboBox6
+        
+        If (TextBox10 <> "") Then
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+        End If
+        
+        If (TextBox11 <> "") Then
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = val_altura
+        End If
+        
+        If (TextBox12 <> "") Then
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = val_peso
+        End If
+        
+        If (TextBox13 <> "") Then
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = val_idade
+        End If
+        
+        If (ComboBox6 <> "") Then
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = val_sexo
+        End If
+        
+val_alturacm = val_altura * 100
+val_IMC = val_peso / (val_altura * val_altura)
+val_Ideal1 = (val_altura * val_altura) * 18.5
+val_Ideal2 = (val_altura * val_altura) * 24.9
+
+    If (ComboBox5 = "Sedentário" And ComboBox6 = "M") Then
+        val_atividade = 1.2
+        val_SexoM = 66.5 + (13.75 * peso) + (5 * val_alturacm) - (6.7 * val_idade)
+        val_result = val_SexoM * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoM
+    End If
+        
+    If (ComboBox5 = "Sedentário" And ComboBox6 = "F") Then
+        val_atividade = 1.2
+        val_SexoF = 655.1 + (9.6 * val_peso) + (1.85 * val_alturacm) - (4.7 * val_idade)
+        val_result = val_SexoF * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoF
+    End If
+    '-------------------------------------
+    
+    If (ComboBox5 = "Exercícios Leves" And ComboBox6 = "M") Then
+        val_atividade = 1.375
+        val_SexoM = 66.5 + (13.75 * peso) + (5 * val_alturacm) - (6.7 * val_idade)
+        val_result = val_SexoM * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoM
+    End If
+    
+    If (ComboBox5 = "Exercícios Leves" And ComboBox6 = "F") Then
+        val_atividade = 1.375
+        val_SexoF = 655.1 + (9.6 * val_peso) + (1.85 * val_alturacm) - (4.7 * val_idade)
+        val_result = val_SexoF * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoF
+    End If
+    '-------------------------------------
+    
+    If (ComboBox5 = "Exercícios Moderados" And ComboBox6 = "M") Then
+        val_atividade = 1.55
+        val_SexoM = 66.5 + (13.75 * peso) + (5 * val_alturacm) - (6.7 * val_idade)
+        val_result = val_SexoM * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoM
+    End If
+        
+    If (ComboBox5 = "Exercícios Moderados" And ComboBox6 = "F") Then
+        val_atividade = 1.55
+        val_SexoF = 655.1 + (9.6 * val_peso) + (1.85 * val_alturacm) - (4.7 * val_idade)
+        val_result = val_SexoF * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoF
+    End If
+    '-------------------------------------
+    
+    If (ComboBox5 = "Exercícios Pesados" And ComboBox6 = "M") Then
+        val_atividade = 1.725
+        val_SexoM = 66.5 + (13.75 * peso) + (5 * val_alturacm) - (6.7 * val_idade)
+        val_result = val_SexoM * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoM
+    End If
+        
+    If (ComboBox5 = "Exercícios Pesados" And ComboBox6 = "F") Then
+        val_atividade = 1.725
+        val_SexoF = 655.1 + (9.6 * val_peso) + (1.85 * val_alturacm) - (4.7 * val_idade)
+        val_result = val_SexoF * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoF
+    End If
+    '-------------------------------------
+    If (ComboBox5 = "Exercícios Muito Pesados" And ComboBox6 = "M") Then
+        val_atividade = 1.9
+        val_SexoM = 66.5 + (13.75 * peso) + (5 * val_alturacm) - (6.7 * val_idade)
+        val_result = val_SexoM * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoM
+    End If
+        
+    If (ComboBox5 = "Exercícios Muito Pesados" And ComboBox6 = "F") Then
+        val_atividade = 1.9
+        val_SexoF = 655.1 + (9.6 * val_peso) + (1.85 * val_alturacm) - (4.7 * val_idade)
+        val_result = val_SexoF * val_atividade
+        val_id1 = Format(val_Ideal1, "0.0")
+        val_id2 = Format(val_Ideal2, "0.0")
+        sexo_val = val_SexoF
+    End If
+    '-------------------------------------
+
+        Range("B8").Select
+        ActiveCell.FormulaR1C1 = val_IMC
+        
+        Range("B9").Select
+        ActiveCell.FormulaR1C1 = sexo_val 'TMB
+        
+        Range("B10").Select
+        ActiveCell.FormulaR1C1 = val_result 'GET
+        
+        Range("B11").Select
+        ActiveCell.FormulaR1C1 = "(" & val_id1 & " - " & val_id2 & ")" ' P.Ideal
+
+  '1.375 / 1.55 / 1.725 / 1.9
+
+        '---------------------------- Copia e cola em ComboBox
+        Range("B2").Select
+        Selection.Copy
+        
+        cliente = Label128.Caption
+        
+        Cells.Find(what:=cliente).Activate
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        ActiveCell.Offset(0, 0).Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        Application.CutCopyMode = False
+        Range("A1").Select
+        '------------------------ Copia e cola em relatório
+        
+        Sheets("CADASTRO").Select
+        Range("B2").Select
+        Selection.Copy
+        
+        cliente = ComboBox4
+        Sheets("RELATÓRIO").Select
+        Cells.Find(what:=cliente).Activate
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        ActiveCell.Offset(0, 0).Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        Application.CutCopyMode = False
+        Range("A1").Select
+
+        '----------------------- Copia e cola em registro
+        
+        Sheets("CADASTRO").Select
+        Range("B2:B11").Select
+        Selection.Copy
+        
+        cliente = Label128.Caption
+        Sheets("REGISTRO").Select
+        Cells.Find(what:=cliente).Activate
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        ActiveCell.Offset(0, 0).Select
+        ActiveSheet.Paste
+        Application.CutCopyMode = False
+        Range("A1").Select
+        '-------------------------------------------
+        
+        ComboBox4.Clear
+        
+        linha = 1
+        Do Until Planilha51.Cells(linha, 15) = ""
+        ComboBox4.AddItem Planilha51.Cells(linha, 15)
+        linha = linha + 1
+        Loop
+        
+        Frame1.Visible = True
+        
+        MsgBox "CADASTRO ALTERADO COM SUCESSO!"
+
+End Sub
+
+Private Sub ToggleButton11_Click()
+Frame1.Visible = False
+Frame3.Visible = False
+Frame4.Visible = True
+End Sub
+
+Private Sub ToggleButton13_Click() ' Chama aba de cadastramento
+
+Frame3.Visible = True
+Frame1.Visible = False
+Frame4.Visible = False
+
+End Sub
+
+
+Private Sub ToggleButton3_Click()
+'
+'Cadastro de pacientes
+
+    Sheets("CADASTRO").Select ' Limpa área de cadastro pra se escrver outra
+    Range("B2:C11").Select
+    Selection.ClearContents
+    Range("A1").Select
+    Application.CutCopyMode = False
+   
+
+altura = TextBox3
+peso = TextBox4
+idade = TextBox5
+alturacm = altura * 100
+IMC = peso / (altura * altura)
+Ideal1 = (altura * altura) * 18.5
+Ideal2 = (altura * altura) * 24.9
+
+    If (ComboBox2 = "Sedentário") Then
+        atividade = 1.2
+        If (ComboBox3 = "M") Then
+            SexoM = 66.5 + (13.75 * peso) + (5 * alturacm) - (6.7 * idade)
+            result = SexoM * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoM
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+            
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "M"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoM
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+            
+        End If
+ 
+        If (ComboBox3 = "F") Then
+            SexoF = 655.1 + (9.6 * peso) + (1.85 * alturacm) - (4.7 * idade)
+            result = SexoF * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoF
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+        
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "F"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoF
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+        
+        End If
+    End If
+'------------------------------------------------------
+
+If (ComboBox2 = "Exercícios Leves") Then
+    atividade = 1.375
+        If (ComboBox3 = "M") Then
+            SexoM = 66.5 + (13.75 * peso) + (5 * alturacm) - (6.7 * idade)
+            result = SexoM * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoM
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+            
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "M"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoM
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+            
+        End If
+ 
+        If (ComboBox3 = "F") Then
+            SexoF = 655.1 + (9.6 * peso) + (1.85 * alturacm) - (4.7 * idade)
+            result = SexoF * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoF
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+        
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "F"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoF
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+        
+        End If
+    End If
+
+'------------------------------------------------------
+
+If (ComboBox2 = "Exercícios Moderados") Then
+    atividade = 1.55
+        If (ComboBox3 = "M") Then
+            SexoM = 66.5 + (13.75 * peso) + (5 * alturacm) - (6.7 * idade)
+            result = SexoM * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoM
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+            
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "M"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoM
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+            
+        End If
+ 
+        If (ComboBox3 = "F") Then
+            SexoF = 655.1 + (9.6 * peso) + (1.85 * alturacm) - (4.7 * idade)
+            result = SexoF * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoF
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+        
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "F"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoF
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+        
+        End If
+    End If
+'------------------------------------------------------
+
+If (ComboBox2 = "Exercícios Pesados") Then
+    atividade = 1.725
+        If (ComboBox3 = "M") Then
+            SexoM = 66.5 + (13.75 * peso) + (5 * alturacm) - (6.7 * idade)
+            result = SexoM * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoM
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+            
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "M"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoM
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+            
+        End If
+ 
+        If (ComboBox3 = "F") Then
+            SexoF = 655.1 + (9.6 * peso) + (1.85 * alturacm) - (4.7 * idade)
+            result = SexoF * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoF
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+        
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "F"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoF
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+        
+        End If
+    End If
+  
+'------------------------------------------------------
+
+If (ComboBox2 = "Exercícios muito Pesado") Then
+    atividade = 1.9
+        If (ComboBox3 = "M") Then
+            SexoM = 66.5 + (13.75 * peso) + (5 * alturacm) - (6.7 * idade)
+            result = SexoM * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoM
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+            
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "M"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoM
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+            
+        End If
+ 
+        If (ComboBox3 = "F") Then
+            SexoF = 655.1 + (9.6 * peso) + (1.85 * alturacm) - (4.7 * idade)
+            result = SexoF * atividade
+            id1 = Format(Ideal1, "0.0")
+            id2 = Format(Ideal2, "0.0")
+            
+            Label92.Caption = IMC
+            Label93.Caption = SexoF
+            Label94.Caption = result
+            Label95.Caption = "(" & id1 & " - " & id2 & ")"
+        
+            val_nome = TextBox2
+    
+            Sheets("CADASTRO").Select
+            Range("B2").Select
+            ActiveCell.FormulaR1C1 = val_nome
+            
+            Range("B3").Select
+            ActiveCell.FormulaR1C1 = altura
+            
+            Range("B4").Select
+            ActiveCell.FormulaR1C1 = peso
+            
+            Range("B5").Select
+            ActiveCell.FormulaR1C1 = idade
+            
+            Range("B6").Select
+            ActiveCell.FormulaR1C1 = "F"
+            
+            Range("B7").Select
+            ActiveCell.FormulaR1C1 = "'--"
+            
+            Range("B8").Select
+            ActiveCell.FormulaR1C1 = IMC
+            
+            Range("B9").Select
+            ActiveCell.FormulaR1C1 = SexoF
+            
+            Range("B10").Select
+            ActiveCell.FormulaR1C1 = result
+            
+            Range("B11").Select
+            ActiveCell.FormulaR1C1 = "(" & id1 & " - " & id2 & ")"
+        
+        End If
+    End If
+'------------------------------------------------------
+    Sheets("CADASTRO").Select ' Copia dados para colar em Registro
+    Range("B2:C11").Select
+    Selection.Copy
+
+    Sheets("REGISTRO").Select
+    Range("B1").Select
+    
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+
+    ActiveSheet.Paste
+    
+    Range("A1").Select
+    Application.CutCopyMode = False
+    '-------------------------
+    Sheets("CADASTRO").Select ' Copia nome para CRIAR caixa de selação ComboBox4
+    Range("B2").Select
+    Selection.Copy
+    
+    Range("O1").Select
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+    :=False, Transpose:=False
+ 
+    '-------------------------- Cria seleção
+    ComboBox4.Clear
+    
+    linha = 1
+    Do Until Planilha51.Cells(linha, 15) = ""
+    ComboBox4.AddItem Planilha51.Cells(linha, 15)
+    linha = linha + 1
+    Loop
+    
+    '---------------------------- cadastra nome em alimentos
+    Range("O1").Select
+    
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    ActiveCell.Offset(-1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    nome = Cells(lin, col)
+
+    Sheets("RELATÓRIO").Select
+    Range("R2").Select
+
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(0, 4).Select
+    Loop
+
+    ActiveCell.FormulaR1C1 = nome
+    
+    Range("A1").Select
+    Application.CutCopyMode = False
+
+    MsgBox "CADASTRO REALIZADO COM SUCESSO!"
+    
+End Sub
+Private Sub ToggleButton4_Click() ' Mostra análise Antropométrica
+    
+    Sheets("CADASTRO").Select
+    vetP = TextBox6
+    Range("C2").Select
+    ActiveCell.FormulaR1C1 = vetP
+
+    prot_P = TextBox7
+    Range("C3").Select
+    ActiveCell.FormulaR1C1 = prot_P
+
+    glic_P = TextBox8
+    Range("C4").Select
+    ActiveCell.FormulaR1C1 = glic_P
+
+    lipg_P = TextBox9
+    Range("C5").Select
+    ActiveCell.FormulaR1C1 = lipg_P
+
+    '-------------------------------- grava dadaos em registro
+    Range("C2:C5").Select
+    Selection.Copy
+    
+    cliente = Label99.Caption
+    
+    Sheets("REGISTRO").Select
+    Cells.Find(what:=cliente).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    ActiveCell.Offset(0, 1).Select
+    ActiveSheet.Paste
+     
+    With ThisWorkbook.Worksheets("CADASTRO")
+        Set cons3 = .Range("E1:L11")
+        Me.ListBox3.ColumnCount = cons3.Columns.Count
+        Me.ListBox3.RowSource = cons3.Address(, , , True, cons3.Parent.Range("A1"))
+        'Me.ListBox3.TextAlign = fmTextAlignCenter
+        Me.ListBox3.ColumnWidths = "150;60;50;35;45;30;30;20"
+        Me.ListBox3.Font.Size = 10
+        Me.ListBox3.Font.Name = "Verdana"
+        
+    End With
+    
+    Range("A1").Select
+    
+    TextBox6.Text = ""
+    TextBox7.Text = ""
+    TextBox8.Text = ""
+    TextBox9.Text = ""
+    
+        
+    MsgBox "DADOS CADASTRADOS COM SUCESSO!"
+
+End Sub
+
+Private Sub ToggleButton5_Click() ' Acessar Clientes
+    
+    Application.CutCopyMode = True
+    Sheets("CADASTRO").Select ' Limpa área de cadastro pra se escrver outra
+    Range("B2:C11").Select
+    Selection.ClearContents
+    Range("A1").Select
+    Application.CutCopyMode = False
+    
+    Sheets("RELATÓRIO").Select ' Limpa área de cadastro pra se escrver outra
+    Range("A2:C30").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A1").Select
+    Application.CutCopyMode = False
+
+If (ComboBox4 <> "") Then
+    cliente = ComboBox4
+    Sheets("REGISTRO").Select ' pega informações de registro e joga em cadastro
+    Cells.Find(what:=cliente).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+
+    ActiveSheet.Range(Cells(lin, col), Cells(lin + 9, col + 1)).Select
+    Selection.Copy
+
+    Sheets("CADASTRO").Select
+    Range("B2").Select
+    ActiveSheet.Paste
+    
+    Range("A1").Select
+    Application.CutCopyMode = False
+    '----------------------------------
+    
+    With ThisWorkbook.Worksheets("CADASTRO") ' imprime na tela dadso cliente
+        Set cli = .Range("A1:B12")
+        Me.ListBox4.ColumnCount = cli.Columns.Count
+        Me.ListBox4.RowSource = cli.Address(, , , True, cli.Parent.Range("A1"))
+        'Me.ListBox4.TextAlign = fmTextAlignCenter
+        Me.ListBox4.ColumnWidths = "80;150"
+        Me.ListBox4.Font.Size = 10
+        Me.ListBox4.Font.Name = "Verdana"
+
+
+        'Me.ListBox1.BackColor = 250
+        'Me.ListBox1.ForeColor = 350
+        
+    End With
+    
+    Sheets("RELATÓRIO").Select ' pega informações de registro e joga em cadastro
+    Cells.Find(what:=cliente).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    ActiveCell.Offset(-1, 1).Select
+    
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    ActiveCell.Offset(-1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+
+    quant = lin
+
+    Selection.End(xlUp).Select
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
+    Selection.Copy
+
+    Range("A1").Select
+    ActiveSheet.Paste
+    
+Call Showrelatorio
+End If
+
+    Sheets("DIETA").Select
+    
+    Range("F1").Select
+    Data = Range("F1")
+
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "DATA: " & Data
+
+    Range("G1").Select
+    Data = Range("G1")
+    Label109.Caption = Data
+    Label108.Caption = "NOME: " & cliente
+    
+    Application.CutCopyMode = False
+    Range("H1").Select
+
+    var_global = ComboBox4
+    
+    Label99.Caption = var_global
+    Label98.Caption = var_global
+    Label128.Caption = var_global
+    Label129.Caption = var_global
+    
+    ComboBox4.Clear
+    
+    linha = 1
+    Do Until Planilha51.Cells(linha, 15) = ""
+    ComboBox4.AddItem Planilha51.Cells(linha, 15)
+    linha = linha + 1
+    Loop
+   
+End Sub
+
+Private Sub Showrelatorio()
+
+Sheets("RELATÓRIO").Select
+    Range("A1").Select
+
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    ActiveCell.Offset(-1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+
+    quant = lin
+
+    Selection.End(xlUp).Select
+
+    With ThisWorkbook.Worksheets("RELATÓRIO")
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
+
+        Set ali = .Range(Cells(lin, col), Cells(lin + quant, col + 2))
+        Me.ListBox5.ColumnCount = ali.Columns.Count
+        Me.ListBox5.RowSource = ali.Address(, , , True, ali.Parent.Range("A1"))
+        Me.ListBox5.TextAlign = fmTextAlignCenter
+        Me.ListBox5.ColumnWidths = "35;140;25"
+        Me.ListBox5.Font.Size = 10
+        Me.ListBox5.Font.Name = "Verdana"
+        
+        
+        Set ali2 = .Range(Cells(lin, col), Cells(lin + quant, col + 2))
+        Me.ListBox2.ColumnCount = ali2.Columns.Count
+        Me.ListBox2.RowSource = ali2.Address(, , , True, ali2.Parent.Range("A1"))
+        Me.ListBox2.TextAlign = fmTextAlignCenter
+        Me.ListBox2.ColumnWidths = "35;140;25"
+        Me.ListBox2.Font.Size = 10
+        Me.ListBox2.Font.Name = "Verdana"
+
+    End With
+    
+        With ThisWorkbook.Worksheets("RELATÓRIO")
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        ActiveSheet.Range(Cells(lin, col), Cells(quant, 15)).Select
+
+        Set ali = .Range(Cells(lin, col), Cells(lin + quant, 15))
+        Me.ListBox1.ColumnCount = ali.Columns.Count
+        Me.ListBox1.RowSource = ali.Address(, , , True, ali.Parent.Range("A1"))
+        Me.ListBox1.TextAlign = fmTextAlignCenter
+        Me.ListBox1.ColumnWidths = "40;200;50;50;50;50;50;50;50;50;50;50;50;50;50"
+        Me.ListBox1.Font.Size = 10
+        Me.ListBox1.Font.Name = "Verdana"
+    End With
+    
+    Range("A1").Select
+    Application.CutCopyMode = False
+    
+    ListBox4.Visible = True
+    Label101.Visible = True
+
+End Sub
+
+Private Sub ToggleButton6_Click() ' Chama aba de recadastramento
+
+    Frame1.Visible = True
+    Frame4.Visible = False
+    Frame3.Visible = False
+    
+    MsgBox "Para que o recadastramento ocorra corretamente favor preencher todos dos campos solicitados"
+    
+End Sub
+
+Private Sub ToggleButton7_Click() ' consultar dados
+
+    With ThisWorkbook.Worksheets("CADASTRO")
+
+        Set cons3 = .Range("E1:L11")
+        Me.ListBox3.ColumnCount = cons3.Columns.Count
+        Me.ListBox3.RowSource = cons3.Address(, , , True, cons3.Parent.Range("A1"))
+        'Me.ListBox3.TextAlign = fmTextAlignCenter
+        Me.ListBox3.ColumnWidths = "150;60;50;35;45;30;30;20"
+        Me.ListBox3.Font.Size = 10
+        Me.ListBox3.Font.Name = "Verdana"
+
+    End With
+    
+    cliente = Label99.Caption
+
+    Sheets("RELATÓRIO").Select
+    Cells.Find(what:=cliente).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    ActiveCell.Offset(0, 1).Select
+    
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+    ActiveCell.Offset(-1, 0).Select
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    quant = lin - 1
+    
+    Selection.End(xlUp).Select
+
+    With ThisWorkbook.Worksheets("RELATÓRIO")
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        ActiveSheet.Range(Cells(lin, col), Cells(lin + quant, col + 2)).Select
+
+        Set cons = .Range(Cells(lin, col), Cells(lin + quant, col + 2))
+        Me.ListBox5.ColumnCount = cons.Columns.Count
+        Me.ListBox5.RowSource = cons.Address(, , , True, cons.Parent.Range("A1"))
+        Me.ListBox5.TextAlign = fmTextAlignCenter
+        Me.ListBox5.ColumnWidths = "35;140;25"
+        Me.ListBox5.Font.Size = 10
+        Me.ListBox5.Font.Name = "Verdana"
+        Me.ListBox5.BoundColumn = 10
+
+    End With
+    
+    Range("A1").Select
+    
+    ListBox3.Visible = True
+
+End Sub
+
+Private Sub ToggleButton8_Click() ' cadastro de Alimentos
+
+    Sheets("RELATÓRIO").Select
+    Range("A1").Select
+    
+    Do While ActiveCell <> Empty
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    ActiveCell.Offset(-1, 0).Select
+    
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    quant = lin
+    
+    Range("A1").Select
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
+    Selection.Copy
+    
+    VET = Label98.Caption
+    Sheets("RELATÓRIO").Select
+    
+    Cells.Find(what:=VET).Activate
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin - 1, col + 1).Select
+
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    ActiveCell.Offset(1, 0).Select
+    
+    ' ---------------- ' printa relatórios
+    With ThisWorkbook.Worksheets("RELATÓRIO")
+
+        Range("A1").Select
+        Selection.End(xlDown).Select
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+    
+        linha = lin
+    
+        ActiveSheet.Range(Cells(1, 1), Cells(linha, 3)).Select
+    
+        Set ali = .Range(Cells(1, 1), Cells(linha, 3))
+        Me.ListBox5.ColumnCount = ali.Columns.Count
+        Me.ListBox5.RowSource = ali.Address(, , , True, ali.Parent.Range("A1"))
+        Me.ListBox5.TextAlign = fmTextAlignCenter
+        Me.ListBox5.ColumnWidths = "25;150;25"
+        Me.ListBox5.Font.Size = 10
+        Me.ListBox5.Font.Name = "Verdana"
+        Me.ListBox5.BoundColumn = 10
+    
+    End With
+    
+        With ThisWorkbook.Worksheets("RELATÓRIO")
+
+        Range("A1").Select
+        Selection.End(xlDown).Select
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+    
+        linha = lin
+    
+        ActiveSheet.Range(Cells(1, 1), Cells(linha, 15)).Select
+    
+        Set ali = .Range(Cells(1, 1), Cells(linha, 15))
+        Me.ListBox1.ColumnCount = ali.Columns.Count
+        Me.ListBox1.RowSource = ali.Address(, , , True, ali.Parent.Range("A1"))
+        Me.ListBox1.TextAlign = fmTextAlignCenter
+        Me.ListBox1.ColumnWidths = "50;200;50;50;50;50;50;50;50;50;50;50;50;50;50"
+        Me.ListBox1.Font.Size = 10
+        Me.ListBox1.Font.Name = "Verdana"
+        Me.ListBox1.BoundColumn = 10
+    
+    End With
+    
+    Call ListaAlimentos
+
+End Sub
+
+Private Sub ToggleButton9_Click() ' Limpa campos
+    TextBox2 = ""
+    TextBox3 = ""
+    TextBox4 = ""
+    TextBox5 = ""
+    Label92.Caption = ""
+    Label93.Caption = ""
+    Label94.Caption = ""
+    Label95.Caption = ""
+    
+    Frame4.Visible = True
+    Frame1.Visible = False
+    Frame3.Visible = False
+ 
+End Sub
+
+
+Private Sub UserForm_Initialize()
+
+Frame1.Visible = False
+Frame3.Visible = False
+
+Application.Visible = False
+
+    ComboBox2.AddItem "Sedentário"
+    ComboBox2.AddItem "Exercícios Leves"
+    ComboBox2.AddItem "Exercícios Moderados"
+    ComboBox2.AddItem "Exercícios Pesados"
+    ComboBox2.AddItem "Exercícios muito Pesado"
+    ComboBox2.AddItem ""
+    ComboBox3.AddItem "M"
+    ComboBox3.AddItem "F"
+    ComboBox3.AddItem ""
+
+    linha = 2
+    Do Until Planilha2.Cells(linha, 2) = ""
+    ComboBox1.AddItem Planilha2.Cells(linha, 2)
+    linha = linha + 1
+    Loop
+
+    linha = 1
+    Do Until Planilha51.Cells(linha, 15) = ""
+    ComboBox4.AddItem Planilha51.Cells(linha, 15)
+    linha = linha + 1
+    Loop
+    
+    ComboBox5.AddItem "Sedentário"
+    ComboBox5.AddItem "Exercícios Leves"
+    ComboBox5.AddItem "Exercícios Moderados"
+    ComboBox5.AddItem "Exercícios Pesados"
+    ComboBox5.AddItem "Exercícios muito Pesado"
+    ComboBox5.AddItem ""
+    ComboBox6.AddItem "M"
+    ComboBox6.AddItem "F"
+    ComboBox6.AddItem ""
+
+    ListBox4.Visible = False
+    ListBox3.Visible = False
+
+End Sub
+
+Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
+If CloseMode = vbFormControlMenu Then
+Cancel = True
+End If
+End Sub
+
+
+===================================
+
+
+
+Sub Pesquisar()
+
+Application.ScreenUpdating = False
+   
+Dim arrItem() As String
+Dim dados As String
+
+Sheets("ITENS_RIDA").Select
+
+Columns("D:D").Select
+    Selection.ClearContents
+
+Sheets("PRODUTOS_CC").Select
+
+Columns("M:N").Select
+    Selection.ClearContents
+
+qt = Range("B" & Rows.Count).End(xlUp).Row
+
+Sheets("ITENS_RIDA").Select
+Range("B2").Select
+
+    lin = ActiveCell.Row
+    col = ActiveCell.Column
+    Cells(lin, col).Select
+    
+    dados = Cells(lin, col)
+    
+    arrItem = Split(dados, " ")
+
+    Range("D3").Select
+    
+    For i = 0 To UBound(arrItem)
+        ActiveCell.Offset(1, 0).Select
+        ActiveCell.FormulaR1C1 = arrItem(i)
+
+    Next i
+    
+    Columns("D:D").Select
+    Selection.Replace What:=",", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:=":", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:=")", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:=";", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="(", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="53A-", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+
+    '------------------
+
+    Columns("D:D").Select
+    Selection.FormatConditions.Add Type:=xlTextString, String:="P", _
+        TextOperator:=xlContains
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    With Selection.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+        .Color = 49407
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
+    
+    '------------------
+
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "Lista de Produtos"
+
+    Columns("D:D").Select
+    Selection.AutoFilter
+    
+    ActiveSheet.Range("D:D").AutoFilter Field:=1, Criteria1:=RGB(255, _
+        192, 0), Operator:=xlFilterCellColor
+
+    Columns("D:D").Select
+    Selection.Copy
+    
+    Sheets("PRODUTOS_CC").Select
+    Columns("M").Select
+    ActiveSheet.Paste
+    
+    Sheets("ITENS_RIDA").Select
+    Selection.AutoFilter
+    Range("A1").Select
+    
+   '-----------------
+   Sheets("PRODUTOS_CC").Select
+   
+    Columns("M:M").Select
+    Selection.Replace What:="-A", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="-B", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="-C", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="-D", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Range("A1").Select
+    
+    '--------------------
+Application.ScreenUpdating = True
+
+End Sub
+
+
+Sub verifica()
+
+Sheets("PRODUTOS_CC").Select
+
+    col_qt = Range("M" & Rows.Count).End(xlUp).Row
+    
+    Range("N2").Select
+    ActiveCell.FormulaR1C1 = "=IFERROR(VLOOKUP(RC[-1],C[-12],1,FALSE),""-"")"
+    Range("N2").Select
+    Selection.AutoFill Destination:=Range("N2:N" & col_qt & "")
+    Range("N2:N419").Select
+    Range("P4").Select
+    
+
+
+End Sub
+
+    
+'For A = 1 To qt - 1
+'
+'Next A
+
+
+    
+'For i = 0 To UBound(arrItem)
+'
+'    Debug.Print arrItem(i)
+'
+'    If arrItem(i) = "RM00001" Then
+'        Debug.Print "OK"
+'    End If
+'
+'Next i
+
+
+
+============
+
+
+
+
+Public FSO As New FileSystemObject
+Sub BTO()
+
+Dim SourceXLS, SourcePDF, LL As String
+Dim Wb As Workbook
+Dim Count1, Lin, Col As Integer
+Dim WS_Count As Integer
+Dim i As Integer
+Dim lista As Variant
+
+lista = Array("")
+NOTAS = False
+APPENDIX_1 = False
+APPENDIX_2 = False
+APPENDIX_3 = False
+APPENDIX_4 = False
+APPENDIX_5 = False
+            
+'----------------------------------------------------
+
+LL = Range("A" & Rows.Count).End(xlUp).Row
+
+
+Application.DisplayAlerts = False
+
+            Range("I2").Select
+            Lin = ActiveCell.Row
+            Col = ActiveCell.Column
+            Cells(Lin, Col).Select
+            
+            XX = Cells(Lin, Col)
+            Debug.Print XX
+            path_ = Len(XX)
+            
+            Debug.Print path_
+            
+Col = 1
+
+For Lin = 2 To LL Step 1
+    SourceXLS = Range("I2") & "\" & Cells(Lin, Col).Value
+    SourcePDF = Range("I2") & "\" & Cells(Lin, Col + 2).Value
+    doc_ = Cells(Lin, Col).Value
+    documento_ = Left(doc_, Len(doc_) - 5)
+    xtension = Right(doc_, 4)
+    path_ = Range("I2")
+    
+'    Debug.Print SourceXLS
+'    Debug.Print SourcePDF
+'    Debug.Print doc_
+'    Debug.Print documento_
+'    Debug.Print xtension
+'
+    Set Wb = Workbooks.Open(SourceXLS)
+    
+Debug.Print SourceXLS
+    
+    '----------------------------------------------------
+         WS_Count = ActiveWorkbook.Worksheets.Count
+
+         For i = 1 To WS_Count
+
+            ReDim Preserve lista(i - 1)
+            lista(i - 1) = ActiveWorkbook.Worksheets(i).Name
+
+            Next i
+            
+            cont = 0
+            For A = 0 To UBound(lista)
+                
+                If lista(A) = "APPENDIX_1" Then
+                
+                    APPENDIX_1 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_2" Then
+                
+                    APPENDIX_2 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_3" Then
+                
+                    APPENDIX_3 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_4" Then
+                
+                    APPENDIX_4 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_5" Then
+                
+                    APPENDIX_5 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_5" Then
+                
+                    APPENDIX_5 = True
+                
+                End If
+                
+                If lista(A) = "NOTAS" Then
+                
+                    NOTAS = True
+                
+                End If
+
+                Debug.Print lista(A)
+                cont = cont + 1
+
+            Next A
+    
+   '----------------------------------------------------
+
+    If APPENDIX_1 = True And NOTA = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1")).Select
+    End If
+    
+    If APPENDIX_2 = True And NOTA = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2")).Select
+    End If
+    
+    If APPENDIX_3 = True And NOTA = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3")).Select
+    End If
+
+    If APPENDIX_4 = True And NOTA = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4")).Select
+    End If
+    
+    If APPENDIX_5 = True And NOTA = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4", "APPENDIX_5")).Select
+    End If
+    
+    If APPENDIX_1 = True And NOTA = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1")).Select
+    End If
+    
+    If APPENDIX_2 = True And NOTA = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2")).Select
+    End If
+    
+    If APPENDIX_3 = True And NOTA = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3")).Select
+    End If
+
+    If APPENDIX_4 = True And NOTA = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4")).Select
+    End If
+    
+    If APPENDIX_5 = True And NOTA = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4", "APPENDIX_5")).Select
+    End If
+
+        Sheets("CAPA").Activate
+        ChDir _
+            path_
+            Debug.Print SourcePDF
+        ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+            SourcePDF _
+            , Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+            :=False, OpenAfterPublish:=False
+        Range("A1").Select
+
+        Windows("GerarPDFs_Externo - Impressão.xlsm").Activate
+        
+   
+    Workbooks(Wb.Name).Close
+    
+    NOTAS = False
+    APPENDIX_1 = False
+    APPENDIX_2 = False
+    APPENDIX_3 = False
+    APPENDIX_4 = False
+    APPENDIX_5 = False
+
+Next Lin
+
+Application.DisplayAlerts = True
+
+End Sub
+
+array - listas
+
+Sub bovo()
+
+
+Dim A As Variant, B As Long, i As Long
+A = Array(10, 20, 30)  ' A is a three element list by default indexed 0 to 2
+B = A(2)               ' B is now 30
+ReDim Preserve A(4)    ' Extend A's length to five elements
+A(4) = 40              ' Set the fifth element's value
+For i = LBound(A) To UBound(A)
+    Debug.Print "A(" & i & ") = " & A(i)
+Next i
+
+End Sub
