@@ -1,3 +1,9 @@
+#Jupyter Online
+https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/try.jupyter.org?urlpath=lab
+https://jupyter.org/try 
+
+
+
 #COmandos CMD
 #https://www.lucascaton.com.br/2018/01/07/comandos-para-o-terminal-windows-macos-e-linux/
 
