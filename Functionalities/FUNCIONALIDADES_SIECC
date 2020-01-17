@@ -1,15 +1,5 @@
 FUNCIONALIDADES TESTADAS:
 
-- Emissão 0 de documentos junto com Templates para  o Windchill – OK- (O WD está recebendo os documentos perfeitamente com relações entre eles)
-- Alterações de Templates – OK – (Tanto em Elaboração, como substituição após publicado é possível alterar Templates no Windchill)
-- Conferir se o sistema de envio do SIECC pro Windchill reconhece o subrequest dos templates - OK
-- Ajuste do botão REJEITADO CEDOC. OK
-- Migrar os documentos de referência para a área de homologação  - OK
-- Carregamento de Templates no SIECC (carregar tudo de uma vez, não 1 a 1) - OK
-- Alerta (mecanismo de comparativo entre LIT/DEI) - Ok
-- Corrigir o botão de Emitir par aparecer pros aprovadores. - (Vai funcionar quando for pra produção...)
-
-
 #--------------------------------------------------
 PRÓXIMA ETAPA:
 
