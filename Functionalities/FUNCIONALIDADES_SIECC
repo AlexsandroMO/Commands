@@ -8,12 +8,13 @@ FUNCIONALIDADES TESTADAS:
 - Carregamento de Templates no SIECC (carregar tudo de uma vez, não 1 a 1) - OK
 - Alerta (mecanismo de comparativo entre LIT/DEI) - Ok
 - Corrigir o botão de Emitir par aparecer pros aprovadores. - (Vai funcionar quando for pra produção...)
-- Nome dos arquivos - OK
+
 
 #--------------------------------------------------
 PRÓXIMA ETAPA:
 
 - Testar o comportamento do sistema nas “Revisões” pra garantir que está tudo rodando perfeitamente.
+- Nome dos arquivos - "A forma que o nome dos templates do supote/estrutra entra não tinha funcionado no ultimo teste, testar de novo)
 
 TERCEIRA ETAPA:
 - Por em produção e acompanhar o desempenho do sistema.
