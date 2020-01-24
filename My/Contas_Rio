@@ -5,10 +5,11 @@ Saídas
 Casa: 1000
 Cond: 350
 Luz|Água|Inter: 250+50+120
-Escola: 1500
+Escola: 1350
 Comida: 600
+Passagens: 180
 
-Total: 3450
+Total: 3480
 #--------------------------------
 Entradas
 Salario: 2750 (na mão)
@@ -16,7 +17,7 @@ Aluguel_Terê: 800
 	
 Total: 3550
 #--------------------------------
-Saldo_Final: 100
+Saldo_Final: 70
 
 
 #================================
