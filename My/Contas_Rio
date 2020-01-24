@@ -1,3 +1,6 @@
+#================================
+Contas Rio
+
 Saídas
 Casa: 1000
 Cond: 350
@@ -14,3 +17,19 @@ Aluguel_Terê: 800
 Total: 3550
 #--------------------------------
 Saldo_Final: 100
+
+
+#================================
+Contas Itaguai_Gerais
+
+Casa:	R$350,00
+Luz|Água|Inter:	250+50+120
+Cartão_Santander.:	R$2.200,00
+Cartão_Digio.:	R$300,00
+Contas Itau.:	R$400,00
+Cel_A:	R$60,00
+Cel_K:	R$60,00
+
+Total:	R$3.370,00
+
+Saldo_Final: R$980,00
