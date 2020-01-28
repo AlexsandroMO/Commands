@@ -1,3 +1,9 @@
+
+dir /b /s C:\Users\alex\Downloads > arq.txt
+
+
+
+
 #Jupyter Online
 https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/try.jupyter.org?urlpath=lab
 https://jupyter.org/try 
