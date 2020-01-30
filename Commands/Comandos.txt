@@ -2,6 +2,8 @@
 dir /b /s C:\Users\alex\Downloads > arq.txt
 
 
+#https://jugad2.blogspot.com/2015/11/convert-xlsx-to-pdf-with-python-and.html
+
 
 
 #Jupyter Online
