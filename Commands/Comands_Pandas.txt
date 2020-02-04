@@ -1,0 +1,17 @@
+#https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html
+#https://medium.com/jbennetcodes/how-to-rewrite-your-sql-queries-in-pandas-and-more-149d341fc53e
+
+>> and query pandas
+list_df = df_pxc[(df_pxc['ATR_CC'] == '-') & (df_pxc['ATR_CC_CNX'] == '-')]
+
+
+>> in query pandas
+df_pxc[df_pxc.ATR_IM.isin(['xxxx','xxxxx'])]
+
+
+>> groupby query pandas
+df_pxc.groupby(['ATR_CC', 'ATR_CC_CNX']).count()
+
+>> like query pandas
+df_pxc[df_pxc.ATR_IM.str.contains('FR', case = False)]
+
