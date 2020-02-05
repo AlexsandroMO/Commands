@@ -15,7 +15,8 @@ df_pxc.groupby(['ATR_CC', 'ATR_CC_CNX']).count()
 >> like query pandas
 df_pxc[df_pxc.ATR_IM.str.contains('FR', case = False)]
 
-
+>> orde by pandas
+.sort_values(by=['col'])
 
 #==================================
 
