@@ -31,7 +31,8 @@ df_pxc[df_pxc.ATR_IM.str.contains('FR', case = False)]
 # new_df['Valor Empenhado (R$)'].astype('float') italicized text
 ```
 
-
+Duplicatas:
+df['STATUS'].drop_duplicates()
 
 =====================
 
@@ -94,7 +95,6 @@ new
 #### Muda valores de umacoluna
 
 new_df = df['Atrito'].replace(['Yes', 'No'], [0, 1])
-
 
 
 #### Mudar uma coluna baseada em outra
