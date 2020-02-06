@@ -17,6 +17,7 @@ df_pxc[df_pxc.ATR_IM.str.contains('FR', case = False)]
 
 >> orde by pandas
 .sort_values(by=['col'])
+.sort_values(by=['col'], ascending=False)
 
 #==================================
 
