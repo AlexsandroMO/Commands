@@ -23,3 +23,7 @@ where coluna in ('item1','item2')
 SELECT * FROM (SELECT COL1, COUNT(*) QT FROM TABLEX
 GROUP BY COL1)
 WHERE QT > 4
+
+--Valores únicos
+SELECT DISTINCT, COL1 FROM TABLEX
+
