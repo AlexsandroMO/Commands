@@ -1,3 +1,4 @@
+Contando só seu salário
 #================================
 Contas Rio
 
@@ -5,32 +6,107 @@ Saídas
 Casa: 1000
 Cond: 350
 Luz|Água|Inter: 250+50+120
-Escola: 1350
+Escola: Pública
+Alguém pra Cuidar: 800
 Comida: 600
-Passagens: 180
+Passagens: 180 (se precisar)
 
-Total: 3480
+Total: R$3.350,00
 #--------------------------------
 Entradas
 Salario: 2750 (na mão)
 Aluguel_Terê: 800
 	
-Total: 3550
+Total: R$3.550,00
 #--------------------------------
-Saldo_Final: 70
+Saldo_Final_Sobra: R$200,00 (Se é que sobra)
+
+
+
+
+
 
 
 #================================
-Contas Itaguai_Gerais
+Contas Teresópolis
+12/36
+Passagens: R$1.200,00
+Van Vitor: R$250,00
 
-Casa:	R$350,00
-Luz|Água|Inter:	250+50+120
+Total:	R$1.450,00
+#--------------------------------
+Entradas
+Salario: 2750 (na mão)
+Aluguel_Terê: Não conta
+
+Total: 2750
+
+Saldo_Final_Sobra: R$1.300,00 (pode não ser tudo isso mais que sobra uns 100 sobra)
+
+
+
+
+
+Contando os 2 salários
+#================================
+Contas Rio | Morando todos no Rio
+
+Saídas
+Casa: 1000
+Cond: 350
+Luz|Água|Inter: 250+50+120
+Escola: Pública
+Alguém pra Cuidar: 800
+Comida: 350 + Cartão de commida que tenho
+Passagens: 180 (se presisar)
 Cartão_Santander.:	R$2.200,00
 Cartão_Digio.:	R$300,00
 Contas Itau.:	R$400,00
 Cel_A:	R$60,00
 Cel_K:	R$60,00
 
-Total:	R$3.370,00
+Total:	R$6.370,00
 
-Saldo_Final: R$980,00
+#--------------------------------
+Entradas
+Salario Keila: R$2.750,00 (na mão)
+Salário Sandro: R$4.450,00
+Aluguel_Terê: R$800,00
+
+Total: R$8.000,00
+
+Saldo_Final_Sobra: R$1.630,00 (Se é que sobra, mais uns 1000 sobra)
+
+
+
+
+
+
+#================================
+Contas Itaguai_Gerais | Morando todos aqui
+
+Casa: 350
+Luz|Água|Inter: 250+50+120
+Escola: Pública
+Alguém pra Cuidar: 800
+Comida: 350 + Cartão de commida que tenho
+Passagens: 350 (se presisar)
+Cartão_Santander.:	R$2.200,00
+Cartão_Digio.:	R$300,00
+Contas Itau.:	R$400,00
+Cel_A:	R$60,00
+Cel_K:	R$60,00
+
+
+Total: R$5.290,00
+#--------------------------------
+Entradas
+Salario Keila: R$2.750,00 (na mão)
+Salário Sandro: R$4.450,00
+Aluguel_Terê: R$800,00
+
+Total: R$8.000,00
+
+Saldo_Final_Sobra: R$2.710,00
+
+Saldo_Final_Sobra: R$1.900,00 (Se é que sobra, mas uns 1300 sobra)
