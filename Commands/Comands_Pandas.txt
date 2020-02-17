@@ -19,6 +19,18 @@ df_pxc[df_pxc.ATR_IM.str.contains('FR', case = False)]
 .sort_values(by=['col'])
 .sort_values(by=['col'], ascending=False)
 
+#unico
+def remove_repetidos(lista):
+    l = []
+    for i in lista:
+        if i not in l:
+            l.append(i)
+    l.sort()
+    return l
+
+nota_lista = remove_repetidos(lista)
+
+
 #==================================
 
 ####https://www.vooo.pro/insights/guia-para-iniciantes-de-web-scraping-em-python-usando-beautifulsoup/
