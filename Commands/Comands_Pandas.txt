@@ -31,6 +31,27 @@ def remove_repetidos(lista):
 nota_lista = remove_repetidos(lista)
 
 
+#Position
+from collections import defaultdict
+
+# Define a lista de volares:
+
+# Define o objeto que armazenará os índices de cada elemento:
+keys = defaultdict(list);
+
+# Percorre todos os elementos da lista:
+for key, value in enumerate(new):
+
+    # Adiciona o índice do valor na lista de índices:
+    keys[value].append(key)
+
+# Exibe o resultado:
+for value in keys:
+    if len(keys[value]) > 1:
+        print(value, keys[value])
+        
+        
+
 #==================================
 
 ####https://www.vooo.pro/insights/guia-para-iniciantes-de-web-scraping-em-python-usando-beautifulsoup/
