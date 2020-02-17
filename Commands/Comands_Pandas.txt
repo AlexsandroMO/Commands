@@ -19,6 +19,20 @@ df_pxc[df_pxc.ATR_IM.str.contains('FR', case = False)]
 .sort_values(by=['col'])
 .sort_values(by=['col'], ascending=False)
 
+
+#procv - pandas
+
+for a in df.index:
+    #print(df[col'].loc[a])
+    for b in df2.index:
+        if df['col'].loc[a] == df2['col'].loc[b]:
+            df2['result'].loc[b] = 'OK'
+
+
+
+
+
+
 #unico
 def remove_repetidos(lista):
     l = []
