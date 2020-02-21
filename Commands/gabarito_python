@@ -1,0 +1,116 @@
+#Exercícios Python
+
+Condicioanis
+
+1. Cire um programa que seja seja capaz de comprimentar as pessoas de acorodo com o gênero indicado. O usuário entra com o nome e o sexo.
+    - Se for masculino: olá senhor fulano.
+    - Se for feminino: olá senhora fulana.
+
+2. Faça um Programa que pergunte em que turno você estuda. Peça para digitar M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+
+3. Crie um programa onde uma variável irá armazenar uma senha fixa. O Usuário vai entrar com um código, se a senha digitada for igual a senha fixa, ecrevar uma mensagem de autorização, se não, negue o acesso do usuário.
+
+4. Crie um programa que seja capaz de reconhece se o número digitado é Par ou Impar
+    
+5. As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contrataram para desenvolver o programa que calculará os reajustes.
+Faça um programa que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:
+
+    salários até R$ 280,00: aumento de 20%
+    salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
+    salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
+    salários de R$ 1500,00 em diante : aumento de 5%
+        
+    Após o aumento ser realizado, informe na tela:
+        
+    o salário antes do reajuste;
+    o percentual de aumento aplicado;
+    o valor do aumento;
+    o novo salário, após o aumento.
+    
+    
+#==============================================================  
+# 1.
+name = input('Nome: ')
+gener = input('Gênero: ')
+
+if gener == 'masculino':
+    print('Olá Senhor {}'.format(name))
+elif gener == 'feminino':
+    print('Olá Senhora {}'.format(name))
+else:
+    print('Desculpa, não foi possível identificar seu gênero' )
+    
+#------------------------------------------------------------------------------ 
+# 2.
+
+turno = input('Digite M-matutino ou V-Vespertino ou N- Noturno: ')
+
+if turno == 'M':
+    print('Bom dia!')
+elif turno == 'V':
+    print('Boa Tarde!')
+elif turno == 'N':
+    print('Boa Noite!')
+else:
+    print('Valor Inválido!')
+    
+#------------------------------------------------------------------------------    
+3. 
+
+senha_fixa = '45621'
+senha = input('Digite a senha: ')
+
+if senha == senha_fixa:
+    print('Acesso Permitido!')
+else:
+    print('Acesso negado!')
+    
+    
+#------------------------------------------------------------------------------  
+# 4.
+
+num = float(input('Digite um número: '))
+
+if (num % 2) == 0:
+    print('Número Par')
+else:
+    print('Número Impar')
+    
+#------------------------------------------------------------------------------     
+#5.
+
+salario = float(input('Digite seu salário'))
+percentual = 0
+valor_aumento = 0
+aumento = 0
+
+if salario <= 280:
+    percentual = 20
+    valor_aumento = (salario * percentual) / 100
+    aumento = valor_aumento + salario
+    
+elif salario > 280 and salario <= 700:
+    percentual = 15
+    valor_aumento = (salario * percentual) / 100
+    aumento = valor_aumento + salario    
+    
+elif salario > 700 and salario <= 1500:
+    percentual = 10
+    valor_aumento = (salario * percentual) / 100
+    aumento = valor_aumento + salario  
+    
+elif salario > 1500:
+    percentual = 5
+    valor_aumento = (salario * percentual) / 100
+    aumento = valor_aumento + salario
+    
+else:
+    print('Problemas nos valores digitados. favor reavaliar..')
+    
+    
+print('RESULTADO PARA PESQUISA REALIZADA\n\n')  
+print('Salário antes do reajuste: {}'.format(salario))
+print('Percentual de aumento aplicado: {}%'.format(percentual))
+print('Valor do aumento: {}'.format(valor_aumento))
+print('Novo salário, após o aumento: {}'.format(aumento))
+
