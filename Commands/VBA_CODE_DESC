@@ -1,0 +1,26 @@
+'Algumas aplicações em VBA
+
+Sub testes()
+
+Sub = Comando para abrir uma função
+
+    Windows("New (1).xlsx").Activate
+    Sheets("TESTE").Select
+    
+    Range("D1").Select
+    
+    cont = Range("D" & Rows.Count).End(xlUp).Row
+    
+    For i = 0 To cont - 1
+        Windows("New (1).xlsx").Activate
+        Sheets("TESTE").Select
+    
+        ActiveCell.Offset(1, 0).Select
+        
+        lin = ActiveCell.Row
+        col = ActiveCell.Column
+        Cells(lin, col).Select
+        
+        Var = Cells(lin, col)
+        
+        ActiveCell.Offset(0, 1).Select
