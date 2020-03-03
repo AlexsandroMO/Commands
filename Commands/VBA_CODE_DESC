@@ -1,26 +1,35 @@
-'Algumas aplicações em VBA
 
-Sub testes()
+#Algumas aplicações em VBA
 
-Sub = Comando para abrir uma função
+'Sub nome()'
+	- Sub = Comando para abrir uma função
+	- nome = Nome da função
+	
+'end sub' = Fecha a função
+	
+'Windows("arq.xlsx").Activate'
+	- Windows() = Chama o arquivo que deseja abrir
+	- arq.xlsx = Nome do arquivo (Nome do arquivo fica sempre entre "" porque se trata de uma string)
+	- .Activate = Abre o arquivo
 
-    Windows("New (1).xlsx").Activate
-    Sheets("TESTE").Select
+'Sheets("aba").Select'
+	- Sheets() = Chama a aba que deseja abrir
+	- aba = Nome da aba (Nome da aba fica sempre entre "" porque se trata de uma string)
+	- .Select = Seleciona a aba
     
-    Range("D1").Select
-    
-    cont = Range("D" & Rows.Count).End(xlUp).Row
-    
-    For i = 0 To cont - 1
-        Windows("New (1).xlsx").Activate
-        Sheets("TESTE").Select
-    
-        ActiveCell.Offset(1, 0).Select
-        
-        lin = ActiveCell.Row
-        col = ActiveCell.Column
-        Cells(lin, col).Select
-        
-        Var = Cells(lin, col)
-        
-        ActiveCell.Offset(0, 1).Select
+'Range("A1").Select'
+    - Range() = Função de delimita a célula que se pretende selecionar
+	- A1 = Coluna e linha que corresponde a célula desejada ('A' = Coluna | '1' = Linha)
+	- .Select = Seleciona a célula
+	
+'ActiveCell.Offset(1, 0).Select'
+    - ActiveCell = Ativa a função para seleção de cálula
+	- Offset() = Determinar qual o range entre celulas será delimitado
+	- 1,0 = Posicionamento de célula (1 = posição da linha | 0 = posição da coluna >> Tudo em relação a posição atual da célula pre-selecionada, ou seja, não importa a célua que você está, conforme aumente essa numeração, mais posições, tanto na linha como coluna, serão saltadas.)
+	- .Select = Seleciona a célula
+
+	
+#Declaração de variáveis
+
+'variáveis'
+	- Variáveis são espaços reservados na memória (RAN) do programa para se guardar informações. (Ou seja na memória RAM as informações guardadas nessas variáveis após acaba a intrução do programa ela se perde. Os valores armazenados nessa memória só poderão ser acessados durante o programa. Acabando a instrução ou reeniciando a planilha, esses dados se perdem)
