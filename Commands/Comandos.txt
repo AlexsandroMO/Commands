@@ -1,7 +1,7 @@
 https://www.escol.as/179887-escola-municipal-educandario-romao-de-mattos-duarte
 
 
-dir /b /s C:\Users\alex\Downloads > arq.txt
+dir /b /s >>arq.txt
 
 
 #https://jugad2.blogspot.com/2015/11/convert-xlsx-to-pdf-with-python-and.html
