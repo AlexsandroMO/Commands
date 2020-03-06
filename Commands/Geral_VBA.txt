@@ -56,12 +56,85 @@ Sub testes()
 
 End Sub
 
+===================================
+'rida/rai/pr
+Sub rai()
+
+Application.ScreenUpdating = False
+
+Dim arrItem() As String
+Dim newArrItem() As String
+Dim dados As String
 
 
+Sheets("Trata").Select
+    Range("B6").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    
+    Range("D2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
 
+Range("B2").Select
 
+lin = ActiveCell.Row
+col = ActiveCell.Column
+Cells(lin, col).Select
 
+dados = Cells(lin, col)
 
+arrItem = Split(dados, " ")
+ActiveCell.Offset(4, 0).Select
+newArrItem = Split(dados, " ")
+
+For i = 0 To UBound(arrItem)
+
+    ActiveCell.FormulaR1C1 = arrItem(i)
+    ActiveCell.Offset(1, 0).Select
+    
+    teste1 = Left(arrItem(i), 1)
+    teste2 = Left(arrItem(i), 2)
+    teste3 = Left(arrItem(i), 3)
+    teste4 = Left(arrItem(i), 4)
+    
+    If teste1 = "P" Then
+        ActiveCell.Offset(0, 2).Select
+        ActiveCell.FormulaR1C1 = arrItem(i)
+        ActiveCell.Offset(0, -2).Select
+        
+    ElseIf teste3 = "(P" Then
+        ActiveCell.Offset(0, 2).Select
+        ActiveCell.FormulaR1C1 = arrItem(i)
+        ActiveCell.Offset(0, -2).Select
+
+    ElseIf teste3 = "CTE" Then
+        ActiveCell.Offset(0, 2).Select
+        ActiveCell.FormulaR1C1 = arrItem(i)
+        ActiveCell.Offset(0, -2).Select
+        
+    ElseIf teste3 = "SMB" Then
+        ActiveCell.Offset(0, 2).Select
+        ActiveCell.FormulaR1C1 = arrItem(i)
+        ActiveCell.Offset(0, -2).Select
+        
+    ElseIf teste4 = "(CTE" Then
+        ActiveCell.Offset(0, 2).Select
+        ActiveCell.FormulaR1C1 = arrItem(i)
+        ActiveCell.Offset(0, -2).Select
+          
+    End If
+    
+Next i
+
+cont = Range("B" & Rows.Count).End(xlUp).Row
+
+    ActiveSheet.Range("$D$1:$D$" & cont & "").RemoveDuplicates Columns:=1, Header:=xlNo
+    Range("B2").Select
+
+Application.ScreenUpdating = True
+
+End Sub
 
 
 ========================
