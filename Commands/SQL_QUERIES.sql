@@ -1,4 +1,6 @@
-cadernodb 
+http://pythonclub.com.br/guia-rapido-comandos-sqlite3.html
+https://www.w3schools.com/sql/sql_alter.asp
+
 
 -- Queries SQL
 ---------------------------------------------------------------------
