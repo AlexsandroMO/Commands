@@ -3,6 +3,48 @@ Fones
 
 
 
+Sub AcssoSites()
+    Dim ie As InternetExplorer
+    Dim C
+    Dim UIdent As Boolean, ieForm
+    Dim MyIdent As String
+redo:
+    MyIdent = Application.InputBox("Por Favor entre com o código identificador", "2º VIA COPASA", Default:="123456789", Type:=2)
+    
+    If MyIdent = "" Then GoTo redo
+    Set ie = New InternetExplorer
+    ie.Visible = True
+    'ie.navigate "http://www2.copasa.com.br/servicos/2avia2/msginicial.asp"
+    'ie.navigate "http://udc0-sis02:8080/CadernoDeConstrucao/jsf/operacional/caderno/configurarCadernos.xhtml"
+    'ie.navigate "http://udc0-sis04/CadernoDeConstrucao/login/login.xhtml"
+    ie.navigate "http://udc0-sis02:8080/CadernoDeConstrucao/login/login.xhtml"
+    
+
+    Do Until ie.readyState = READYSTATE_COMPLETE
+    Loop
+ 
+    ie.Document.all("form_:usuario:inp_usuario_txt").innerText = "alexsandro.oliveira"
+    ie.Document.all("form_:senha:inp_senha").innerText = MyIdent
+    'ie.Document.all("visor").innerText = MyIdent
+    'obtém o forma a qual o código identiicador pertence para submetê-lo
+    ie.Document.all("form_:btn_login").form.all("form_:btn_login").Click
+ 
+    'If UIdent = False Then MsgBox "Código Encontrado"
+    
+    ie.navigate "http://udc0-sis02:8080/CadernoDeConstrucao/jsf/operacional/caderno/configurarCadernos.xhtml"
+    
+    Do Until ie.readyState = READYSTATE_COMPLETE
+    Loop
+
+    ie.Document.all("form_:j_idt74").form.all("form_:j_idt74").Click
+
+    Set ie = Nothing
+ 
+End Sub
+
+
+'=======================================================
+
 Sub AcessoWeb()
     Dim ie As InternetExplorer
     Dim C
