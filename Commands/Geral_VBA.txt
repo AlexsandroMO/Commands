@@ -3,6 +3,24 @@ Fones
 
 
 
+
+
+Sub lerabas()
+
+WS_Count = ActiveWorkbook.Worksheets.Count
+
+    For i = 1 To WS_Count
+    
+        Debug.Print ActiveWorkbook.Worksheets(i).Name
+    
+    Next i
+
+
+End Sub
+
+
+'---------------------------------------------------
+
 Sub AcssoSites()
     Dim ie As InternetExplorer
     Dim C
