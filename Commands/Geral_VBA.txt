@@ -2,6 +2,8 @@ https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
 
+
+
 Sub ExtractLastValue()
 
 Set objIE = CreateObject("InternetExplorer.Application")
@@ -13,7 +15,7 @@ objIE.Height = 600
 
 objIE.Visible = True
 
-objIE.Navigate ("https://uk.investing.com/rates-bonds/financial-futures/")
+objIE.navigate ("https://uk.investing.com/rates-bonds/financial-futures/")
 
 Do
 DoEvents
@@ -22,6 +24,49 @@ Loop Until objIE.readystate = 4
 MsgBox objIE.document.getElementsByClassName("pid-8907-last")(0).innerText
 
 End Sub
+
+
+Sub get_data_web()
+
+Dim appIE As Object
+Set appIE = CreateObject("internetexplorer.application")
+
+With appIE
+    .navigate "https://finance.yahoo.com/quote/NQ%3DF/futures?p=NQ%3DF"
+    .Visible = True
+End With
+
+Do While appIE.Busy
+    DoEvents
+Loop
+
+Set allRowofData = appIE.document.getElementsByClassName("Ta(end) BdT Bdc($c-fuji-grey-c) H(36px)")
+
+Dim i As Long
+Dim myValue As String
+
+Count = 1
+
+    For Each itm In allRowofData
+
+        For i = 0 To 4
+
+        myValue = itm.Cells(i).innerText
+        ActiveSheet.Cells(Count, i + 1).Value = myValue
+
+        Next
+
+        Count = Count + 1
+
+    Next
+
+appIE.Quit
+Set appIE = Nothing
+
+
+End Sub
+
+
 
 
 #=======================
