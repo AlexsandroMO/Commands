@@ -2,6 +2,8 @@ https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
 
+C:\User\Desktop\ dir /b /o /s /w >>nome_arquivo.txt
+
 
 
 Sub ExtractLastValue()
@@ -367,12 +369,6 @@ C:\Users\00400889
 C:\User\ cd Desktop
 
 ==========================
-C:\User\Desktop\ dir /b /o /s /w >>nome_arquivo.txt
-
-W:\DIN\GD\INT\02_INTERNO\alexsandro.oliveira
-
-================
-
 
 
 for c in LMA_Construction['Number(Item).1']:
