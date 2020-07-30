@@ -151,11 +151,14 @@ Sub procv()
 cont = Range("A" & Rows.Count).End(xlUp).Row
 
 For a = 1 To cont
-
-Range("B" & a & "") = Application.VLookup(Range("A" & a & ""), Sheets("Planilha2").Range("A1:A24"), 1, 0)
-
+    Range("B" & a & "") = Application.VLookup(Range("A" & a & ""), Sheets("Planilha2").Range("A1:A24"), 1, 0)
+    test = Range("B" & a & "").Value
+    
+    If VarType(test) <> 10 Then '10 = Erro | 8 = válido
+        Range("C" & a & "") = "ok"
+    End If
+    
 Next a
-
 
 End Sub
 #=======================
