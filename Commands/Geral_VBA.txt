@@ -146,6 +146,19 @@ Sub lsDesligarTelaCheia()
 End Sub
 
 #=======================
+Sub procv()
+
+cont = Range("A" & Rows.Count).End(xlUp).Row
+
+For a = 1 To cont
+
+Range("C" & a & "") = Application.VLookup(Range("A" & a & ""), Range("B1:B24"), 1, 0)
+
+Next a
+
+
+End Sub
+#=======================
 
 Sub lerabas()
 
