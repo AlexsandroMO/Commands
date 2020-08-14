@@ -22,6 +22,8 @@ https://www.escol.as/179887-escola-municipal-educandario-romao-de-mattos-duarte
 
 
 dir /b /s >>arq.txt
+ren arquivo novoarwquivo
+
 
 
 #https://jugad2.blogspot.com/2015/11/convert-xlsx-to-pdf-with-python-and.html
