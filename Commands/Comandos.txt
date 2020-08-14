@@ -1,3 +1,97 @@
+
+#COmandos CMD
+#https://www.lucascaton.com.br/2018/01/07/comandos-para-o-terminal-windows-macos-e-linux/
+
+dir /b /s >>arq.txt
+ren arquivo novoarwquivo
+
+Prograação .BAT
+https://www.youtube.com/watch?v=srP7Y3OGjtU
+
+
+ECHO - escreve uma informação na tela
+@ECHO OFF - desliga as mensagens nativas do prompt
+@ECHO ON - mostra informações e mensagens nativas do prompt
+ECHO. - deixa uma linha em branco
+@ECHO - oculta o prompt durante toda execução
+SET - cria uma variável
+CLS - limpa a tela
+IF e ELSE - estruturas condicionais
+EXIST - verifica se algo existe, uma variável por exemplo
+GOTO - vai para um determinado ponto do arquivo
+:NOME - ponto de parada que pode ser chamado através do GOTO NOME
+FOR - estrutura de repetição
+PAUSE - faz uma pausa na execução do arquivo
+comando > NUL - oculta a mensagem de uma linha ou comando
+MSG * - mostra um balão de aviso na tela
+REM - usado para fazer comentários que não serão interpretados pelo prompt
+START - inicializa um aplicativo
+CALL "%variavel%" - abre um arquivo/programa com espaços no nome
+IF NOT DEFINED "%variavel%" GOTO comando - se a variável não estiver definida vai para uma seção específica do arquivo
+
+Outros:
+CLS -> Limpa a tela
+echo. -> Deixa uma linha em branco
+
+calc -> Abrr calculadora
+
+
+Variáveis do sistema
+Dica: para saber o que cada uma dessas variáveis retorna use o comando ECHO seguido pelo nome da variável, assim o valor será mostrado na tela.
+
+%username% - nome da conta do usuário logado
+%userprofile% - pasta do perfil do usuário
+%temp% - pasta temporária
+%windir% - pasta de instalação do Windows
+%systemroot% - pasta raiz do sistema
+%time% - hora do sistema
+%date% - data do sistema
+%homedrive% - letra do drive com o diretório de usuários
+%userdomain% - nome do domínio
+%systemdrive% - letra do drive onde o sistema está instalado
+%cd% - retorna o caminho do .bat
+
+
+
+EXercícios:
+
+@echo off
+cls
+echo.
+echo.
+echo Digite o número da opção desejada
+echo [1] Ativar o usuário Admin
+echo [2] Desativar o usuário Admin
+echo [3] Sair
+
+set /p opcao=Digite a opção desejada:
+
+if "%opcao%" == "1" goto op1
+if "%opcao%" == "2" goto op2
+if "%opcao%" == "3" goto op3
+
+:op1
+net user administrador /active:yes > nul
+goto fim
+
+:op2
+net user administrador /active:no > nul
+goto fim
+
+:op13
+exit
+:fim
+
+echo.
+echo Operação realizada!
+echo.
+echo Pressione qulaquer tecla pra encerrar
+pause > nul
+
+
+
+
+
 #Sistemas de atracação
 
 https://dtrtecnologia.com.br/sistema-de-auxilio-a-atracacao-de-navios/
@@ -21,8 +115,7 @@ http://www.ni.com/data-acquisition/pt/?cid=Paid_Search-a240Z0000045OsoQAE-Consid
 https://www.escol.as/179887-escola-municipal-educandario-romao-de-mattos-duarte
 
 
-dir /b /s >>arq.txt
-ren arquivo novoarwquivo
+
 
 
 
@@ -36,8 +129,7 @@ https://jupyter.org/try
 
 
 
-#COmandos CMD
-#https://www.lucascaton.com.br/2018/01/07/comandos-para-o-terminal-windows-macos-e-linux/
+
 
 
 
