@@ -7,6 +7,13 @@ ren arquivo novoarwquivo
 
 Prograação .BAT
 https://www.youtube.com/watch?v=srP7Y3OGjtU
+https://goscripts.blogspot.com/2016/05/comando-for-para-pegar-texto-de-um.html
+
+http://cafeinacodificada.com.br/wp-content/uploads/2015/12/Comandos-do-DOS-bat.pdf
+
+https://www.youtube.com/watch?v=djyj6TAUosI
+estudar esse
+
 
 
 ECHO - escreve uma informação na tela
@@ -31,9 +38,9 @@ IF NOT DEFINED "%variavel%" GOTO comando - se a variável não estiver definida 
 
 Outros:
 CLS -> Limpa a tela
-echo. -> Deixa uma linha em branco
-
 calc -> Abrr calculadora
+start www.google.com.br -> Abre uma página
+start excel.exe -> Abre um programa
 
 
 Variáveis do sistema
@@ -51,6 +58,8 @@ Dica: para saber o que cada uma dessas variáveis retorna use o comando ECHO seg
 %systemdrive% - letra do drive onde o sistema está instalado
 %cd% - retorna o caminho do .bat
 
+
+https://www.youtube.com/watch?v=yme2EJ7qXPM&list=PLb0Py0TLymHYgC8AlqqOLGi8kB49nTBjB&index=3
 
 
 EXercícios:
@@ -90,6 +99,104 @@ pause > nul
 
 
 
+@echo offren
+Title:        Programa de Backup Versao 1.0
+echo          FAZENDO BACKUP DE ARQUIVOS
+XCOPY C:\Users\Alexsandro\Downloads\*.* F:\Backup\ /D /E /Y /C /K 
+echo          FIM DO BACKUP
+ECHO.
+ECHO.
+PAUSE
+
+
+#For in BAT
+@echo off
+for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\arq.txt) do echo %%a
+pause
+
+
+
+@quase lá
+@echo off
+cls
+color A
+cls
+echo RODANDO...
+echo %date% %time% 
+echo.
+echo.
+
+for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\oldname.txt) do echo %%a
+echo.
+echo.
+for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\newname.txt) do echo %%b
+
+REM echo "escritura no fim do arquivo ">> oldname.txt
+
+echo.
+echo.
+echo Mal feito, feito!
+echo.
+echo.
+pause
+
+
+
+
+
+>>pergunta.bat
+
+echo Qual seu nome?
+
+call resposta.bat
+
+echo Bom dia %nome%!!!
+
+>>resposta.bat
+
+set nome="Nome do Cara"
+
+
+
+C:\>set /p var=<arquivo.txt
+
+C:\>echo %var%
+
+linha01
+
+C:\>
+
+
+
+
+
+
+@echo off
+
+for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\arq.txt) do (
+set var=%%a
+
+goto :exitfor )
+
+:exitfor
+echo %var%
+
+
+pause
+
+
+
+
+
+
+
+
+
+
+
+
+
+#===============================
 
 
 #Sistemas de atracação
