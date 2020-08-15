@@ -109,6 +109,57 @@ ECHO.
 PAUSE
 
 
+
+@echo off
+Title:        Programa de Backup Versao 1.0
+echo          FAZENDO BACKUP DE ARQUIVOS
+XCOPY C:\Users\Alexsandro\Downloads\*.* F:\Backup\ /D /E /Y /C /K 
+echo          FIM DO BACKUP
+ECHO.
+ECHO.
+PAUSE
+
+#Agora foi
+
+@echo off
+cls
+color 8
+cls
+echo RODANDO...
+echo %date% %time% 
+echo.
+echo.
+
+mkdir Renomeados
+
+REM for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do echo %%a
+for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do copy %%b
+
+
+echo.
+echo.
+echo Mal feito, feito!
+echo.
+echo.
+pause
+
+
+
+
+#--------------command move
+@echo off
+Title:        Programa de Backup Versao 1.0
+echo          FAZENDO BACKUP DE ARQUIVOS
+
+move C:\Users\Alexsandro\Downloads\*.pdf* F:\Backup\
+
+echo          FIM DO BACKUP
+ECHO.
+ECHO.
+PAUSE
+
+
+
 #For in BAT
 @echo off
 for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\arq.txt) do echo %%a
@@ -152,7 +203,8 @@ echo %date% %time%
 echo.
 echo.
 
-for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\oldname.txt) do set var1=%%a
+for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\oldname.txt) do 
+var1=%%a
 
 for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\newname.txt) do set var2=%%b
 
