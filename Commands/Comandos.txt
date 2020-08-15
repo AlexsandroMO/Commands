@@ -116,7 +116,8 @@ pause
 
 
 
-@quase lá
+#---------------- quase lá
+
 @echo off
 cls
 color A
@@ -139,6 +140,40 @@ echo Mal feito, feito!
 echo.
 echo.
 pause
+
+#----mais perto:
+
+@echo off
+cls
+color A
+cls
+echo RODANDO...
+echo %date% %time% 
+echo.
+echo.
+
+for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\oldname.txt) do set var1=%%a
+
+for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\newname.txt) do set var2=%%b
+
+echo %var1%, %var2%
+
+echo.
+echo.
+
+
+REm for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\newname.txt) do echo %%b
+REM echo "escritura no fim do arquivo ">> oldname.txt
+
+echo.
+echo.
+echo Mal feito, feito!
+echo.
+echo.
+pause
+
+
+
 
 
 
