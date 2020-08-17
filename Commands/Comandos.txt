@@ -133,11 +133,107 @@ echo.
 echo.
 pause
 
-#----------------------------------------------------
+#--------------------------VBA CODE--------------------------
+
+Sub rotina()
+
+Application.ScreenUpdating = False
+
+    Sheets("rename").Select
+    Rows("2:2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A2").Select
+    '----------------------
+    
+    Windows("arq.csv").Activate
+    
+    texto = Range("A1").Value
+    Path = Left(texto, Len(texto) - 7)
+    Debug.Print Path
+    
+    Windows("RenameCTE.xlsm").Activate
+    Sheets("rename").Select
+    Range("D1") = Path
+
+    Windows("arq.csv").Activate
+    cont = Range("A" & Rows.Count).End(xlUp).Row
+
+    For i = 1 To cont - 2
+        Windows("arq.csv").Activate
+        Sheets("arq").Select
+        'Debug.Print i
+        Var = Range("A" & i & "").Value
+        If i > 1 And i < cont - 2 Then
+            Windows("RenameCTE.xlsm").Activate
+            Sheets("rename").Select
+            Range("A" & i & "") = Var
+        End If
+    Next i
+    
+    Windows("RenameCTE.xlsm").Activate
+    Sheets("rename").Select
+    
+    contLine = Range("A" & Rows.Count).End(xlUp).Row
+    
+    Range("B2").Select
+    ActiveCell.FormulaR1C1 = "=MID(RC[-1],SEARCH(""CT"",RC[-1])+0,11)"
+    Selection.AutoFill Destination:=Range("B2:B" & contLine & "")
+    
+    Range("C2").Select
+    ActiveCell.FormulaR1C1 = "=RC[-2]&"" ""&R1C4&""Renomeados\""&RC[-1]&"".pdf"""
+    Range("C2").Select
+    Selection.AutoFill Destination:=Range("C2:C" & contLine & "")
+
+    Range("A1").Select
+    
+    criaBAT
+    
+    ActiveWorkbook.Save
+    'ActiveWindow.Close
+   
+Application.ScreenUpdating = True
+
+End Sub
 
 
-#-------ler pasta-------------------
-dir /b /s >> arq.csv
+Sub criaBAT()
+
+    Windows("arq.csv").Activate
+    Columns("A:A").Select
+    Application.CutCopyMode = False
+    Selection.ClearContents
+    Range("A1").Select
+    
+    Windows("RenameCTE.xlsm").Activate
+    Sheets("rename").Select
+    
+    Range("C2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Copy
+    
+    Windows("arq.csv").Activate
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Range("A1").Select
+    
+    ActiveWorkbook.Save
+    ActiveWindow.Close
+    
+    Windows("RenameCTE.xlsm").Activate
+    Application.CutCopyMode = False
+    
+    Range("A1").Select
+
+End Sub
+
+#=============================================
+
+
+
+
+
 
 #--------------command move
 @echo off
