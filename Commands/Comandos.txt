@@ -134,11 +134,12 @@ echo.
 pause
 
 #--------------------------VBA CODE--------------------------
-
 Sub rotina()
 
 Application.ScreenUpdating = False
 
+    SBR = Application.InputBox("(53A | 53B | 53C | 53D)", "Digite o SBR", Default:="53X", Type:=2)
+    
     Sheets("rename").Select
     Rows("2:2").Select
     Range(Selection, Selection.End(xlDown)).Select
@@ -147,14 +148,16 @@ Application.ScreenUpdating = False
     '----------------------
     
     Windows("arq.csv").Activate
+    cont_arq = Range("A" & Rows.Count).End(xlUp).Row
     
-    texto = Range("A1").Value
+    texto = Range("A" & cont_arq - 3 & "").Value
+
     Path = Left(texto, Len(texto) - 7)
-    Debug.Print Path
+    'Debug.Print Path
     
-    Windows("RenameCTE.xlsm").Activate
+    Windows("Rename_DOCs.xlsm").Activate
     Sheets("rename").Select
-    Range("D1") = Path
+    Range("E1") = Path
 
     Windows("arq.csv").Activate
     cont = Range("A" & Rows.Count).End(xlUp).Row
@@ -162,28 +165,33 @@ Application.ScreenUpdating = False
     For i = 1 To cont - 2
         Windows("arq.csv").Activate
         Sheets("arq").Select
-        'Debug.Print i
+        
         Var = Range("A" & i & "").Value
-        If i > 1 And i < cont - 2 Then
-            Windows("RenameCTE.xlsm").Activate
+        
+        If i < cont - 3 Then
+            Windows("Rename_DOCs.xlsm").Activate
             Sheets("rename").Select
-            Range("A" & i & "") = Var
+            Range("A" & i + 1 & "") = Var
         End If
     Next i
     
-    Windows("RenameCTE.xlsm").Activate
+    Windows("Rename_DOCs.xlsm").Activate
     Sheets("rename").Select
     
     contLine = Range("A" & Rows.Count).End(xlUp).Row
     
+    Range("B2") = SBR & "-"
     Range("B2").Select
-    ActiveCell.FormulaR1C1 = "=MID(RC[-1],SEARCH(""CT"",RC[-1])+0,11)"
     Selection.AutoFill Destination:=Range("B2:B" & contLine & "")
     
     Range("C2").Select
-    ActiveCell.FormulaR1C1 = "=RC[-2]&"" ""&R1C4&""Renomeados\""&RC[-1]&"".pdf"""
-    Range("C2").Select
+    ActiveCell.FormulaR1C1 = "=RC[-1]&MID(RC[-2],SEARCH(""CT"",RC[-2])+0,13)"
     Selection.AutoFill Destination:=Range("C2:C" & contLine & "")
+    
+    Range("D2").Select
+    ActiveCell.FormulaR1C1 = "=RC[-3]&"" ""&R1C5&""Renomeados\""&RC[-1]&"".pdf"""
+    Range("D2").Select
+    Selection.AutoFill Destination:=Range("D2:D" & contLine & "")
 
     Range("A1").Select
     
@@ -205,10 +213,10 @@ Sub criaBAT()
     Selection.ClearContents
     Range("A1").Select
     
-    Windows("RenameCTE.xlsm").Activate
+    Windows("Rename_DOCs.xlsm").Activate
     Sheets("rename").Select
     
-    Range("C2").Select
+    Range("D2").Select
     Range(Selection, Selection.End(xlDown)).Select
     Selection.Copy
     
@@ -221,7 +229,7 @@ Sub criaBAT()
     ActiveWorkbook.Save
     ActiveWindow.Close
     
-    Windows("RenameCTE.xlsm").Activate
+    Windows("Rename_DOCs.xlsm").Activate
     Application.CutCopyMode = False
     
     Range("A1").Select
