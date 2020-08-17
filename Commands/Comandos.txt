@@ -109,18 +109,8 @@ ECHO.
 PAUSE
 
 
-
-@echo off
-Title:        Programa de Backup Versao 1.0
-echo          FAZENDO BACKUP DE ARQUIVOS
-XCOPY C:\Users\Alexsandro\Downloads\*.* F:\Backup\ /D /E /Y /C /K 
-echo          FIM DO BACKUP
-ECHO.
-ECHO.
-PAUSE
-
-#Agora foi
-
+#-------------------------Agora foi----------------------
+#Copy
 @echo off
 cls
 color 8
@@ -132,9 +122,8 @@ echo.
 
 mkdir Renomeados
 
-REM for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do echo %%a
+for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do echo %%a
 for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do copy %%b
-
 
 echo.
 echo.
@@ -143,8 +132,11 @@ echo.
 echo.
 pause
 
+#----------------------------------------------------
 
 
+#-------ler pasta-------------------
+dir /b /s >> arq.csv
 
 #--------------command move
 @echo off
