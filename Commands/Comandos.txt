@@ -108,7 +108,8 @@ ECHO.
 ECHO.
 PAUSE
 
-
+#------------------------ler pasta----
+dir /b /s >> arq.csv
 #-------------------------Agora foi----------------------
 #Copy
 @echo off
@@ -215,9 +216,6 @@ echo Mal feito, feito!
 echo.
 echo.
 pause
-
-
-
 
 
 
