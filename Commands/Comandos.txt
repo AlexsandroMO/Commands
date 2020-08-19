@@ -114,17 +114,18 @@ dir /b /s >> arq.csv
 #Copy
 @echo off
 cls
-color 8
+REM color 8
 cls
 echo RODANDO...
 echo %date% %time% 
 echo.
 echo.
-
+echo %cd%
+echo.
 mkdir Renomeados
 
-for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do echo %%a
-for /F "tokens=*" %%b in (C:\Users\Alexsandro\Downloads\teste\arq.csv) do copy %%b
+for /F "tokens=*" %%a in (%cd%\arq.csv) do echo %%a
+for /F "tokens=*" %%b in (%cd%\arq.csv) do copy %%b
 
 echo.
 echo.
