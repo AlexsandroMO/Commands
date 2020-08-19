@@ -368,6 +368,16 @@ pause
 
 
 
+#-------------------------------
+Quantidade de Linhas
+
+@echo off
+set /a counter=0
+for /f %%a in (%userprofile%\desktop\texto.txt) do set /a counter+=1
+echo Number of lines: %counter%
+pause
+
+
 
 
 
