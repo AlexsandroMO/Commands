@@ -72,6 +72,25 @@ Set appIE = Nothing
 
 End Sub
 
+'==================== Filtro
+
+Sub filtro()
+
+lin = ActiveCell.Row
+col = ActiveCell.Column
+
+Selection.End(xlDown).Select
+cont = ActiveCell.Row
+
+Range(Cells(lin, col), Cells(lin, col)).Select
+
+    ActiveSheet.Range(Cells(lin, col), Cells(lin, cont)).AutoFilter Field:=col, Criteria1:=Array( _
+        "AAA", "BBB", "CCC" _
+        ), Operator:=xlFilterValues
+        
+End Sub
+
+
 
 #====================== Libera comandos da tela
 Sub lsLigarTelaCheia()
