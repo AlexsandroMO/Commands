@@ -379,6 +379,71 @@ pause
 
 
 
+#-----------------------
+pega texto linha específica
+
+@echo off
+for /f "delims= skip=4" %%a in (%userprofile%\desktop\texto.txt) do (
+set versao=%%a
+goto end
+)
+:end
+echo A versao e: %versao:~11,9%
+
+echo.
+
+pause
+
+#---------------------
+copia texto pra outro txt
+
+
+
+@echo off
+
+REM for /f "tokens=*" %%a in (%userprofile%\desktop\texto.txt) do copy
+
+for /f "tokens=*" %%a in (%userprofile%\desktop\texto.txt) do echo %%a >> new.txt
+::dffsf
+
+echo.
+
+pause
+
+#---------------
+entrada de dados
+@Echo off
+
+echo.
+echo ENTRE COM O INTERVALO DE DATAS:
+echo.
+SET /P DATA1= Digite a data INICIAL:
+SET /P DATA2= Digite a data FINAL:
+echo.
+echo LOCALIZANDO, Aguarde...
+
+pause
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
