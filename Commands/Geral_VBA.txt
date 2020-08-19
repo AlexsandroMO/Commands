@@ -6479,3 +6479,2078 @@ For i = LBound(A) To UBound(A)
 Next i
 
 End Sub
+
+
+
+
+#-----------------------------------------
+Preenche template
+
+Sub OpenUp(ConferePasta, pasta)
+ Workbooks.Open (ConferePasta)
+End Sub
+
+
+
+Sub CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+
+        If qualpasta = 6 Then
+        
+            If Dir(diretorio & "\" & pasta, vbDirectory) = "" Then
+    
+                MkDir diretorio & "\" & pasta
+    
+            End If
+            
+            Set ws = Application.Workbooks.Add
+            ActiveWorkbook.SaveAs Filename:= _
+            diretorio & "\" & pasta & "\" & SBR & "_" & INSP_Avalible & ".xlsx", _
+            ReadOnlyRecommended:=False, CreateBackup:=False
+            
+            
+        Else
+        
+            If Dir(ConferePasta, vbDirectory) = "" Then
+    
+                MkDir ConferePasta
+    
+            End If
+            
+            
+            If Dir(ConferePasta & pasta, vbDirectory) = "" Then
+         
+                MkDir ConferePasta & "\" & pasta
+            
+            End If
+    
+            Set ws = Application.Workbooks.Add
+            ActiveWorkbook.SaveAs Filename:= _
+            ConferePasta & "\" & pasta & "\" & SBR & "_" & INSP_Avalible & ".xlsx", _
+            ReadOnlyRecommended:=False, CreateBackup:=False
+        
+        End If
+
+        
+End Sub
+
+
+Sub FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    
+    Call imprimir(pasta)
+    
+        Sheets("Planilha1").Select
+        Range("A1").Select
+        ActiveWorkbook.Save
+        
+        If qualpasta <> 6 Then
+        ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+            ConferePasta & "\" & pasta & "\" & SBR & "_" & INSP_Avalible _
+            , Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+            :=False, OpenAfterPublish:=False
+        Else
+        ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+            diretorio & "\" & pasta & "\" & SBR & "_" & INSP_Avalible _
+            , Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+            :=False, OpenAfterPublish:=False
+        End If
+      
+        ActiveWindow.Close
+             
+End Sub
+
+
+Sub GeraTemplate()
+
+Application.ScreenUpdating = False
+Application.StatusBar = "Expelliarmus..."
+
+Dim ws As Workbook
+Dim arrItem() As String
+Dim dados As String
+
+diretorio = Application.InputBox(prompt:="Inserir diretório onde será impresso os templates")
+'FilePath = ThisWorkbook.FullName
+'FileOnly = ThisWorkbook.Name
+'PathOnly = Left(FilePath, Len(FilePath) - Len(FileOnly))
+'diretorio = ThisWorkbook.Path
+
+nome_usuario = Application.InputBox(prompt:="Inserir nome para sair no template")
+qualpasta = MsgBox("Os arquivos pertencem ao mesmo caderno?", vbYesNo, "Template Option")
+
+If diretorio = False Or diretorio = "" Then
+    Result = MsgBox("Não foi encontrado o local onde gerar os templates! Favor especificar diretório.", vbCritical, "Atenção!")
+    Exit Sub
+Else
+
+'If qualpasta = 6 Then
+
+    SBR = Application.InputBox(prompt:="Qual SBR?")
+    
+    Sheets("TEMPLATE").Select
+    Columns("BH:BH").Select
+    Selection.Replace What:="-XX-", Replacement:="-" & SBR & "-", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+        
+'End If
+
+Call MostraCTE
+
+directory = diretorio
+
+'------------
+
+Sheets("TEMPLATE").Select
+Range("A1").Select
+
+Num_Prod = Range("A" & Rows.Count).End(xlUp).Row
+
+Range("A1").Select
+
+For CARGA = 1 To Num_Prod - 1
+
+Call clearTemplates
+' -----------------------------
+    Sheets("TEMPLATE").Select
+
+    ActiveCell.Offset(1, 0).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    IM = Cells(Lin, Col)
+
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    PM = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    comp = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    COS_ = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    REV_ = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TIPO = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    CTC = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    CTE_1 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    CTE_2 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    '------------------------------
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    p1 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN1 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM1 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX1 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN1 = Cells(Lin, Col)
+   
+    ActiveCell.Offset(0, 1).Select
+    
+    '------------------------------
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    p2 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN2 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM2 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX2 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN2 = Cells(Lin, Col)
+    
+    '------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+   
+    P3 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN3 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM3 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX3 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN3 = Cells(Lin, Col)
+   
+    '------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    P4 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN4 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM4 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX4 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN4 = Cells(Lin, Col)
+   
+    '------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    P5 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN5 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM5 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX5 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN5 = Cells(Lin, Col)
+   
+    '------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    P6 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN6 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM6 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX6 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN6 = Cells(Lin, Col)
+   
+    '------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    P7 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN7 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM7 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX7 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN7 = Cells(Lin, Col)
+   
+    '------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    P8 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MN8 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    TM8 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MAX8 = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    MIN8 = Cells(Lin, Col)
+
+    ActiveCell.Offset(0, 1).Select
+    
+    '---------------------------------
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+
+    head = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    h_braking_type = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    h_torque = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    h_Coeff_frict = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    h_Prec_class = Cells(Lin, Col)
+    
+    '---------------------------------
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    foot = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    f_braking_type = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    f_torque = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    f_Coeff_frict = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 1).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    f_Prec_class = Cells(Lin, Col)
+    
+    '---------------------------------
+    ActiveCell.Offset(0, 1).Select
+
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    CC = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 2).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    nota = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, 2).Select
+    
+    Lin = ActiveCell.Row
+    Col = ActiveCell.Column
+    Cells(Lin, Col).Select
+    
+    user_ = Cells(Lin, Col)
+    
+    ActiveCell.Offset(0, -63).Select
+    
+    If nome_usuario <> "" Then
+        user_ = nome_usuario
+    End If
+    
+    SBR = Right(Left(CC, 18), 2)
+    
+    If SBR = 11 Then
+        SBR = "53A"
+    ElseIf SBR = 12 Then
+        SBR = "53B"
+    ElseIf SBR = 13 Then
+        SBR = "53C"
+    ElseIf SBR = 14 Then
+        SBR = "53D"
+    End If
+
+'---------------------------------------------------------
+If TIPO = "MS02" Then
+
+    Sheets("MS02").Select
+    Application.StatusBar = "Accio... (MS02)"
+    
+    Range("AQ1").Select
+    ActiveCell.FormulaR1C1 = CTC
+    
+    Range("A14").Select
+    ActiveCell.FormulaR1C1 = SBR
+
+    Range("W14").Select
+    ActiveCell.FormulaR1C1 = COS_ & "_" & REV_
+    
+    Range("AD18").Select
+    ActiveCell.FormulaR1C1 = CC
+    
+    Range("X31").Select
+    ActiveCell.FormulaR1C1 = CTE_1
+
+    Range("X34").Select
+    ActiveCell.FormulaR1C1 = CTE_2
+
+    Range("A69").Select
+    ActiveCell.FormulaR1C1 = user_
+    
+    Range("A76").Select
+    ActiveCell.FormulaR1C1 = SBR & "-" & IM
+        
+    IM_pasta = IM
+    INSP_Avalible = CTC
+    pasta = "MS02"
+    
+    '-----------------------------------------------------------
+    ConferePasta = diretorio & "\" & IM_pasta
+    
+    Call CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+    Sheets("MS02").Select
+    Cells.Select
+    Selection.Copy
+    
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    
+    '-----------------------------------------------------------
+    Call FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    '==========================================================================================
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+
+    Sheets("MS02_1").Select
+    Application.StatusBar = "Accio... (MS02_1)"
+    
+    Range("AQ1").Select
+    ActiveCell.FormulaR1C1 = CTC
+    
+    Range("A14").Select
+    ActiveCell.FormulaR1C1 = SBR
+
+    Range("W14").Select
+    ActiveCell.FormulaR1C1 = COS_ & "_" & REV_
+    
+    Range("AQ12").Select
+    ActiveCell.FormulaR1C1 = CC
+    
+    Range("X31").Select
+    ActiveCell.FormulaR1C1 = nota
+
+    Range("Y48").Select
+    ActiveCell.FormulaR1C1 = CTE_1
+
+    Range("A48").Select
+    ActiveCell.FormulaR1C1 = SBR & "-" & IM
+    
+    '------------------ MN ----------------
+    Range("M155").Select
+    ActiveCell.FormulaR1C1 = MN1
+    
+    Range("U155").Select
+    ActiveCell.FormulaR1C1 = MN2
+    
+    Range("AC155").Select
+    ActiveCell.FormulaR1C1 = MN3
+    
+    Range("AK155").Select
+    ActiveCell.FormulaR1C1 = MN4
+    
+    Range("M166").Select
+    ActiveCell.FormulaR1C1 = MN5
+    
+    Range("U166").Select
+    ActiveCell.FormulaR1C1 = MN6
+    
+    Range("AC166").Select
+    ActiveCell.FormulaR1C1 = MN7
+    
+    Range("AK166").Select
+    ActiveCell.FormulaR1C1 = MN8
+    
+    '------------------ position ----------------
+    
+    Range("M159").Select
+    ActiveCell.FormulaR1C1 = p1
+    
+    Range("U159").Select
+    ActiveCell.FormulaR1C1 = p2
+    
+    Range("AC159").Select
+    ActiveCell.FormulaR1C1 = P3
+    
+    Range("AK159").Select
+    ActiveCell.FormulaR1C1 = P4
+    
+    Range("M170").Select
+    ActiveCell.FormulaR1C1 = P5
+    
+    Range("U170").Select
+    ActiveCell.FormulaR1C1 = P6
+    
+    Range("AC170").Select
+    ActiveCell.FormulaR1C1 = P7
+    
+    Range("AK170").Select
+    ActiveCell.FormulaR1C1 = P8
+    
+    '------------------ mountaing ----------------
+
+    If TM1 = "W" Then
+        Range("P145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM1 = "Z" Then
+        Range("P143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+        
+    If TM2 = "W" Then
+        Range("X145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM2 = "Z" Then
+        Range("X143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM3 = "W" Then
+        Range("AF145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM3 = "Z" Then
+        Range("AF143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM4 = "W" Then
+        Range("AN145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM4 = "Z" Then
+        Range("AN143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    
+    '------------------------------
+    If TM5 = "W" Then
+        Range("P184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM5 = "Z" Then
+        Range("P182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM6 = "W" Then
+        Range("X184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM6 = "Z" Then
+        Range("X182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+   If TM7 = "W" Then
+        Range("AF184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM7 = "Z" Then
+        Range("AF182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM8 = "W" Then
+        Range("AN184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM8 = "Z" Then
+        Range("AN182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    '------------------ record sheet ----------------
+    
+    arrItem_head = Split(head, "/")
+    arrItem_h_braking_type = Split(h_braking_type, "/")
+    arrItem_h_torque = Split(h_torque, "/")
+    arrItem_h_Coeff_frict = Split(h_Coeff_frict, "/")
+    arrItem_h_Prec_class = Split(h_Prec_class, "/")
+    
+    'record 1
+    If arrItem_head(0) <> "x" Then
+        Range("I218").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(0)
+        Range("Q218").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(0)
+        Range("Y218").Select
+        If arrItem_h_torque(0) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(0)
+        End If
+        Range("AG218").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(0)
+        Range("AO218").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(0)
+    End If
+    
+    'record 2
+    If arrItem_head(1) <> "x" Then
+        Range("I226").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(1)
+        Range("Q226").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(1)
+        Range("Y226").Select
+        If arrItem_h_torque(1) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(1)
+        End If
+        Range("AG226").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(1)
+        Range("AO226").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(1)
+    End If
+    
+    'record 3
+    If arrItem_head(2) <> "x" Then
+        Range("I234").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(2)
+        Range("Q234").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(2)
+        Range("Y234").Select
+        If arrItem_h_torque(2) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(2)
+        End If
+        Range("AG234").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(2)
+        Range("AO234").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(2)
+    End If
+    
+    'record 4
+    If arrItem_head(3) <> "x" Then
+        Range("I242").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(3)
+        Range("Q242").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(3)
+        Range("Y242").Select
+        If arrItem_h_torque(3) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(3)
+        End If
+        Range("AG242").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(3)
+        Range("AO242").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(3)
+    End If
+
+    'record 5
+    If arrItem_head(4) <> "x" Then
+        Range("I250").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(4)
+        Range("Q250").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(4)
+        Range("Y250").Select
+        If arrItem_h_torque(4) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(4)
+        End If
+        Range("AG250").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(4)
+        Range("AO250").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(4)
+    End If
+    
+    'record 6
+    If arrItem_head(5) <> "x" Then
+        Range("I258").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(5)
+        Range("Q258").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(5)
+        Range("Y258").Select
+        If arrItem_h_torque(5) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(5)
+        End If
+        Range("AG258").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(5)
+        Range("AO258").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(5)
+    End If
+    
+    'record 7
+    If arrItem_head(6) <> "x" Then
+        Range("I266").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(6)
+        Range("Q266").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(6)
+        Range("Y266").Select
+        If arrItem_h_torque(6) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(6)
+        End If
+        Range("AG266").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(6)
+        Range("AO266").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(6)
+    End If
+    
+    'record 8
+    If arrItem_head(7) <> "x" Then
+        Range("I274").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(7)
+        Range("Q274").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(7)
+        Range("Y274").Select
+        If arrItem_h_torque(7) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(7)
+        End If
+        Range("AG274").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(7)
+        Range("AO274").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(7)
+    End If
+
+    IM_pasta = IM
+    INSP_Avalible = CTE_1
+    pasta = "MS02_1"
+    
+    '-----------------------------------------------------------
+    ConferePasta = diretorio & "\" & IM_pasta
+    Call CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+    Sheets("MS02_1").Select
+    Cells.Select
+    Selection.Copy
+    
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    
+    '-----------------------------------------------------------
+    Call FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+    '-----------------------------------------------------------
+    '=======================================================================================================
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+
+    Sheets("MS02_2").Select
+    Application.StatusBar = "Accio... (MS02_2)"
+    
+    Range("AI1").Select
+    ActiveCell.FormulaR1C1 = CTC
+    
+    Range("A13").Select
+    ActiveCell.FormulaR1C1 = SBR
+
+    Range("T13").Select
+    ActiveCell.FormulaR1C1 = COS_ & "_" & REV_
+    
+    Range("AQ13").Select
+    ActiveCell.FormulaR1C1 = CC
+    
+    Range("L32").Select
+    ActiveCell.FormulaR1C1 = nota
+
+    Range("Y49").Select
+    ActiveCell.FormulaR1C1 = CTE_2
+
+    Range("A49").Select
+    ActiveCell.FormulaR1C1 = SBR & "-" & IM
+    
+    
+    '------------------ Dados ----------------
+    Range("W225").Select
+    ActiveCell.FormulaR1C1 = PM
+    
+    Range("AS225").Select
+    ActiveCell.FormulaR1C1 = comp
+    
+
+    '------------------ MN ----------------
+    Range("T258").Select
+    ActiveCell.FormulaR1C1 = MN1
+    
+    Range("AA258").Select
+    ActiveCell.FormulaR1C1 = MN2
+    
+    Range("AH258").Select
+    ActiveCell.FormulaR1C1 = MN3
+    
+    Range("AO258").Select
+    ActiveCell.FormulaR1C1 = MN4
+    
+    Range("T283").Select
+    ActiveCell.FormulaR1C1 = MN5
+    
+    Range("AA283").Select
+    ActiveCell.FormulaR1C1 = MN6
+    
+    Range("AH283").Select
+    ActiveCell.FormulaR1C1 = MN7
+    
+    Range("AO283").Select
+    ActiveCell.FormulaR1C1 = MN8
+    
+    '------------------ position ----------------
+    
+    Range("T262").Select
+    ActiveCell.FormulaR1C1 = p1
+    
+    Range("AA262").Select
+    ActiveCell.FormulaR1C1 = p2
+    
+    Range("AH262").Select
+    ActiveCell.FormulaR1C1 = P3
+    
+    Range("AO262").Select
+    ActiveCell.FormulaR1C1 = P4
+    
+    Range("T287").Select
+    ActiveCell.FormulaR1C1 = P5
+    
+    Range("AA287").Select
+    ActiveCell.FormulaR1C1 = P6
+    
+    Range("AH287").Select
+    ActiveCell.FormulaR1C1 = P7
+    
+    Range("AO287").Select
+    ActiveCell.FormulaR1C1 = P8
+    
+    '------------------ mountaing ----------------
+
+    If TM1 = "W" Then
+        Range("T253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM1 = "Z" Then
+        Range("W249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+        
+    If TM2 = "W" Then
+        Range("AA253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM2 = "Z" Then
+        Range("AD249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM3 = "W" Then
+        Range("AK253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM3 = "Z" Then
+        Range("AK249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM4 = "W" Then
+        Range("AR253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM4 = "Z" Then
+        Range("AR249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    '------------------------------
+    If TM5 = "W" Then
+        Range("W278").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM5 = "Z" Then
+        Range("W274").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM6 = "W" Then
+        Range("AD278").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM6 = "Z" Then
+        Range("AD274").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM7 = "W" Then
+        Range("AK278").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM7 = "Z" Then
+        Range("AK274").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM8 = "W" Then
+        Range("AR278").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM8 = "Z" Then
+        Range("AR274").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    '------------------ max & min ----------------
+    
+    Range("T265").Select
+    If MIN1 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN1 & "/" & MAX1
+    End If
+    Range("AA265").Select
+    If MIN2 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN2 & "/" & MAX2
+    End If
+    Range("AH265").Select
+    If MIN3 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN3 & "/" & MAX3
+    End If
+    Range("AO265").Select
+    If MIN4 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN4 & "/" & MAX4
+    End If
+    
+    Range("T290").Select
+    If MIN5 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN5 & "/" & MAX5
+    End If
+    Range("AA290").Select
+    If MIN6 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN6 & "/" & MAX6
+    End If
+    Range("AH290").Select
+    If MIN7 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN7 & "/" & MAX7
+    End If
+    Range("AO290").Select
+    If MIN8 <> "" Then
+        ActiveCell.FormulaR1C1 = MIN8 & "/" & MAX8
+    End If
+    
+    IM_pasta = IM
+    INSP_Avalible = CTE_2
+    pasta = "MS02_2"
+    
+
+    '-----------------------------------------------------------
+    ConferePasta = diretorio & "\" & IM_pasta
+    Call CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+    Sheets("MS02_2").Select
+    Cells.Select
+    Selection.Copy
+    
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    
+    '-----------------------------------------------------------
+    Call FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+    '-----------------------------------------------------------
+End If
+    
+'================================================ MS01 ===================================================
+   
+If TIPO = "MS01" Then
+
+    Sheets("MS01").Select
+    Application.StatusBar = "Accio... (MS01)"
+    
+    Range("AQ1").Select
+    ActiveCell.FormulaR1C1 = CTC
+    
+    Range("A14").Select
+    ActiveCell.FormulaR1C1 = SBR
+
+    Range("W14").Select
+    ActiveCell.FormulaR1C1 = COS_ & "_" & REV_
+    
+    Range("AD18").Select
+    ActiveCell.FormulaR1C1 = CC
+    
+    Range("X31").Select
+    ActiveCell.FormulaR1C1 = CTE_1
+
+    Range("X34").Select
+    ActiveCell.FormulaR1C1 = CTE_2
+
+    Range("A69").Select
+    ActiveCell.FormulaR1C1 = user_
+    
+    Range("A76").Select
+    ActiveCell.FormulaR1C1 = SBR & "-" & IM
+        
+    IM_pasta = IM
+    INSP_Avalible = CTC
+    pasta = "MS01"
+    
+    '-----------------------------------------------------------
+    ConferePasta = diretorio & "\" & IM_pasta
+    Call CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+    Sheets("MS01").Select
+    Cells.Select
+    Selection.Copy
+    
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    
+    '-----------------------------------------------------------
+    Call FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    '==========================================================================================
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+
+    Sheets("MS01_2").Select
+    Application.StatusBar = "Accio... (MS01_2)"
+    
+    Range("AQ1").Select
+    ActiveCell.FormulaR1C1 = CTC
+    
+    Range("A14").Select
+    ActiveCell.FormulaR1C1 = SBR
+
+    Range("W14").Select
+    ActiveCell.FormulaR1C1 = COS_ & "_" & REV_
+    
+    Range("AQ13").Select
+    ActiveCell.FormulaR1C1 = CC
+    
+    Range("L32").Select
+    ActiveCell.FormulaR1C1 = nota
+
+    Range("Y49").Select
+    ActiveCell.FormulaR1C1 = CTE_2
+
+    Range("A49").Select
+    ActiveCell.FormulaR1C1 = SBR & "-" & IM
+    
+    '------------------ MN ----------------
+    Range("M155").Select
+    ActiveCell.FormulaR1C1 = MN1
+    
+    Range("U155").Select
+    ActiveCell.FormulaR1C1 = MN2
+    
+    Range("AC155").Select
+    ActiveCell.FormulaR1C1 = MN3
+    
+    Range("AK155").Select
+    ActiveCell.FormulaR1C1 = MN4
+    
+    Range("M166").Select
+    ActiveCell.FormulaR1C1 = MN5
+    
+    Range("U166").Select
+    ActiveCell.FormulaR1C1 = MN6
+    
+    Range("AC166").Select
+    ActiveCell.FormulaR1C1 = MN7
+    
+    Range("AK166").Select
+    ActiveCell.FormulaR1C1 = MN8
+    
+    '------------------ position ----------------
+    
+    Range("M159").Select
+    ActiveCell.FormulaR1C1 = p1
+    
+    Range("U159").Select
+    ActiveCell.FormulaR1C1 = p2
+    
+    Range("AC159").Select
+    ActiveCell.FormulaR1C1 = P3
+    
+    Range("AK159").Select
+    ActiveCell.FormulaR1C1 = P4
+    
+    Range("M170").Select
+    ActiveCell.FormulaR1C1 = P5
+    
+    Range("U170").Select
+    ActiveCell.FormulaR1C1 = P6
+    
+    Range("AC170").Select
+    ActiveCell.FormulaR1C1 = P7
+    
+    Range("AK170").Select
+    ActiveCell.FormulaR1C1 = P8
+    
+    '------------------ mountaing ----------------
+
+    If TM1 = "W" Then
+        Range("P145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM1 = "Z" Then
+        Range("P143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+        
+    If TM2 = "W" Then
+        Range("X145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM2 = "Z" Then
+        Range("X143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM3 = "W" Then
+        Range("AF145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM3 = "Z" Then
+        Range("AF143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM4 = "W" Then
+        Range("AN145").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM4 = "Z" Then
+        Range("AN143").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    
+    '------------------------------
+    If TM5 = "W" Then
+        Range("P184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM5 = "Z" Then
+        Range("P182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM6 = "W" Then
+        Range("X184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM6 = "Z" Then
+        Range("X182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+   If TM7 = "W" Then
+        Range("AF184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM7 = "Z" Then
+        Range("AF182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM8 = "W" Then
+        Range("AN184").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM8 = "Z" Then
+        Range("AN182").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    '------------------ record sheet ----------------
+    
+    arrItem_head = Split(head, "/")
+    arrItem_h_braking_type = Split(h_braking_type, "/")
+    arrItem_h_torque = Split(h_torque, "/")
+    arrItem_h_Coeff_frict = Split(h_Coeff_frict, "/")
+    arrItem_h_Prec_class = Split(h_Prec_class, "/")
+    
+    arrItem_foot = Split(foot, "/")
+    arrItem_f_braking_type = Split(f_braking_type, "/")
+    arrItem_f_torque = Split(f_torque, "/")
+    arrItem_f_Coeff_frict = Split(f_Coeff_frict, "/")
+    arrItem_f_Prec_class = Split(f_Prec_class, "/")
+    
+    'record 1
+    If arrItem_head(0) <> "x" Then
+        Range("I219").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(0)
+        Range("Q219").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(0)
+        Range("Y219").Select
+        If arrItem_h_torque(0) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(0)
+        End If
+        Range("AG219").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(0)
+        Range("AO219").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(0)
+    End If
+    
+    If arrItem_foot(0) <> "x" Then
+        Range("I223").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(0)
+        Range("Q223").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(0)
+        Range("Y223").Select
+        If arrItem_f_torque(0) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(0)
+        End If
+        Range("AG223").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(0)
+        Range("AO223").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(0)
+    End If
+    
+    'record 2
+    If arrItem_head(1) <> "x" Then
+        Range("I227").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(1)
+        Range("Q227").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(1)
+        Range("Y227").Select
+        If arrItem_h_torque(1) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(1)
+        End If
+        Range("AG227").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(1)
+        Range("AO227").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(1)
+    End If
+    
+    If arrItem_foot(1) <> "x" Then
+        Range("I231").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(1)
+        Range("Q231").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(1)
+        Range("Y231").Select
+        If arrItem_h_torque(1) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(1)
+        End If
+        Range("AG231").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(1)
+        Range("AO231").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(1)
+    End If
+    
+    'record 3
+    If arrItem_head(2) <> "x" Then
+        Range("I235").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(2)
+        Range("Q235").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(2)
+        Range("Y235").Select
+        If arrItem_h_torque(2) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(2)
+        End If
+        Range("AG235").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(2)
+        Range("AO235").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(2)
+    End If
+    
+    If arrItem_foot(2) <> "x" Then
+        Range("I239").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(2)
+        Range("Q239").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(2)
+        Range("Y239").Select
+        If arrItem_h_torque(2) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(2)
+        End If
+        Range("AG239").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(2)
+        Range("AO239").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(2)
+    End If
+    
+    'record 4
+    If arrItem_head(3) <> "x" Then
+        Range("I243").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(3)
+        Range("Q243").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(3)
+        Range("Y243").Select
+        If arrItem_h_torque(3) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(3)
+        End If
+        Range("AG243").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(3)
+        Range("AO243").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(3)
+    End If
+    If arrItem_foot(3) <> "x" Then
+        Range("I247").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(3)
+        Range("Q247").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(3)
+        Range("Y247").Select
+        If arrItem_h_torque(3) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(3)
+        End If
+        Range("AG247").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(3)
+        Range("AO247").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(3)
+    End If
+    
+    'record 5
+    If arrItem_head(4) <> "x" Then
+        Range("I251").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(4)
+        Range("Q251").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(4)
+        Range("Y251").Select
+        If arrItem_h_torque(4) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(4)
+        End If
+        Range("AG251").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(4)
+        Range("AO251").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(4)
+    End If
+    If arrItem_foot(4) <> "x" Then
+        Range("I255").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(4)
+        Range("Q255").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(4)
+        Range("Y255").Select
+        If arrItem_h_torque(4) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(4)
+        End If
+        Range("AG255").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(4)
+        Range("AO255").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(4)
+    End If
+    
+    'record 6
+    If arrItem_head(5) <> "x" Then
+        Range("I259").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(5)
+        Range("Q259").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(5)
+        Range("Y259").Select
+        If arrItem_h_torque(5) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(5)
+        End If
+        Range("AG259").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(5)
+        Range("AO259").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(5)
+    End If
+    If arrItem_foot(5) <> "x" Then
+        Range("I263").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(5)
+        Range("Q263").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(5)
+        Range("Y263").Select
+        If arrItem_h_torque(5) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(5)
+        End If
+        Range("AG263").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(5)
+        Range("AO263").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(5)
+    End If
+    
+    'record 7
+    If arrItem_head(6) <> "x" Then
+        Range("I267").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(6)
+        Range("Q267").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(6)
+        Range("Y267").Select
+        If arrItem_h_torque(6) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(6)
+        End If
+        Range("AG267").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(6)
+        Range("AO267").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(6)
+    End If
+    If arrItem_foot(6) <> "x" Then
+        Range("I271").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(6)
+        Range("Q271").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(6)
+        Range("Y271").Select
+        If arrItem_h_torque(6) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(6)
+        End If
+        Range("AG271").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(6)
+        Range("AO271").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(6)
+    End If
+    
+    'record 8
+    If arrItem_head(7) <> "x" Then
+        Range("I275").Select
+        ActiveCell.FormulaR1C1 = arrItem_head(7)
+        Range("Q275").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_braking_type(7)
+        Range("Y275").Select
+        If arrItem_h_torque(7) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_h_torque(7)
+        End If
+        Range("AG275").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Coeff_frict(7)
+        Range("AO275").Select
+        ActiveCell.FormulaR1C1 = arrItem_h_Prec_class(7)
+    End If
+
+    If arrItem_foot(7) <> "x" Then
+        Range("I279").Select
+        ActiveCell.FormulaR1C1 = arrItem_foot(7)
+        Range("Q279").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_braking_type(7)
+        Range("Y279").Select
+        If arrItem_h_torque(7) = "A" Then
+            ActiveCell.FormulaR1C1 = "Aperto a mão mais 1/4 de volta (ver nota)"
+        Else
+            ActiveCell.FormulaR1C1 = arrItem_f_torque(7)
+        End If
+        Range("AG279").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Coeff_frict(7)
+        Range("AO279").Select
+        ActiveCell.FormulaR1C1 = arrItem_f_Prec_class(7)
+    End If
+
+    IM_pasta = IM
+    INSP_Avalible = CTE_2
+    pasta = "MS01_2"
+    
+    '-----------------------------------------------------------
+    ConferePasta = diretorio & "\" & IM_pasta
+    Call CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+    Sheets("MS01_2").Select
+    Cells.Select
+    Selection.Copy
+    
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    
+    '-----------------------------------------------------------
+    Call FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+    '-----------------------------------------------------------
+    '=======================================================================================================
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+
+    Sheets("MS01_1").Select
+    Application.StatusBar = "Accio... (MS02_1)"
+    
+    Range("AI1").Select
+    ActiveCell.FormulaR1C1 = CTC
+    
+    Range("A13").Select
+    ActiveCell.FormulaR1C1 = SBR
+
+    Range("T13").Select
+    ActiveCell.FormulaR1C1 = COS_ & "_" & REV_
+    
+    Range("AQ13").Select
+    ActiveCell.FormulaR1C1 = CC
+    
+    Range("L32").Select
+    ActiveCell.FormulaR1C1 = nota
+
+    Range("Y49").Select
+    ActiveCell.FormulaR1C1 = CTE_1
+
+    Range("A49").Select
+    ActiveCell.FormulaR1C1 = SBR & "-" & IM
+    
+    
+    '------------------ Dados ----------------
+    Range("W225").Select
+    ActiveCell.FormulaR1C1 = PM
+    
+    Range("AS225").Select
+    ActiveCell.FormulaR1C1 = comp
+    
+
+    '------------------ MN ----------------
+    Range("T256").Select
+    ActiveCell.FormulaR1C1 = MN1
+    
+    Range("AA256").Select
+    ActiveCell.FormulaR1C1 = MN2
+    
+    Range("AH256").Select
+    ActiveCell.FormulaR1C1 = MN3
+    
+    Range("AO256").Select
+    ActiveCell.FormulaR1C1 = MN4
+    
+    Range("T289").Select
+    ActiveCell.FormulaR1C1 = MN5
+    
+    Range("AA289").Select
+    ActiveCell.FormulaR1C1 = MN6
+    
+    Range("AH289").Select
+    ActiveCell.FormulaR1C1 = MN7
+    
+    Range("AO289").Select
+    ActiveCell.FormulaR1C1 = MN8
+    
+    '------------------ position ----------------
+    
+    Range("T262").Select
+    ActiveCell.FormulaR1C1 = p1
+    
+    Range("AA262").Select
+    ActiveCell.FormulaR1C1 = p2
+    
+    Range("AH262").Select
+    ActiveCell.FormulaR1C1 = P3
+    
+    Range("AO262").Select
+    ActiveCell.FormulaR1C1 = P4
+    
+    Range("T293").Select
+    ActiveCell.FormulaR1C1 = P5
+    
+    Range("AA293").Select
+    ActiveCell.FormulaR1C1 = P6
+    
+    Range("AH293").Select
+    ActiveCell.FormulaR1C1 = P7
+    
+    Range("AO293").Select
+    ActiveCell.FormulaR1C1 = P8
+    
+    '------------------ mountaing ----------------
+
+    If TM1 = "W" Then
+        Range("T253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM1 = "Z" Then
+        Range("W249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+        
+    If TM2 = "W" Then
+        Range("AA253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM2 = "Z" Then
+        Range("AD249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM3 = "W" Then
+        Range("AK253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM3 = "Z" Then
+        Range("AK249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM4 = "W" Then
+        Range("AR253").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM4 = "Z" Then
+        Range("AR249").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    '------------------------------
+    If TM5 = "W" Then
+        Range("W284").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM5 = "Z" Then
+        Range("W280").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM6 = "W" Then
+        Range("AD284").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM6 = "Z" Then
+        Range("AD280").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM7 = "W" Then
+        Range("AK284").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM7 = "Z" Then
+        Range("AK280").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    If TM8 = "W" Then
+        Range("AR284").Select
+        ActiveCell.FormulaR1C1 = "X"
+    ElseIf TM8 = "Z" Then
+        Range("AR280").Select
+        ActiveCell.FormulaR1C1 = "X"
+    End If
+    
+    '------------------ max & min ----------------
+    
+    arrItem_max1 = Split(MAX1, "/")
+    arrItem_max2 = Split(MAX2, "/")
+    arrItem_max3 = Split(MAX3, "/")
+    arrItem_max4 = Split(MAX4, "/")
+    arrItem_max5 = Split(MAX5, "/")
+    arrItem_max6 = Split(MAX6, "/")
+    arrItem_max7 = Split(MAX7, "/")
+    arrItem_max8 = Split(MAX8, "/")
+    
+    
+    Range("T269").Select
+    If MIN1 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max1(0)
+        Range("T272").Select
+        ActiveCell.FormulaR1C1 = MIN1
+        Range("T263").Select
+        If arrItem_max1(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max1(1)
+        End If
+    End If
+    Range("AA269").Select
+    If MIN2 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max2(0)
+        Range("AA272").Select
+        ActiveCell.FormulaR1C1 = MIN2
+        Range("AA263").Select
+        If arrItem_max2(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max2(1)
+        End If
+    End If
+    Range("AH269").Select
+    If MIN3 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max3(0)
+        Range("AH272").Select
+        ActiveCell.FormulaR1C1 = MIN3
+        Range("AH263").Select
+        If arrItem_max3(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max3(1)
+        End If
+    End If
+    Range("AO269").Select
+    If MIN4 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max4(0)
+        Range("AO272").Select
+        ActiveCell.FormulaR1C1 = MIN4
+        Range("AO263").Select
+        If arrItem_max4(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max4(1)
+        End If
+    End If
+    
+    Range("T302").Select
+    If MIN5 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max5(0)
+        Range("T305").Select
+        ActiveCell.FormulaR1C1 = MIN5
+        Range("T296").Select
+        If arrItem_max5(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max5(1)
+        End If
+    End If
+    Range("AA302").Select
+    If MIN6 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max6(0)
+        Range("AA305").Select
+        ActiveCell.FormulaR1C1 = MIN6
+        Range("AA296").Select
+        If arrItem_max6(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max6(1)
+        End If
+    End If
+    Range("AH302").Select
+    If MIN7 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max7(0)
+        Range("AH305").Select
+        ActiveCell.FormulaR1C1 = MIN7
+        Range("AH296").Select
+        If arrItem_max7(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max7(1)
+        End If
+    End If
+    Range("AO302").Select
+    If MIN8 <> "" Then
+        ActiveCell.FormulaR1C1 = arrItem_max8(0)
+        Range("AO305").Select
+        ActiveCell.FormulaR1C1 = MIN8
+        Range("AO296").Select
+        If arrItem_max8(1) <> "x" Then
+            ActiveCell.FormulaR1C1 = arrItem_max8(1)
+        End If
+    End If
+    
+    IM_pasta = IM
+    INSP_Avalible = CTE_1
+    pasta = "MS01_1"
+    
+
+    '-----------------------------------------------------------
+    ConferePasta = diretorio & "\" & IM_pasta
+    Call CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta, qualpasta)
+    '-----------------------------------------------------------
+    
+    Windows("Macro_Template_MS.xlsm").Activate
+    Sheets("MS01_1").Select
+    Cells.Select
+    Selection.Copy
+    
+    Windows(SBR & "_" & INSP_Avalible & ".xlsx").Activate
+    Cells.Select
+    ActiveSheet.Paste
+    
+    '-----------------------------------------------------------
+    Call FechaTemplate(SBR, INSP_Avalible, pasta, diretorio, ConferePasta, qualpasta)
+    '-----------------------------------------------------------
+    
+End If
+      
+      
+Next CARGA
+ 
+Call EscondeCTE
+
+'UserForm1.Hide
+
+MsgBox "Tarefa Realizada Com Sucesso!"
+
+End If
+
+
+If nome_usuario = "" Then
+    MsgBox "Não foi identificado nome de usuário. Verifique se está correto"
+Else
+    MsgBox "Templates foram gerados com o nome: " & nome_usuario & ", para o CC: " & CC
+End If
+
+Sheets("TEMPLATE").Select
+Range("A1").Select
+
+Application.ScreenUpdating = True
+
+End Sub
+
+Private Sub CommandButton6_Click()
+
+Call Clear
+
+End Sub
+
+
+Private Sub Label7_Click()
+
+MsgBox "ATENÇÃO! Antes de tranferir arquivos certifique-se que a PLANILHA_IMPORTACAO_CTE e PLANILHA_IMPORTACAO_PRODUTO, ferente ao seu caderno, estão abertas."
+
+End Sub
+
+Private Sub TextBox1_Change()
+
+End Sub
+
