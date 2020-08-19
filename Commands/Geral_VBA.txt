@@ -5,6 +5,10 @@ Fones
 C:\User\Desktop\ dir /b /o /s /w >>nome_arquivo.txt
 
 
+identificar diretório/;
+PathOnly = Left(FilePath, Len(FilePath) - Len(FileOnly))
+
+
 
 Sub ExtractLastValue()
 
