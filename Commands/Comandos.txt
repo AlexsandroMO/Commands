@@ -14,6 +14,13 @@ http://cafeinacodificada.com.br/wp-content/uploads/2015/12/Comandos-do-DOS-bat.p
 https://www.youtube.com/watch?v=djyj6TAUosI
 estudar esse
 
+https://ss64.com/nt/for_f.html
+
+
+
+
+
+
 
 
 ECHO - escreve uma informação na tela
@@ -397,16 +404,25 @@ pause
 #---------------------
 copia texto pra outro txt
 
-
-
-@echo off
-
-REM for /f "tokens=*" %%a in (%userprofile%\desktop\texto.txt) do copy
+@Echo off
 
 for /f "tokens=*" %%a in (%userprofile%\desktop\texto.txt) do echo %%a >> new.txt
-::dffsf
+
 
 echo.
+echo.
+
+for /f "tokens=*" %%b in (%userprofile%\desktop\texto.txt) do echo %%b
+
+echo.
+echo.
+
+echo Feito!!!
+
+
+echo.
+echo.
+
 
 pause
 
@@ -423,6 +439,35 @@ echo.
 echo LOCALIZANDO, Aguarde...
 
 pause
+
+#----------------------------------------
+Encontrar texto
+
+@Echo off
+
+set log=TEXTO.txt
+set string=Alex
+
+for /f "tokens=*" %%b in (%cd%\texto.txt) do (
+echo %%b
+echo find %string% %%b > "opa"
+
+)
+::end
+
+echo.
+
+find "%string%" C:\Users\00400889\Desktop\Nova_pasta\%log% "op" >> C:\Users\00400889\Desktop\Nova_pasta\logBusca.txt
+
+
+pause
+
+
+
+#--------------------------------------
+
+
+
 
 
 
