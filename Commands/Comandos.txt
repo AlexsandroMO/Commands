@@ -462,10 +462,97 @@ find "%string%" C:\Users\00400889\Desktop\Nova_pasta\%log% "op" >> C:\Users\0040
 
 pause
 
-
-
 #--------------------------------------
+Ler arquivos de um deiretório
 
+@echo off
+cls
+echo.
+echo.
+echo LER DIRETORIOS
+echo.
+echo [1] Ler apenas pasta local
+echo [2] Ler apenas pasta local e criar arquivo txt
+echo [3] Ler tb subpastas
+echo [4] Ler tb subpastas e criar arquivo txt
+echo [5] Sair
+echo.
+echo.
+set /p var=Digite a opcao desejada: 
+
+if "%var%" == "1" goto op1
+if "%var%" == "2" goto op2
+if "%var%" == "3" goto op3
+if "%var%" == "4" goto op4
+if "%var%" == "5" goto op5
+
+:op1
+del arq.txt
+dir /b >>arq_T.txt
+findstr /v "arq_T.txt" arq_T.txt >> arq.txt
+echo.
+echo -- LISTA DE ARQUIVOS ENCONTRADOS --
+echo.
+for /F "tokens=*" %%a in (%cd%\arq_T.txt) do echo %%a
+del arq_T.txt
+del arq.txt
+pause
+goto fim
+
+:op2
+del arq.txt
+dir /b >>arq_T.txt
+findstr /v "arq_T.txt" arq_T.txt >> arq.txt
+echo.
+echo -- LISTA DE ARQUIVOS ENCONTRADOS --
+echo.
+for /F "tokens=*" %%a in (%cd%\arq_T.txt) do echo %%a
+del arq_T.txt
+goto fim
+
+:op3
+del arq.txt
+dir /b /s >>arq_T.txt
+findstr /v "arq_T.txt" arq_T.txt >> arq.txt
+echo.
+echo -- LISTA DE ARQUIVOS ENCONTRADOS --
+echo.
+for /F "tokens=*" %%a in (%cd%\arq_T.txt) do echo %%a
+del arq_T.txt
+del arq.txt
+pause
+goto fim
+
+:op4
+del arq.txt
+dir /b /s >>arq_T.txt
+findstr /v "arq_T.txt" arq_T.txt >> arq.txt
+echo.
+echo -- LISTA DE ARQUIVOS ENCONTRADOS --
+echo.
+for /F "tokens=*" %%a in (%cd%\arq_T.txt) do echo %%a
+del arq_T.txt
+goto fim
+
+:op5
+echo.
+echo -- LISTA DE ARQUIVOS ENCONTRADOS --
+echo.
+
+echo Obrigado por utilizar nossos servicos!!!
+echo.
+echo.
+
+echo Feito!!!
+
+pause
+exit
+:fim
+
+
+
+REM findstr /v "arq.txt" arq.txt
+REM for /F "delims= skip=1" %%a in (%cd%\arq.txt) do echo %%a
 
 
 
