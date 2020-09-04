@@ -1,0 +1,283 @@
+Sub AtualizaTemplate()
+
+Application.ScreenUpdating = False
+Application.StatusBar = "Expelliarmus..."
+
+Dim lista As Variant
+lista = Array("")
+
+Workbooks.Open Filename:="W:\DIN\GD\01_PUBLICO\Rename_Docs\arq.csv"
+Sheets("arq").Select
+
+Position = Range("A" & Rows.Count).End(xlUp).Row
+
+cont = 0
+For i = 2 To Position
+    Item = Range("A" & i & "").Value
+    
+    ReDim Preserve lista(cont)
+    lista(UBound(lista)) = Item
+    
+    cont = cont + 1
+
+Next i
+
+For j = 0 To UBound(lista)
+    Range("B" & j + 3 & "") = lista(j)
+Next j
+
+Windows("DOCs_Rename.xlsm").Activate
+Sheets("List").Select
+
+' "W:\DIN\GD\01_PUBLICO\Rename_Docs"
+
+Windows("DOCs_Rename.xlsm").Activate
+Sheets("List").Select
+
+path_ = ThisWorkbook.Path & "\"
+
+'MkDir path_ & "Nova"
+
+'quantidade = Range("B" & Rows.Count).End(xlUp).Row
+'resultado = Range("F1").Value
+'SBR = Range("D1").Value
+
+Range("B2").Select
+
+Debug.Print quantidade
+
+For A = 1 To quantidade - 2
+
+    nome = Range("B" & A + 2 & "").Value
+    Atual1 = Range("G" & A + 2 & "").Value
+    Change1 = Range("I" & A + 2 & "").Value
+    Atual2 = Range("K" & A + 2 & "").Value
+    Change2 = Range("M" & A + 2 & "").Value
+    Atual3 = Range("O" & A + 2 & "").Value
+    Change3 = Range("Q" & A + 2 & "").Value
+    
+    Debug.Print nome
+
+    nome_2 = Left(Right(nome, Len(nome) - 4), Len(Right(nome, Len(nome) - 4)) - 5)
+
+    pdf_nome = SBR & "_" & nome_2
+
+    If resultado = 6 And Right(nome, 5) = ".xlsx" Then
+
+        Workbooks.Open Filename:= _
+                path_ & nome _
+                , ReadOnly:=True
+                
+            Call search(nome, Atual1, Change1, Atual2, Change2, Atual3, Change3)
+            
+            ChDir _
+                path_ & "Nova\"
+            ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+                path_ & "Nova\" & pdf_nome & ".pdf" _
+                , Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+                :=False, OpenAfterPublish:=False
+
+            ChDir _
+            path_ & "Nova\"
+            ActiveWorkbook.SaveAs Filename:= _
+                path_ & "Nova\" & pdf_nome & ".xlsx" _
+                , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+            ActiveWindow.Close
+         
+    End If
+    
+    If resultado = 7 And Right(nome, 5) = ".xlsx" Then 'revisar ------<<<
+
+            Workbooks.Open Filename:= _
+            path_ & nome _
+            , ReadOnly:=True
+                
+            Call search(nome, Atual1, Change1, Atual2, Change2, Atual3, Change3)
+            
+            'Windows("53B_CTE00929804.xlsx").Activate
+            ChDir _
+                path_ & "Nova\"
+            ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+                path_ & "Nova\" & pdf_nome & ".pdf" _
+                , Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+                :=False, OpenAfterPublish:=False
+
+            
+            'Windows("53B_CTE00927856.xlsx").Activate
+            ChDir _
+            path_ & "Nova\"
+            ActiveWorkbook.SaveAs Filename:= _
+                path_ & "Nova\" & pdf_nome & ".xslx" _
+                , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+            ActiveWindow.Close
+        
+    End If
+        
+    Windows("DOCs_Rename.xlsm").Activate
+         
+Next A
+
+Application.StatusBar = "Mal Feito feito!"
+Application.ScreenUpdating = True
+
+MsgBox "Mal feito, feito!"
+
+End Sub
+
+
+
+
+Sub listagem()
+
+Dim resultado As VbMsgBoxResult
+
+Application.ScreenUpdating = False
+Application.StatusBar = "Atualizado!"
+
+Sheets("Principal").Visible = True
+Sheets("List").Visible = True
+
+Sheets("List").Select
+Range("C3").Select
+Range(Selection, Selection.End(xlDown)).Select
+Selection.ClearContents
+
+Range("G3:I3").Select
+Range(Selection, Selection.End(xlDown)).Select
+Selection.ClearContents
+'---------------------
+
+Range("G3:S3").Select
+Range(Selection, Selection.End(xlDown)).Select
+Selection.ClearContents
+
+Sheets("Principal").Select
+    
+Call LimpaArquivo
+
+Call ListFiles
+
+Call analise
+    
+'resultado = MsgBox("Escolha o Tipo de Template")
+resultado = MsgBox("Deseja Alterar um Texto Existente?", vbYesNo, "Template Option")
+
+If resultado = 6 Then
+
+    Sheets("List").Select
+    
+    tipo = Application.InputBox("Texto Atual", "Alterações Aplicáveis", Default:="Digite a Alteração", Type:=3)
+    tipo2 = Application.InputBox("Novo Texto", "Alterações Aplicáveis", Default:="Digite a Alteração", Type:=3)
+    
+    ponto_final = Range("B" & Rows.Count).End(xlUp).Row
+    Debug.Print ponto_final
+
+    Range("G3") = tipo
+    Range("G3").Select
+    Selection.AutoFill Destination:=Range("G3:G" & ponto_final & "")
+    
+    Range("I3") = tipo2
+    Range("I3").Select
+    Selection.AutoFill Destination:=Range("I3:I" & ponto_final & "")
+    
+    If tipo = "53A" Then
+        SBR_Lido = "-11-"
+    End If
+    If tipo = "53B" Then
+        SBR_Lido = "-12-"
+    End If
+    If tipo = "53C" Then
+        SBR_Lido = "-13-"
+    End If
+    If tipo = "53D" Then
+        SBR_Lido = "-14-"
+    End If
+
+    Range("K3") = SBR_Lido
+    Range("K3").Select
+    Selection.AutoFill Destination:=Range("K3:K" & ponto_final & "")
+    
+    If tipo2 = "53A" Then
+        SBR_Lido2 = "-11-"
+    End If
+    If tipo2 = "53B" Then
+        SBR_Lido2 = "-12-"
+    End If
+    If tipo2 = "53C" Then
+        SBR_Lido2 = "-13-"
+    End If
+    If tipo2 = "53D" Then
+        SBR_Lido2 = "-14-"
+    End If
+
+    Range("M3") = SBR_Lido2
+    Range("M3").Select
+    Selection.AutoFill Destination:=Range("M3:M" & ponto_final & "")
+
+    
+    Sheets("Principal").Select
+    ActiveWindow.SelectedSheets.Visible = False
+
+End If
+
+Application.ScreenUpdating = False
+
+End Sub
+
+
+Sub search(nome, Atual1, Change1, Atual2, Change2, Atual3, Change3)
+
+Windows(nome).Activate
+            Cells.Replace what:=Atual1, Replacement:=Change1, LookAt:=xlPart, _
+                SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+                ReplaceFormat:=False
+                
+            Windows(nome).Activate
+            Cells.Replace what:=Atual2, Replacement:=Change2, LookAt:=xlPart, _
+                SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+                ReplaceFormat:=False
+                
+            Windows(nome).Activate
+            Cells.Replace what:=Atual3, Replacement:=Change3, LookAt:=xlPart, _
+                SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+                ReplaceFormat:=False
+                
+End Sub
+
+
+Sub analise()
+
+Dim lista As Variant
+lista = Array("")
+
+Sheets("Principal").Select
+
+Position = Range("C" & Rows.Count).End(xlUp).Row
+
+cont = 0
+For i = 2 To Position
+    Item = Range("C" & i & "").Value
+    
+    If Right(Item, 4) = "xlsx" Then
+        ReDim Preserve lista(cont)
+        lista(UBound(lista)) = Item
+        
+        cont = cont + 1
+    End If
+
+Next i
+
+Sheets("List").Select
+Range("B3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    
+
+For j = 0 To UBound(lista)
+    Range("B" & j + 3 & "") = lista(j)
+Next j
+
+Range("B1").Select
+
+End Sub
+
