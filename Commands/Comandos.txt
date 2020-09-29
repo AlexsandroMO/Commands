@@ -269,7 +269,9 @@ PAUSE
 for /F "tokens=*" %%a in (C:\Users\Alexsandro\Downloads\arq.txt) do echo %%a
 pause
 
-
+#------------------------
+Criar dif com arquivos específicos
+dir *.pdf  /b /s >> arq3.csv
 
 #---------------- quase lá
 
