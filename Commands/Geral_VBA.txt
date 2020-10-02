@@ -2,6 +2,19 @@ https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
 
+
+
+
+Salavar e fechar planilhas
+
+ActiveWorkbook.Save
+
+ThisWorkbook.Application.Quit
+
+
+
+
+
 C:\User\Desktop\ dir /b /o /s /w >>nome_arquivo.txt
 
 
