@@ -254,6 +254,93 @@ redo:
  
 End Sub
 
+'==================================
+Array VBA
+
+Sub analise()
+
+Dim lista As Variant
+lista = Array("")
+
+Sheets("Principal").Select
+
+Position = Range("C" & Rows.Count).End(xlUp).Row
+
+cont = 0
+For i = 2 To Position
+    Item = Range("C" & i & "").Value
+    
+    If Right(Item, 4) = ".pdf" Or Right(Item, 4) = ".PDF" Then
+        ReDim Preserve lista(cont)
+        lista(UBound(lista)) = Item
+        
+        cont = cont + 1
+    End If
+
+Next i
+
+Sheets("List").Select
+Range("B3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    
+
+For j = 0 To UBound(lista)
+    Range("B" & j + 3 & "") = lista(j)
+Next j
+
+Range("B1").Select
+
+End Sub
+
+
+Sub comparadocs()
+
+Dim EnviarPara As String
+Dim Mensagem As String
+Dim lista, lido, lido_rev As Variant
+Dim A As Variant, B As Long, z As Long
+
+lista = Array("SMB-200945", "SMB-330521", "SMB-351402")
+lista_rev = Array("H", "M", "A")
+lido = Array("")
+lido_rev = Array("")
+
+Sheets("List").Select
+
+qt = Range("B" & Rows.Count).End(xlUp).Row
+
+'ReDim Preserve lido(0)
+cont = 0
+For i = 0 To qt - 3
+    nome = Range("B" & i + 3 & "").Value
+    search_ = Left(nome, Len(nome) - 6)
+    r = Right(nome, 5)
+    rev = Left(r, 1)
+    
+    ReDim Preserve lido(cont)
+    ReDim Preserve lido_rev(cont)
+    lido(cont) = search_
+    lido_rev(cont) = rev
+
+    cont = cont + 1
+Next i
+
+For j = 0 To UBound(lido)
+    For k = 0 To UBound(lista)
+        If lista(k) = lido(j) And lista_rev(k) <> lido_rev(j) Then
+            Debug.Print "Alterada Revisão: " & lido(j) & "_" & lido_rev(j) & " | " & lista(k) & "_" & lista_rev(k)
+        
+            EnviarPara = "alexsandro.oliveira@icnavais.com"
+            Mensagem = "Alterada Revisão: " & lido(j) & "_" & lido_rev(j) & " | " & lista(k) & "_" & lista_rev(k)
+        
+            Call Envia_Emails(EnviarPara, Mensagem)
+            
+        End If
+    Next k
+Next j
+
+End Sub
 
 '=======================================================
 
