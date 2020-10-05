@@ -2,16 +2,42 @@ https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
 
+#input VBS
 
+diretorio = Application.InputBox(prompt:="Inserir diretório onde será impresso os templates")
 
+#--------------------------------------
+#listbox
+Sub ExibeFormulario()
+   UserForm1.Show
+End Sub
 
+Private Sub UserForm_Initialize()
+    ComboBox1.AddItem "Alexsandro M. Oliveira"
+    ComboBox1.AddItem "Alberto S.Santos"
+    ComboBox1.AddItem "Gabriel O. Azevedo"
+    ComboBox1.AddItem "Luis A. da F. Franca"
+    ComboBox1.AddItem "Melrilin V. P. Bastos"
+    ComboBox1.AddItem "Paulo E. F. Madeira"
+    ComboBox1.AddItem "Rodrigo R. Rosa"
+    ComboBox1.AddItem "Tais D. de Assis"
+End Sub
+
+#---
 Salavar e fechar planilhas
-
-ActiveWorkbook.Save
-
+    ActiveWorkbook.Save
 ThisWorkbook.Application.Quit
 
+#---
+Private Sub CommandButton1_Click()
+    Sheets("Name_User").Select
+    Range("A1").Select
+    ActiveCell.FormulaR1C1 = ComboBox1
+   
+    UserForm1.Hide
+End Sub
 
+#--------------------------------------
 
 
 
