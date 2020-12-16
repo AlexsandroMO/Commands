@@ -157,8 +157,8 @@ Private Sub CommandButton2_Click()
     
 End Sub
 
-
-Private Sub UserForm_QueryClose _
+'BLOQUEAR USERFORM
+Sub UserForm_QueryClose _
    (Cancel As Integer, CloseMode As Integer)
    If CloseMode = vbFormControlMenu Then
         MsgBox "Aperte [SAIR] para que a planilha seja fechada corretamente.", vbCritical, "AVISO"
@@ -197,15 +197,6 @@ End Sub
 
 
 
-Private Sub UserForm_QueryClose _
-   (Cancel As Integer, CloseMode As Integer)
-   If CloseMode = vbFormControlMenu Then
-        MsgBox "Aperte [SAIR] para que a planilha seja fechada corretamente.", vbCritical, "AVISO"
-        Cancel = True
-   End If
-End Sub
-
-
 
 
 
@@ -226,7 +217,7 @@ UserForm1.Show
 
 End Sub
 
-#-----
+#----- Inciar macro
 Private Sub Workbook_Open()
 
 Call listagem
