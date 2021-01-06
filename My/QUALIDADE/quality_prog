@@ -1,3 +1,42 @@
+
+Private Sub UserForm_Initialize()
+
+Dim lista_insp As Variant
+
+
+    Windows("PREENCHE_TEMPLATES_QUALIDADE.xlsm").Activate
+    Sheets("INP_TYPE").Select
+    
+    cont_insp = Sheets("INP_TYPE").Range("B" & Rows.Count).End(xlUp).Row
+    lista_insp = Array("")
+    
+    cont = 0
+    For i = 1 To cont_insp
+        ReDim Preserve lista_insp(cont)
+        lista_insp(UBound(lista_insp)) = Range("B" & i & "").Value
+        cont = cont + 1
+        
+    Next i
+    
+    For j = 0 To UBound(lista_insp)
+        ComboBox1.AddItem lista_insp(j)
+    Next j
+    
+    'Frame2.Visible = False
+    MultiPage1.Visible = False
+    
+    UserForm1.Height = 200
+    'UserForm1.Width = 500
+ 
+ 'Application.ScreenUpdating = True
+    
+End Sub
+
+
+
+
+
+
 Private Sub CommandButton1_Click()
 
 Dim ws As Workbook
