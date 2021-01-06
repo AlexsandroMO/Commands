@@ -1,3 +1,12 @@
+
+
+=ÍNDICE(A:A;CORRESP(J1;B:B;0))
+
+=ÍNDICE(A:A;1) Substituir o número por corresp, que tme o número da linha procurada - AA coluna vai ser retornada
+=CORRESP(J1;B:B;0) J coluna dos ítens que precisa ser encontrado e B matriz onde procurar, 0 pra vir valores exatos = isso retornará o número da linha
+
+
+
 https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
