@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=SOxafinthys
+Configurar o git
+
 
 
 =ÍNDICE(A:A;CORRESP(J1;B:B;0))
