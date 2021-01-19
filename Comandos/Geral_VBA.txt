@@ -1,6 +1,11 @@
 https://www.youtube.com/watch?v=SOxafinthys
 Configurar o git
 
+https://github.com/Rocketseat/expo-common-issues/issues/14
+para entrar na virtualenv do windos:
+executar o Powershell do Windows como administrador e digita 
+Set-ExecutionPolicy RemoteSigned depois S
+
 
 
 =ÍNDICE(A:A;CORRESP(J1;B:B;0))
