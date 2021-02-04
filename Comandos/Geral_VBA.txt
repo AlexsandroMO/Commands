@@ -384,7 +384,22 @@ Range(Cells(lin, col), Cells(lin, col)).Select
         
 End Sub
 
+'=========================================================== Add traço - --
+Sub alinha()
 
+cont = Range("A" & Rows.Count).End(xlUp).Row
+
+For i = 1 To cont
+
+    Var = Range("A" & i & "").Value
+
+    If Var = "" Then
+        Range("A" & i & "") = "-"
+    End If
+
+Next i
+
+'===========================================================
 
 #====================== Libera comandos da tela
 Sub lsLigarTelaCheia()
