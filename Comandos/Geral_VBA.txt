@@ -39,7 +39,49 @@ Do
 Loop
 
 
+'================ Email
+Sub Emails_Outlook()
+'Carregar e-mails do outlook para o excel
+Dim appOutlook As Object
+Dim olNS As Object
+Dim olFolder As Object
+Dim olItem As Object
+Dim r As Long
+On Error Resume Next
+Set appOutlook = GetObject(, "Outlook.Application")
+If appOutlook Is Nothing Then
+Set appOutlook = CreateObject("Outlook.Application")
+End If
+On Error GoTo 0
+Set olNS = appOutlook.GetNamespace("MAPI")
+'Abaixo preencha o nome do arquivo de dados PST e a pasta.
+'Neste caso o arquivo é Douglas Godoy e a pasta Caixa de Entrada.
+Set olFolder = olNS.Folders("alexsandro.oliveira@icnavais.com").Folders("SIECC")
+Cells.Delete
+r = 3
+'Cria um array montando o título das colunas no arquivo.
+Range("A3:K3") = Array("Título", "Quem enviou", "Para", "Data e Hora", "Anexos", "Tamanho","Última modificação","Categoria","Nome do Remetente","Tipo de acompanhamento","Conteúdo")
+For Each olItem In olFolder.Items
+If TypeName(olItem) = "MailItem" Then
+r = r + 1
+Cells(r, "A") = olItem.Subject 'Assunto do e-mail
+Cells(r, "B") = olItem.SenderEmailAddress 'E-mail do remetente
+Cells(r, "C") = olItem.To 'E-mail do destinatário
+Cells(r, "D") = olItem.ReceivedTime 'Data/Hora de recebimento
+Cells(r, "E") = olItem.Attachments.Count 'Número de anexos
+Cells(r, "F") = olItem.Size 'Tamanho da mensagem em bytes
+Cells(r, "G") = olItem.LastModificationTime 'Última modificação
+Cells(r, "H") = olItem.Categories 'Categoria
+Cells(r, "I") = olItem.SenderName 'Nome do remetente
+Cells(r, "J") = olItem.FlagRequest 'Acompanhamento
+'Cells(r, "K") = olItem.Body 'Tome cuidado ao utilizar pois carrega os dados do corpo do email
+Application.StatusBar = r
+End If
+Next olItem
+Columns.AutoFit
+End Sub
 
+'================
 
 #-------------------------
 Gerar PDF
