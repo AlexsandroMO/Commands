@@ -235,13 +235,15 @@ pd.concat([new_df, new_df])
 outra
 Frame = Frame.append(pandas.DataFrame(data = SomeNewLineOfData), ignore_index=True)
 
-####renumerar index
-for a in df.index:
-  print(a)
-  df.rename(index={a:0}, inplace=True)
-  
-  df.index = pd.Index(np.arange(0,len(df)))
- 
+####renumerar index ----------------------------------
+cont = 0
+for a in df2.index:
+  df2.rename(index={a:cont}, inplace=True)
+  cont+= 1
+
+df2.index = pd.Index(np.arange(0, len(df2)))
+#----------------------------------------------------
+
 ##### Contagem Index
 df.index.size
 
