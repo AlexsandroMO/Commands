@@ -337,7 +337,7 @@ End Sub
 #--------------------------------------
 
 
-
+##Comandos .bat
 C:\User\Desktop\ dir /b /o /s /w >>nome_arquivo.txt
 
 
@@ -551,6 +551,7 @@ WS_Count = ActiveWorkbook.Worksheets.Count
 End Sub
 
 
+WEB SCRAP - acessar sites
 '---------------------------------------------------
 
 Sub AcssoSites()
@@ -896,6 +897,8 @@ Sub FechaTemplate(SBR, INSP_Avalible, pasta)
             
 End Sub
 
+#====================
+Templates MS0
 
 Sub GeraTemplate()
 
