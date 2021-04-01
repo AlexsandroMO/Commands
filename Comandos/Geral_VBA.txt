@@ -279,7 +279,232 @@ End Sub
 
 
 
+#----------------------------------
+PDF Multiplas páginas
 
+
+Public FSO As New FileSystemObject
+Sub BTO()
+
+Dim SourceXLS, SourcePDF, LL As String
+Dim Wb As Workbook
+Dim Count1, Lin, Col As Integer
+Dim WS_Count As Integer
+Dim i As Integer
+Dim lista As Variant
+
+lista = Array("")
+NOTAS = False
+APPENDIX_1 = False
+APPENDIX_2 = False
+APPENDIX_3 = False
+APPENDIX_4 = False
+APPENDIX_5 = False
+            
+'----------------------------------------------------
+
+LL = Range("A" & Rows.Count).End(xlUp).Row
+
+
+Application.DisplayAlerts = False
+
+            Range("I2").Select
+            Lin = ActiveCell.Row
+            Col = ActiveCell.Column
+            Cells(Lin, Col).Select
+            
+            XX = Cells(Lin, Col)
+            Debug.Print XX
+            path_ = Len(XX)
+            
+            Debug.Print path_
+            
+Col = 1
+
+For Lin = 2 To LL Step 1
+    SourceXLS = Range("I2") & "\" & Cells(Lin, Col).Value
+    SourcePDF = Range("I2") & "\" & Cells(Lin, Col + 2).Value
+    doc_ = Cells(Lin, Col).Value
+    documento_ = Left(doc_, Len(doc_) - 5)
+    xtension = Right(doc_, 4)
+    path_ = Range("I2")
+    
+    Set Wb = Workbooks.Open(SourceXLS)
+    
+Debug.Print SourceXLS
+    
+    '----------------------------------------------------
+         WS_Count = ActiveWorkbook.Worksheets.Count
+
+         For i = 1 To WS_Count
+
+            ReDim Preserve lista(i - 1)
+            lista(i - 1) = ActiveWorkbook.Worksheets(i).Name
+
+            Next i
+            
+            cont = 0
+            For A = 0 To UBound(lista)
+            
+                If lista(A) = "NOTAS" Then
+                
+                    NOTAS = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_1" Then
+                
+                    APPENDIX_1 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_2" Then
+                
+                    APPENDIX_2 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_3" Then
+                
+                    APPENDIX_3 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_4" Then
+                
+                    APPENDIX_4 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_5" Then
+                
+                    APPENDIX_5 = True
+                
+                End If
+                
+                If lista(A) = "APPENDIX_5" Then
+                
+                    APPENDIX_5 = True
+                
+                End If
+   
+                Debug.Print lista(A)
+                cont = cont + 1
+
+            Next A
+    
+   '----------------------------------------------------
+   
+   Debug.Print NOTAS
+
+    If APPENDIX_1 = True And NOTAS = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1")).Select
+    End If
+    
+    If APPENDIX_2 = True And NOTAS = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2")).Select
+    End If
+    
+    If APPENDIX_3 = True And NOTAS = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3")).Select
+    End If
+
+    If APPENDIX_4 = True And NOTAS = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4")).Select
+    End If
+    
+    If APPENDIX_5 = True And NOTAS = False Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4", "APPENDIX_5")).Select
+    End If
+    
+    If APPENDIX_1 = True And NOTAS = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1")).Select
+    End If
+    
+    If APPENDIX_2 = True And NOTAS = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2")).Select
+    End If
+    
+    If APPENDIX_3 = True And NOTAS = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3")).Select
+    End If
+
+    If APPENDIX_4 = True And NOTAS = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4")).Select
+    End If
+    
+    If APPENDIX_5 = True And NOTAS = True Then
+        Windows(documento_ & "." & xtension).Activate
+        Sheets(Array("CAPA", "NOTAS", "APPENDIX_1", "APPENDIX_2", "APPENDIX_3", "APPENDIX_4", "APPENDIX_5")).Select
+    End If
+
+        Sheets("CAPA").Activate
+        ChDir _
+            path_
+            Debug.Print SourcePDF
+        ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+            SourcePDF _
+            , Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+            :=False, OpenAfterPublish:=False
+        Range("A1").Select
+
+        Windows("GerarPDFs_Multiplas_Paginas.xlsm").Activate
+        
+   
+    Workbooks(Wb.Name).Close
+    
+    NOTAS = False
+    APPENDIX_1 = False
+    APPENDIX_2 = False
+    APPENDIX_3 = False
+    APPENDIX_4 = False
+    APPENDIX_5 = False
+
+Next Lin
+
+MsgBox "Mal feito, feito!"
+
+Application.DisplayAlerts = True
+
+End Sub
+
+'=======================================
+
+
+Sub WorksheetLoop()
+
+         Dim WS_Count As Integer
+         Dim i As Integer
+         Dim lista As Variant
+         
+         lista = Array("")
+
+         WS_Count = ActiveWorkbook.Worksheets.Count
+
+         For i = 1 To WS_Count
+            Debug.Print ActiveWorkbook.Worksheets(i).Name
+
+            ReDim Preserve lista(i - 1)
+            lista(i - 1) = ActiveWorkbook.Worksheets(i).Name
+
+            Next i
+
+             For A = 0 To UBound(lista)
+
+                Debug.Print lista(A)
+
+            Next A
+           
+End Sub
 
 
 
