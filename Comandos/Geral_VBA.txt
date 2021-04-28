@@ -1130,6 +1130,7 @@ End Sub
 
 Sub CriaIndividualTemplate(ConferePasta, diretorio, INSP_Avalible, SBR, pasta, directory, IM_pasta)
 
+        'testar se diretório existe
         If Dir(ConferePasta, vbDirectory) = "" Then
 
             MkDir ConferePasta
