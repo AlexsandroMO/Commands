@@ -1,0 +1,74 @@
+
+#==============================================
+Heroku Deploy
+
+code:
+pip install django-heroku
+
+code:
+heroku login
+
+
+- vai na pasta raiz do danjo em settings e adiciona em cima 
+import django_heroku
+
+- Vai no final e coloca:
+django_heroku.settings(locals())
+
+
+code:
+pip freeze > requirements.txt
+
+-dentro de requirements.txt adicione gunicorn==20.1.0 e salva
+
+- cria um arquivo chamado Procfile (sem extensão) e escreva gunicorn caminho do wsgi = "insurance_control.wsgi"
+web: gunicorn insurance_control.wsgi
+web: gunicorn app:app - flask
+
+code:
+git init
+
+code:
+git status
+
+code:
+heroku git:remote -a insurance-control-app		(nome da branch)
+heroku git:remote -a my-aplications
+
+code:
+git add .
+
+code:
+git commit -m "configuração-heroku"
+git commit -m "update"
+
+
+code:
+git push -u heroku main
+
+------------- Agora... --------------------------------
+
+code:
+heroku run python manage.py makemigrations
+heroku run python manage.py migrate
+
+
+code:
+heroku run python manage.py createsuperuser
+
+code:
+heroku logs
+
+code:
+heroku restart
+
+web: gunicorn <filename>:<main method name>
+
+heroku ps:scale web=1
+
+
+
+pip install -r requirements.txt
+
+
+https://app.icnavais.com/vpn/index.html
