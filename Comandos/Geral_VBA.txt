@@ -19,6 +19,10 @@ Set-ExecutionPolicy RemoteSigned depois S
 https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
+
+Application.ScreenUpdating = False
+
+
 '================================Function
 Function cpf_cnpj(cpf As String)
     
@@ -81,6 +85,7 @@ Do
     'MsgBox r.Address(o apóstrofo no início desta linha torna esta linha inoperável)
     If r.Offset(1, 0) = "" Then Exit Do
 Loop
+
 
 
 '================ Email
