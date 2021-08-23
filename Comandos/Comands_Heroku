@@ -2,6 +2,11 @@
 #==============================================
 Heroku Deploy
 
+instlar o programa do Heroko.
+
+code:
+'heroku login' no Gitbash
+
 code:
 pip install django-heroku
 
