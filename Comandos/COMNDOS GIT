@@ -1,1 +1,37 @@
+https://www.treinaweb.com.br/blog/comandos-do-git-que-voce-precisa-conhecer-parte-1
 
+
+#inciando um repositório
+git init
+
+#Visualizando o Histórico de Commits
+git log
+
+#Visualizando o Histórico de Commits por data
+git log --after="MMM DD YYYY"
+git log --before="MMM DD YYYY"
+
+git status
+git add .
+git commit -m "something"
+
+1st = git remote add origin https://github.com/AlexsandroMO/market_stocks.git
+2sd push -u origin master (master ou qualquer branch escolhida)
+
+#Listando Branches
+git branch
+git branch -a
+
+#Trocar de branch
+git checkout minha-branch
+
+#mudar com nova branch
+git checkout -b minha-nova-branch
+
+#Apagar branch
+git branch -d nome-da-branch
+git branch -D nome-da-branch
+
+#Renomeando branches
+git branch -m novo-nome-da-branch
+git branch -m nome-atual novo-nome
