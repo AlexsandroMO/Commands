@@ -336,3 +336,8 @@ data = pd.read_excel('dummy_data.xlsx')
     return render_template('view.html',tables=[females.to_html(classes='female'), males.to_html(classes='male')],
     titles = ['na', 'Female surfers', 'Male surfers'])
     titles=df.columns.values
+
+
+tables=df.to_dict(orient='records'
+
+
