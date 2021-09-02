@@ -32,6 +32,10 @@ git checkout -b minha-nova-branch
 git branch -d nome-da-branch
 git branch -D nome-da-branch
 
+#CLONAR REPOSITÓRIOS
+git push --mirror https://github.com/AlexsandroMO/base_front_end_django.git
+
+
 #Renomeando branches
 git branch -m novo-nome-da-branch
 git branch -m nome-atual novo-nome
