@@ -321,7 +321,8 @@ End Sub
 
 
 
-
+#Linha coluna
+ ActiveSheet.Range(Cells(lin, col), Cells(quant, col + 2)).Select
 
 
 
