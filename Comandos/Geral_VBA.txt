@@ -84,11 +84,15 @@ list_filter = Array("")
         cont = cont + 1
     Next i
     
-    For j = 0 To UBound(list_filter)
+    Sheets("INSP_CONTROL").Select
     
-        Debug.Print list_filter(j)
+    last = Range("A" & Rows.Count).End(xlUp).Row
+    ActiveSheet.Range("$A$1:$AE$" & last & "").AutoFilter Field:=5, Criteria1:=list_filter, Operator:=xlFilterValues
+
     
-    Next j
+'    For j = 0 To UBound(list_filter)
+'        Debug.Print list_filter(j)
+'    Next j
             
 End Sub
 
