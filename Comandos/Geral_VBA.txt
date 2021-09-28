@@ -66,6 +66,33 @@ Function cel_tel(cel As String)
 
 End Function
 
+
+'============================
+Sub Filter()
+
+Dim list_filter As Variant
+list_filter = Array("")
+
+    Sheets("FILTER").Select
+    
+    last = Range("A" & Rows.Count).End(xlUp).Row
+    
+    cont = 0
+    For i = 2 To last
+        ReDim Preserve list_filter(cont)
+        list_filter(cont) = Cells(i, 1).Value
+        cont = cont + 1
+    Next i
+    
+    For j = 0 To UBound(list_filter)
+    
+        Debug.Print list_filter(j)
+    
+    Next j
+            
+End Sub
+
+
 '================================
 #input VBS
 
