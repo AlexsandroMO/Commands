@@ -97,6 +97,45 @@ list_filter = Array("")
 End Sub
 
 
+Sub split_all()
+
+Dim list_filter, list_split As Variant
+Dim newArrItem() As String
+
+list_filter = Array("")
+list_split = Array("")
+
+    Sheets("FILTER").Select
+    Range("A2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    
+    dados = Cells(3, 3).Value
+    
+    newArrItem = split(dados, " ")
+    
+    For i = 0 To UBound(newArrItem)
+        'Debug.Print newArrItem(i), Left(newArrItem(i), 2)
+        If Left(newArrItem(i), 2) = "BE" Then
+            'Debug.Print newArrItem(i)
+            Cells(i + 1, 1) = newArrItem(i)
+        End If
+    Next i
+    
+    last = Range("A" & Rows.Count).End(xlUp).Row
+    
+    Columns("A:A").Select
+    ActiveSheet.Range("$A$1:$A$" & last & "").RemoveDuplicates Columns:=1, Header:=xlNo
+    
+    Call Filter
+    
+    Range("A1").Select
+
+
+End Sub
+
+
+
 '================================
 #input VBS
 
