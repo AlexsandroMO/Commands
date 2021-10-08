@@ -68,6 +68,25 @@ End Function
 
 
 '============================
+'preenher celula
+
+Sub code()
+
+last = Range("A" & Rows.Count).End(xlUp).Row
+
+For i = 2 To last
+    
+    If Cells(i, 4).Value = "" Then
+        'Debug.Print Cells(i, 2).Value
+        Cells(i, 2) = "-"
+    End If
+
+Next i
+
+'=========================
+End Sub
+
+
 Sub Filter()
 
 Dim list_filter As Variant
