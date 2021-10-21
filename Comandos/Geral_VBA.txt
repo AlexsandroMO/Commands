@@ -6,6 +6,9 @@ para entrar na virtualenv do windos:
 executar o Powershell do Windows como administrador e digita 
 Set-ExecutionPolicy RemoteSigned depois S
 
+VBA
+Replace("alphabet", "bet", "hydro")
+
 
 
 =ÍNDICE(A:A;CORRESP(J1;B:B;0))
