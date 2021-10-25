@@ -69,6 +69,11 @@ Function cel_tel(cel As String)
 
 End Function
 
+'=======================
+
+'ler documento atual
+path_name = ThisWorkbook.FullName
+name_doc = Right(path_name, 29)
 
 '============================
 'preenher celula
