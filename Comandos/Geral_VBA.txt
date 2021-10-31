@@ -9413,3 +9413,716 @@ Private Sub TextBox1_Change()
 
 End Sub
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"-------------
+controle CSPM
+
+Sub read_db()
+
+Application.ScreenUpdating = False
+
+Dim c As Range
+Dim firstAddress As String
+Dim list_db As Variant
+
+list_db = Array("")
+
+'path_name = ThisWorkbook.FullName
+'ThisWorkbook.Name
+
+Sheets("CONTROLE_PACIENTE").Select
+ActiveSheet.Outline.ShowLevels RowLevels:=2
+name_read = Cells(4, 14).Value
+
+Debug.Print name_read
+
+If name_read = "" Then
+    MsgBox "Paciente N‹o Encontrado!"
+    Application.ScreenUpdating = True
+    Exit Sub
+Else
+
+    Sheets("DB_PATIENT").Select
+    
+    With Worksheets("DB_PATIENT").Range("B1:B500")
+        Set c = .Find(name_read, LookIn:=xlValues)
+        If Not c Is Nothing Then
+            Range(c.Address).Select
+            lin = ActiveCell.Row
+        Else
+            'Debug.Print "Nao achou!"
+            MsgBox "Paciente N‹o Encontrado!"
+            Exit Sub
+        End If
+    End With
+    
+    cont = 0
+    
+    For i = 2 To 32
+        ReDim Preserve list_db(cont)
+        Debug.Print Cells(lin, i).Value
+        list_db(cont) = Cells(lin, i).Value
+        cont = cont + 1
+    Next i
+    
+    Sheets("CONTROLE_PACIENTE").Select
+    
+    Cells(8, 4) = list_db(3) 'leito
+    Cells(10, 4) = list_db(0) 'nome
+    Cells(12, 4) = list_db(1) 'gnero
+    Cells(14, 4) = list_db(2) 'nasc
+    
+    Cells(8, 12) = list_db(4) 'diag
+    Cells(8, 18) = list_db(5) 'hpp
+    
+    Cells(18, 4) = list_db(6) 'dieta
+    Cells(28, 4) = list_db(7) 'exame
+    
+    Cells(18, 12) = list_db(8) 'via
+    Cells(20, 12) = list_db(9) 'kcal
+    Cells(24, 12) = list_db(10) 'ptn
+    Cells(18, 16) = list_db(11) 'ptn
+    Cells(20, 16) = list_db(12) 'tne_ntp
+    Cells(22, 16) = list_db(13) 'voli
+    
+    Cells(20, 18) = list_db(14) 'obs
+    
+    Cells(28, 12) = list_db(15) 'fi
+    Cells(30, 12) = list_db(16) 'nrs
+    Cells(32, 12) = list_db(17) 'data_nrs
+    Cells(34, 12) = list_db(18) 'data_reav
+    
+    Cells(28, 16) = list_db(19) 'peso
+    Cells(30, 16) = list_db(20) 'altura
+    
+    Cells(8, 6) = list_db(22) 'admin
+    Cells(12, 8) = list_db(21) 'plano
+    
+    Call calc
+    Call AtualizListBox
+    
+    Sheets("CONTROLE_PACIENTE").Select
+    Range("N4:S4").Select
+    Selection.ClearContents
+    Range("A1").Select
+
+End If
+
+Application.ScreenUpdating = False
+
+End Sub
+
+Sub edite_db()
+
+Application.ScreenUpdating = False
+
+Dim c As Range
+Dim firstAddress As String
+Dim list_db As Variant
+
+list_db = Array("")
+
+teste = MsgBox("Tem Certeza que Deseja Modificar os Dados Contidos Nessa Tabela?", vbYesNo, "Confirma‹o")
+If teste = 7 Then
+    Application.ScreenUpdating = True
+    Exit Sub
+Else
+    
+    Sheets("CONTROLE_PACIENTE").Select
+    ActiveSheet.Outline.ShowLevels RowLevels:=2
+    
+    ReDim Preserve list_db(0)
+    list_db(0) = Cells(10, 4).Value  'nome
+    
+    ReDim Preserve list_db(1)
+    list_db(1) = Cells(12, 4).Value 'gnero
+    
+    ReDim Preserve list_db(2)
+    list_db(2) = Cells(14, 4).Value 'nasc
+    
+    ReDim Preserve list_db(3)
+    list_db(3) = Cells(8, 4).Value ' leito
+    
+    ReDim Preserve list_db(4)
+    list_db(4) = Cells(8, 12).Value  'diag
+    
+    ReDim Preserve list_db(5)
+    list_db(5) = Cells(8, 18).Value 'hpp
+    
+    ReDim Preserve list_db(6)
+    list_db(6) = Cells(18, 4).Value 'dieta
+    
+    ReDim Preserve list_db(7)
+    list_db(7) = Cells(28, 4).Value 'exame
+    
+    ReDim Preserve list_db(8)
+    list_db(8) = Cells(18, 12).Value  'via
+    
+    ReDim Preserve list_db(9)
+    list_db(9) = Cells(20, 12).Value 'kcal
+    
+    ReDim Preserve list_db(10)
+    list_db(10) = Cells(24, 12).Value 'ptn
+    
+    ReDim Preserve list_db(11)
+    list_db(11) = Cells(18, 16).Value 'ptn
+    
+    ReDim Preserve list_db(12)
+    list_db(12) = Cells(20, 16).Value  'tne_ntp
+    
+    ReDim Preserve list_db(13)
+    list_db(13) = Cells(22, 16).Value 'voli
+    
+    ReDim Preserve list_db(14)
+    list_db(14) = Cells(20, 18).Value 'obs
+    
+    ReDim Preserve list_db(15)
+    list_db(15) = Cells(28, 12).Value 'fi
+    
+    ReDim Preserve list_db(16)
+    list_db(16) = Cells(30, 12).Value  'nrs
+    
+    ReDim Preserve list_db(17)
+    list_db(17) = Cells(32, 12).Value 'data_nrs
+    
+    ReDim Preserve list_db(18)
+    list_db(18) = Cells(34, 12).Value 'data_reav
+    
+    ReDim Preserve list_db(19)
+    list_db(19) = Cells(28, 16).Value 'peso
+    
+    ReDim Preserve list_db(20)
+    list_db(20) = Cells(30, 16).Value 'altura
+    
+    ReDim Preserve list_db(21)
+    list_db(21) = Cells(12, 8).Value 'plano
+    
+    'Debug.Print Cells(8, 6).Value
+    ReDim Preserve list_db(22)
+    list_db(22) = Cells(8, 6).Value 'admin
+    
+    Sheets("DB_PATIENT").Select
+    
+    With Worksheets("DB_PATIENT").Range("B1:B500")
+        Set c = .Find(list_db(0), LookIn:=xlValues)
+        If Not c Is Nothing Then
+            Range(c.Address).Select
+            lin = ActiveCell.Row
+        Else
+            Call create_db
+            Application.ScreenUpdating = True
+            Exit Sub
+        End If
+    End With
+    
+    For i = 0 To UBound(list_db)
+         'Debug.Print list_db(i), Cells(lin, i + 2)
+         Cells(lin, i + 2) = list_db(i)
+    Next i
+
+    Sheets("CONTROLE_PACIENTE").Select
+    Range("A1").Select
+    
+    Application.ScreenUpdating = True
+    
+    MsgBox "Atualiza›es Realizadas com Sucesso!"
+
+End If
+
+End Sub
+
+
+Sub create_db()
+
+Dim c As Range
+Dim firstAddress As String
+Dim list_db As Variant
+
+list_db = Array("")
+
+Sheets("CONTROLE_PACIENTE").Select
+
+ReDim Preserve list_db(0)
+list_db(0) = Cells(10, 4).Value  'nome
+
+ReDim Preserve list_db(1)
+list_db(1) = Cells(12, 4).Value 'gnero
+
+ReDim Preserve list_db(2)
+list_db(2) = Cells(14, 4).Value 'nasc
+
+ReDim Preserve list_db(3)
+list_db(3) = Cells(8, 4).Value ' leito
+
+ReDim Preserve list_db(4)
+list_db(4) = Cells(8, 12).Value  'diag
+
+ReDim Preserve list_db(5)
+list_db(5) = Cells(8, 18).Value 'hpp
+
+ReDim Preserve list_db(6)
+list_db(6) = Cells(18, 4).Value 'dieta
+
+ReDim Preserve list_db(7)
+list_db(7) = Cells(28, 4).Value 'exame
+
+ReDim Preserve list_db(8)
+list_db(8) = Cells(18, 12).Value  'via
+
+ReDim Preserve list_db(9)
+list_db(9) = Cells(20, 12).Value 'kcal
+
+ReDim Preserve list_db(10)
+ list_db(10) = Cells(24, 12).Value 'ptn
+
+ReDim Preserve list_db(11)
+list_db(11) = Cells(18, 16).Value 'ptn
+
+ReDim Preserve list_db(12)
+list_db(12) = Cells(20, 16).Value  'tne_ntp
+
+ReDim Preserve list_db(13)
+list_db(13) = Cells(22, 16).Value 'voli
+
+ReDim Preserve list_db(14)
+list_db(14) = Cells(20, 18).Value 'obs
+
+ReDim Preserve list_db(15)
+list_db(15) = Cells(28, 12).Value 'fi
+
+ReDim Preserve list_db(16)
+list_db(16) = Cells(30, 12).Value  'nrs
+
+ReDim Preserve list_db(17)
+list_db(17) = Cells(32, 12).Value 'data_nrs
+
+ReDim Preserve list_db(18)
+list_db(18) = Cells(34, 12).Value 'data_reav
+
+ReDim Preserve list_db(19)
+list_db(19) = Cells(28, 16).Value 'peso
+
+ReDim Preserve list_db(20)
+list_db(20) = Cells(30, 16).Value 'altura
+
+ReDim Preserve list_db(21)
+list_db(21) = Cells(12, 8).Value 'plano
+
+'Debug.Print Cells(8, 6).Value
+ReDim Preserve list_db(22)
+list_db(22) = Cells(8, 6).Value 'admin
+
+ReDim Preserve list_db(23)
+list_db(23) = Date 'create
+
+Sheets("DB_PATIENT").Select
+last = Range("B" & Rows.Count).End(xlUp).Row
+
+For i = 0 To UBound(list_db)
+     'Debug.Print list_db(i), Cells(lin, i + 2)
+     Cells(last + 1, i + 2) = list_db(i)
+Next i
+
+Cells(last + 1, 1) = last
+
+Sheets("CONTROLE_PACIENTE").Select
+Range("A1").Select
+
+Call AtualizListBox
+Call calc
+
+MsgBox "Paciente Criado com Sucesso!"
+
+End Sub
+
+
+
+
+
+Sub AtualizListBox()
+
+Sheets("DB_PATIENT").Select
+
+last_patient = Range("B" & Rows.Count).End(xlUp).Row
+
+Sheets("FILTROS").Select
+
+last_gen = Range("A" & Rows.Count).End(xlUp).Row
+last_nrs = Range("C" & Rows.Count).End(xlUp).Row
+last_fi = Range("E" & Rows.Count).End(xlUp).Row
+last_via = Range("G" & Rows.Count).End(xlUp).Row
+
+Sheets("CONTROLE_PACIENTE").Select
+
+Range("K4:Q4").Select
+With Selection.Validation
+    .Delete
+    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+    xlBetween, Formula1:="=DB_PATIENT!$B$2:$B$" & last_patient & ""
+    .IgnoreBlank = True
+    .InCellDropdown = True
+    .InputTitle = ""
+    .ErrorTitle = ""
+    .InputMessage = ""
+    .ErrorMessage = ""
+    .ShowInput = True
+    .ShowError = True
+End With
+
+Range("D12").Select
+With Selection.Validation
+    .Delete
+    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+    xlBetween, Formula1:="=FILTROS!$A$2:$A$" & last_gen & ""
+    .IgnoreBlank = True
+    .InCellDropdown = True
+    .InputTitle = ""
+    .ErrorTitle = ""
+    .InputMessage = ""
+    .ErrorMessage = ""
+    .ShowInput = True
+    .ShowError = True
+End With
+
+
+Range("L30").Select
+With Selection.Validation
+    .Delete
+    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+    xlBetween, Formula1:="=FILTROS!$C$2:$C$" & last_nrs & ""
+    .IgnoreBlank = True
+    .InCellDropdown = True
+    .InputTitle = ""
+    .ErrorTitle = ""
+    .InputMessage = ""
+    .ErrorMessage = ""
+    .ShowInput = True
+    .ShowError = True
+End With
+
+Range("L28").Select
+With Selection.Validation
+    .Delete
+    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+    xlBetween, Formula1:="=FILTROS!$E$2:$E$" & last_fi & ""
+    .IgnoreBlank = True
+    .InCellDropdown = True
+    .InputTitle = ""
+    .ErrorTitle = ""
+    .InputMessage = ""
+    .ErrorMessage = ""
+    .ShowInput = True
+    .ShowError = True
+End With
+
+Range("L18").Select
+With Selection.Validation
+    .Delete
+    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+    xlBetween, Formula1:="=FILTROS!$G$2:$G$" & last_via & ""
+    .IgnoreBlank = True
+    .InCellDropdown = True
+    .InputTitle = ""
+    .ErrorTitle = ""
+    .InputMessage = ""
+    .ErrorMessage = ""
+    .ShowInput = True
+    .ShowError = True
+End With
+
+Range("A1").Select
+
+End Sub
+
+Sub calc()
+
+Sheets("CONTROLE_PACIENTE").Select
+
+Range("H14").Select
+ActiveCell.FormulaR1C1 = "=(TODAY()-RC[-4])/370"
+
+Range("L22").Select
+ActiveCell.FormulaR1C1 = "=R[-2]C*R[6]C[4]"
+Range("P32").Select
+ActiveCell.FormulaR1C1 = "=R[-4]C/(R[-2]C * R[-2]C)"
+
+Imc = Cells(32, 16).Value
+
+If Imc < 18.5 Then
+    Cells(34, 16) = "Baixo Peso"
+ElseIf Imc >= 18.5 And Imc <= 24.9 Then
+    Cells(34, 16) = "Intervalo Normal"
+ElseIf Imc >= 25 And Imc <= 29.9 Then
+    Cells(34, 16) = "Sobrepeso"
+ElseIf Imc >= 30 And Imc <= 34.9 Then
+    Cells(34, 16) = "Obesidade Classe I"
+ElseIf Imc >= 35 And Imc <= 39.9 Then
+     Cells(34, 16) = "Obesidade Classe II"
+ElseIf Imc >= 40 Then
+    Cells(34, 16) = "Obesidade Classe III"
+
+End If
+
+
+End Sub
+
+
+Sub ajuste_format()
+
+    last = Range("B" & Rows.Count).End(xlUp).Row
+    
+    Columns("E:L").Select
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlCenter
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+    End With
+    
+    Rows("2:2").EntireRow.AutoFit
+    Range("B2").Select
+    With Selection
+        .HorizontalAlignment = xlLeft
+        .VerticalAlignment = xlTop
+        .WrapText = True
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    Selection.Copy
+    
+    Range("C2:D2").Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, _
+        SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Selection.Copy
+    
+    Range("M2").Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, _
+        SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    
+
+    Range("E2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.NumberFormat = "0.00"
+    
+    Range("A2:M2").Select
+    Selection.Style = "Saída"
+    Selection.Font.Bold = False
+    With Selection.Font
+        .ColorIndex = xlAutomatic
+        .TintAndShade = 0
+    End With
+    Range("A2:M2").Select
+    With Selection.Interior
+        .Pattern = xlNone
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+    
+    Rows("2:2").Select
+    Selection.Copy
+    
+    Rows("3:" & last & "").Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, _
+        SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+
+    Range("A1:M1").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+    
+    last = Range("A" & Rows.Count).End(xlUp).Row
+    
+    Range("A1:M" & last + 1 & "").Select
+        With Selection.Borders(xlEdgeLeft)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlMedium
+    End With
+    With Selection.Borders(xlEdgeTop)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlMedium
+    End With
+    With Selection.Borders(xlEdgeBottom)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlMedium
+    End With
+    With Selection.Borders(xlEdgeRight)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlMedium
+    End With
+    ActiveSheet.PageSetup.PrintArea = "$A$1:$M$" & last + 1 & ""
+    
+    Range("A1").Select
+    
+    Rows("" & last + 1 & ":" & last + 1 & "").Select
+    Selection.RowHeight = 35
+    
+    Sheets("FILTROS").Select
+    ActiveSheet.Shapes.Range(Array("Picture 1")).Select
+    Selection.Copy
+    
+    Sheets("FOLHA_ROSTO").Select
+    Range("M" & last + 1 & "").Select
+    ActiveSheet.Paste
+    
+    Selection.ShapeRange.IncrementLeft 1318.5
+    Selection.ShapeRange.IncrementTop 3
+    
+    Range("A1").Select
+    
+    
+
+End Sub
+
+
+
+
+Sub cover_sheet()
+
+Dim list_db As Variant
+
+Application.ScreenUpdating = False
+
+path_full = ThisWorkbook.FullName
+path_name = ThisWorkbook.Name
+
+teste = MsgBox("Deseja Criar uma Folha de Rosto?", vbYesNo, "Confirma‹o")
+
+If teste = 7 Then
+    Application.ScreenUpdating = True
+    Exit Sub
+Else
+    Sheets("FOLHA_ROSTO").Select
+    Cells.Select
+    Selection.Delete Shift:=xlUp
+    Range("A1").Select
+    
+    Sheets("FOLHA_ROSTO_MODEL").Select
+    Cells.Select
+    Selection.Copy
+    
+    Sheets("FOLHA_ROSTO").Select
+    Cells.Select
+    ActiveSheet.Paste
+    
+    Range("A1").Select
+    Application.CutCopyMode = False
+    
+    
+    Sheets("DB_PATIENT").Select
+    
+    last = Range("B" & Rows.Count).End(xlUp).Row
+    
+    For a = 2 To last
+        Sheets("DB_PATIENT").Select
+        list_db = Array("")
+        cont = 0
+        For i = 2 To 32
+            ReDim Preserve list_db(cont)
+            'Debug.Print Cells(lin, i).Value
+            list_db(cont) = Cells(a, i).Value
+            cont = cont + 1
+        Next i
+        
+        Sheets("FOLHA_ROSTO").Select
+        
+        last_test = Range("B" & Rows.Count).End(xlUp).Row
+        
+        'Debug.Print last_test
+        
+        Rows("" & last_test + 1 & ":" & last_test + 1 & "").Select
+        Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+        
+        Rows("" & last_test + 1 & ":" & last_test + 1 & "").Select
+        With Selection.Interior
+            .Pattern = xlNone
+            .TintAndShade = 0
+            .PatternTintAndShade = 0
+        End With
+
+        With Selection.Font
+            .ColorIndex = xlAutomatic
+            .TintAndShade = 0
+        End With
+
+        Cells(a, 1) = list_db(3) 'leito
+        Cells(a, 2) = list_db(0) & Chr(10) & Chr(10) & "PLANO: " & list_db(21) & Chr(10) & "ADM: " & list_db(22) & Chr(10) & "DN: " & list_db(2) & " - " & Round((Date - list_db(2)) / 370, 0)
+        Cells(a, 3) = "DIAGNÓSTICO: " & Chr(10) & list_db(4) & Chr(10) & Chr(10) & "HPP: " & Chr(10) & list_db(5)
+        Cells(a, 4) = list_db(6)
+        Cells(a, 5) = list_db(12)
+        Cells(a, 6) = list_db(16)
+        Cells(a, 7) = list_db(15)
+        Cells(a, 8) = list_db(19)
+        Cells(a, 9) = list_db(20)
+        Cells(a, 10) = Round(list_db(9) * list_db(19), 0)
+        Cells(a, 11) = list_db(10)
+        Cells(a, 12) = list_db(18)
+        Cells(a, 13) = "OBS: " & Chr(10) & list_db(14) & Chr(10) & Chr(10) & "EXAMES: " & Chr(10) & list_db(7)
+    
+    Next a
+    
+    Call ajuste_format
+    
+    directory = Left(path_full, (Len(path_full) - Len(path_name)))
+    
+    ChDir directory
+    ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+    directory & "\FOLHA DE ROSTO.pdf", Quality:=xlQualityStandard, _
+    IncludeDocProperties:=True, IgnorePrintAreas:=False, OpenAfterPublish:=True
+    
+    '------------
+    Sheets("FOLHA_ROSTO").Select
+    Set myDocument = Worksheets("FOLHA_ROSTO")
+    myDocument.Shapes.SelectAll
+
+    ActiveSheet.Shapes.Range(Array(Selection.ShapeRange.Name)).Select
+    Selection.Delete
+    '-------------
+    
+    Sheets("CONTROLE_PACIENTE").Select
+    Range("A1").Select
+    
+    Application.ScreenUpdating = True
+    
+    MsgBox "Folha de Rosto Criada Sucesso!"
+    
+End If
+
+End Sub
+
+
+
+
+
