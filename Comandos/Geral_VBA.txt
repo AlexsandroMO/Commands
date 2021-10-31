@@ -162,6 +162,20 @@ list_split = Array("")
 End Sub
 
 
+'===============
+encontrar na página
+
+With Worksheets("DB_PATIENT").Range("B1:B500")
+    Set c = .Find(list_db(0), LookIn:=xlValues)
+    If Not c Is Nothing Then
+        Range(c.Address).Select
+        lin = ActiveCell.Row
+    Else
+        Call create_db
+        Application.ScreenUpdating = True
+        Exit Sub
+    End If
+End With
 
 '================================
 #input VBS
