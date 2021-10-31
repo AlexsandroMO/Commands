@@ -94,6 +94,18 @@ Next i
 '=========================
 End Sub
 
+'---------
+identificar Figura (Shape)
+'------------
+Sheets("FOLHA_ROSTO").Select
+Set myDocument = Worksheets("FOLHA_ROSTO")
+myDocument.Shapes.SelectAll
+
+ActiveSheet.Shapes.Range(Array(Selection.ShapeRange.Name)).Select
+Selection.Delete
+'-------------
+
+
 
 Sub Filter()
 
