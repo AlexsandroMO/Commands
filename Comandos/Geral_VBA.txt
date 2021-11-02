@@ -94,6 +94,21 @@ Next i
 '=========================
 End Sub
 
+
+
+
+'============ testar se filtro existe
+
+Set ws = ActiveSheet
+    If ws.AutoFilterMode Then
+        ws.AutoFilter.ShowAllData
+    End If
+'============
+
+
+
+
+
 '---------
 identificar Figura (Shape)
 '------------
