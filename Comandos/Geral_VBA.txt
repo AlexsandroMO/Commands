@@ -23,6 +23,33 @@ https://bestaliproducts.com/pt/top-5-airpod-replicas-aliexpress/
 Fones
 
 
+
+
+
+
+
+
+
+#----- LOCALIZAR or SEARCH
+With Sheets("DATA_ANALYZE").Range("A:A")
+    Set Intervalo = .Find(What:=PALAVRA_A_LOCALIZAR, After:=.Cells(1), LookIn:=xlValues, LookAt:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlPrevious, MatchCase:=False)
+    If Not Intervalo Is Nothing Then
+        Application.Goto Intervalo, True
+        
+        lin = ActiveCell.Row
+        Cells(lin, 10) = Item
+
+    Else
+        lin = ActiveCell.Row
+        Cells(lin + 1, 1) = "-"
+        
+    End If
+End With
+
+
+
+
+
 Application.ScreenUpdating = False
 
 
