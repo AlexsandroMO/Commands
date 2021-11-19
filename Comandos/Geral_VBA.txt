@@ -27,7 +27,10 @@ Fones
 
 
 
-
+#------------Test Filter Teste Filtro
+If ActiveSheet.FilterMode Then
+    ActiveSheet.ShowAllData
+End If
 
 
 #----- LOCALIZAR or SEARCH
