@@ -181,7 +181,10 @@ idx = pd.Index(['Jan', 'Feb', 'Mar', 'Apr', 'May'])
 print(idx) 
  --------------------
  
- 
+ ### Duplicados duplicatas
+  df[df.duplicated(keep=False)]
+  df = df.drop_duplicates('ID') # por coluna
+  
 ####Ordenar por Coluna
 df.sort_values(by='Valor', ascending=True).head() => Crescente
 
