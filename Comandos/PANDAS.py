@@ -213,7 +213,8 @@ df.loc[[0,1,2]]
 ####Nova coluna
 df['Nova'] = np.nan
 
-####Comparar data framesConcatenar Colunas por [emerge] combina - concatena
+####Comparar data frames
+nar Colunas por [emerge] combina - concatena
 result = df_app.merge(df_epm, on='CMX')
 
 ####Renomear Colunas
@@ -227,6 +228,12 @@ df.drop(['coluna1'], axis=1, inplace=True)
 
 ####Concatenar colunas
 dados = pd.concat([df, sex], axis=1)
+
+df['k'] = 1
+df_new['k'] = 1
+result = pd.merge(df, df_new, on=['k'])
+result = result.drop(["k"],axis=1)
+
 
 ####Substituir valores NaN por outro
 df.fillna('-')
