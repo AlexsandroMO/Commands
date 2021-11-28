@@ -163,14 +163,11 @@ for a in dados['Caminho'].head(20):
 
 
 
-####Contar itens de uma coluna
-df.groupby('coluna').count()
-
-df.groupby('COL').COL.count()
-
-df.groupby('coluna').count().index # Ver valores únicos
-
-df_new.groupby(['STATUS_NCR']).size().reset_index().rename(columns={0:'COUNT',1:'CONT2'})
+####Contar itens de uma coluna - Groupby - contagem
+df_new['STATUS_NCR'].value_counts() #RELATÓRIO DE VALORES POR COLUNA - OPTION1
+df_new.groupby('STATUS_NCR').NCR.count() #RELATÓRIO DE VALORES POR COLUNA - OPTION1
+df_new.groupby('STATUS_NCR').count() #TABELA DE QUANTIDADES POR COLUNA
+df_new.groupby(['STATUS_NCR']).size().reset_index().rename(columns={0:'COUNT'}) #criando uma nova tabela de contagem
 
 -----------------------
 ####Alterar Index
