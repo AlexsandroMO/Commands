@@ -169,7 +169,9 @@ df.groupby('coluna').count()
 df.groupby('COL').COL.count()
 
 df.groupby('coluna').count().index # Ver valores únicos
- 
+
+df_new.groupby(['STATUS_NCR']).size().reset_index().rename(columns={0:'COUNT',1:'CONT2'})
+
 -----------------------
 ####Alterar Index
 import pandas as pd 
@@ -181,10 +183,7 @@ idx = pd.Index(['Jan', 'Feb', 'Mar', 'Apr', 'May'])
 print(idx) 
  --------------------
  
- ### Duplicados duplicatas
-  df[df.duplicated(keep=False)]
-  df = df.drop_duplicates('ID') # por coluna
-  
+ 
 ####Ordenar por Coluna
 df.sort_values(by='Valor', ascending=True).head() => Crescente
 
@@ -216,8 +215,7 @@ df.loc[[0,1,2]]
 ####Nova coluna
 df['Nova'] = np.nan
 
-####Comparar data frames
-nar Colunas por [emerge] combina - concatena
+####Comparar data framesConcatenar Colunas por [emerge] combina - concatena
 result = df_app.merge(df_epm, on='CMX')
 
 ####Renomear Colunas
@@ -231,12 +229,6 @@ df.drop(['coluna1'], axis=1, inplace=True)
 
 ####Concatenar colunas
 dados = pd.concat([df, sex], axis=1)
-
-df['k'] = 1
-df_new['k'] = 1
-result = pd.merge(df, df_new, on=['k'])
-result = result.drop(["k"],axis=1)
-
 
 ####Substituir valores NaN por outro
 df.fillna('-')
@@ -258,6 +250,11 @@ outra
 Frame = Frame.append(pandas.DataFrame(data = SomeNewLineOfData), ignore_index=True)
 
 ####renumerar index
+
+df.reset_index()
+
+df.index = pd.Index(np.arange(0,len(df2)))
+
 for a in df.index:
   print(a)
   df.rename(index={a:0}, inplace=True)
@@ -506,5 +503,3 @@ for a in LMA_Construction['Number(Item).1']:
     conta = conta + 1
 
 LMA_Construction
-
-
