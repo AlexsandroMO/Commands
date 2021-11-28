@@ -73,7 +73,24 @@ dfB.head(3)
 plt.rcParams['figure.figsize'] = (11,7)
 matplotlib, aumentar
 --------------------------------
+
+#dodificar tesxtos
+
+df['name']= df['name'].replace(['michael','louis'],['karl','lionel'])
+
+
+
+
+#filter filtro por indice
+
+df_new.iloc[[1,239,243]]
+
+df_new.query('CPF != ""') #Query
+
+
 #### Acrescentar linhas
+
+df.insert(3,"Capital","Unknown")
 
 dados = [  ['CC-100000-00001-11-001','CTE00000001','ABC_TESTES','BB00001',''],
             ['CC-100000-00001-11-001','CTE00000002','ABC_TESTES','BB00001',''],
