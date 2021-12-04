@@ -132,8 +132,11 @@ new_df = df['Atrito'].replace(['Yes', 'No'], [0, 1])
 
 
 #Procv - join
-pd.merge(tabela_1, tabela_2[['campo_1', 'campo_2',...,'campo_n']], on=['campo_em_comum_1'], how='left')
+pd.merge(tabela_1, tabela_2[['campo_1', 'campo_2',...,'campo_n']], on=['campo_em_comum_1'], how='left') #Pode usar, right, inner e outer (full)
 pd.merge(tabela_1, tabela_2[['campo_1', 'campo_2',...,'campo_n']], left_on=['campo_em_comum_1'], right_on=['campo_em_comum_2'], how='left') #qd tiver campos diferentes nones
+
+
+
 #### Mudar uma coluna baseada em outra
 ==============
 conta = 0
