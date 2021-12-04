@@ -4,6 +4,20 @@
 
 #https://www.w3schools.com/python/pandas/default.asp
 
+
+#criar excel - to.excel
+writer = pd.ExcelWriter('AC_NCR_SEARCHED.xlsx', engine='xlsxwriter')
+df1.to_excel(writer, sheet_name='BY_NCR')
+df2.to_excel(writer, sheet_name='BY_IM')
+writer.save()
+
+#unicos itens lista e pandas
+
+lista.sort() ou sorted(lista)
+df1 =  df_read[df_read['IM'] != '-'].groupby(['NCR','IM']).count()
+
+
+
 #encontrar tabelas em um db
 def read_sql_btc():
   conn = sqlite3.connect('db.sqlite3')
