@@ -93,7 +93,12 @@ matplotlib, aumentar
 df['name']= df['name'].replace(['michael','louis'],['karl','lionel'])
 
 
-
+#Localizar texto em um dataframe
+df[df['A'].str.contains("hello")]
+df[df['A'].str.contains("Hello|Britain")]
+df[df['value'].astype(str).str.contains('1234.+')] #para filtrar colunas que não são do tipo string.
+df[df['A'].astype(str).str.contains("Hello|Britain")]
+#https://qastack.com.br/programming/11350770/select-by-partial-string-from-a-pandas-dataframe
 
 #filter filtro por indice
 
