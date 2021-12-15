@@ -1,3 +1,7 @@
+//Project: Contador escrito na LCD Cristal Líquido.
+//Created by: Alexsandro Monteiro
+//Date: 15/12/2021
+
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd (12, 11, 5, 4, 3, 2);
@@ -69,7 +73,6 @@ for (int min=0; min<60; min++){
 //Project: Simulador de Sinal de Transito (Sem delay)
 //Created by: Alexsandro Monteiro
 //Date: 15/12/2021
-
 
 int green_A = 13;
 int yellow_A = 10;
