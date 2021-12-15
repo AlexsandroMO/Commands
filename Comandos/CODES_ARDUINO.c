@@ -62,3 +62,62 @@ for (int min=0; min<60; min++){
                    }
                 }	
  		 	 }
+
+
+
+
+//Project: Simulador de Sinal de Transito (Sem delay)
+//Created by: Alexsandro Monteiro
+//Date: 15/12/2021
+
+
+int green_A = 13;
+int yellow_A = 10;
+int red_A = 7;
+
+int green_B = 5;
+int yellow_B = 4;
+int red_B = 3;
+
+byte sinal;
+
+void setup()
+{
+  pinMode(green_A, OUTPUT);
+  pinMode(yellow_A, OUTPUT);
+  pinMode(red_A, OUTPUT);
+  pinMode(green_B, OUTPUT);
+  pinMode(yellow_B, OUTPUT);
+  pinMode(red_B, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+	digitalWrite(green_A, HIGH);
+    digitalWrite(red_B, HIGH);
+  	digitalWrite(red_A, LOW);
+  	digitalWrite(yellow_B, LOW);
+
+  //for (int x=0; x<10; x++){
+    for (int y=0; y<900; y++){
+      //digitalWrite(pin[y], matriz[x][y]);
+      //delay(1);
+      Serial.println(" ");
+      Serial.println(y);
+      if (y > 400){
+        digitalWrite(yellow_A, HIGH);
+        digitalWrite(green_A, LOW);
+      }
+      if(y > 480){
+        digitalWrite(red_A, HIGH);
+        digitalWrite(yellow_A, LOW);
+        digitalWrite(red_B, LOW);
+        digitalWrite(green_B, HIGH);
+      }
+      if(y > 840){
+        digitalWrite(yellow_B, HIGH);
+        digitalWrite(green_B, LOW);
+      }
+
+}
+
